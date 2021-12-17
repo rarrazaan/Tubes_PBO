@@ -10,5 +10,10 @@ package tubespbo.entity;
  * @author DELL
  */
 public interface Pasien_Darurat_Int {
+    public void setLevel(int x);
+    public void setRuanganIGD(String s);
     
+    // Getter
+    public int getLevel();
+    public String getRuanganIGD();
 }
