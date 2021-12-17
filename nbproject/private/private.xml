@@ -3,17 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/Kuliah/Semester_5/PBO/Praktikum/Tubes/TubesPBO/src/tubespbo/entity/Pasien_Normal.java</file>
-            <file>file:/E:/Kuliah/Semester_5/PBO/Praktikum/Tubes/TubesPBO/src/tubespbo/entity/RekamMedis.java</file>
-            <file>file:/E:/Kuliah/Semester_5/PBO/Praktikum/Tubes/TubesPBO/src/tubespbo/entity/Pasien_Darurat.java</file>
-            <file>file:/E:/Kuliah/Semester_5/PBO/Praktikum/Tubes/TubesPBO/src/tubespbo/TubesPBO.java</file>
-            <file>file:/E:/Kuliah/Semester_5/PBO/Praktikum/Tubes/TubesPBO/src/tubespbo/entity/Dokter.java</file>
-            <file>file:/E:/Kuliah/Semester_5/PBO/Praktikum/Tubes/TubesPBO/src/tubespbo/entity/Management.java</file>
-            <file>file:/E:/Kuliah/Semester_5/PBO/Praktikum/Tubes/TubesPBO/src/tubespbo/entity/Pasien.java</file>
-            <file>file:/E:/Kuliah/Semester_5/PBO/Praktikum/Tubes/TubesPBO/src/tubespbo/entity/Obat.java</file>
-            <file>file:/E:/Kuliah/Semester_5/PBO/Praktikum/Tubes/TubesPBO/src/tubespbo/entity/Terapi.java</file>
-            <file>file:/E:/Kuliah/Semester_5/PBO/Praktikum/Tubes/TubesPBO/src/tubespbo/entity/Pasien_Darurat_Int.java</file>
-            <file>file:/E:/Kuliah/Semester_5/PBO/Praktikum/Tubes/TubesPBO/src/tubespbo/entity/Tagihan.java</file>
+            <file>file:/E:/Kuliah/Semester_5/PBO/Praktikum/Tubes/TubesPBOGit/Tubes_PBO/src/tubespbo/entity/Management.java</file>
+            <file>file:/E:/Kuliah/Semester_5/PBO/Praktikum/Tubes/TubesPBOGit/Tubes_PBO/src/tubespbo/entity/Dokter.java</file>
+            <file>file:/E:/Kuliah/Semester_5/PBO/Praktikum/Tubes/TubesPBOGit/Tubes_PBO/src/tubespbo/entity/Pasien_Darurat.java</file>
+            <file>file:/E:/Kuliah/Semester_5/PBO/Praktikum/Tubes/TubesPBOGit/Tubes_PBO/src/tubespbo/entity/RekamMedis.java</file>
+            <file>file:/E:/Kuliah/Semester_5/PBO/Praktikum/Tubes/TubesPBOGit/Tubes_PBO/src/tubespbo/entity/Tagihan.java</file>
+            <file>file:/E:/Kuliah/Semester_5/PBO/Praktikum/Tubes/TubesPBOGit/Tubes_PBO/src/tubespbo/entity/Terapi.java</file>
+            <file>file:/E:/Kuliah/Semester_5/PBO/Praktikum/Tubes/TubesPBOGit/Tubes_PBO/src/tubespbo/entity/Obat.java</file>
+            <file>file:/E:/Kuliah/Semester_5/PBO/Praktikum/Tubes/TubesPBOGit/Tubes_PBO/src/tubespbo/entity/Pasien_Darurat_Int.java</file>
+            <file>file:/E:/Kuliah/Semester_5/PBO/Praktikum/Tubes/TubesPBOGit/Tubes_PBO/src/tubespbo/entity/Pasien_Normal.java</file>
+            <file>file:/E:/Kuliah/Semester_5/PBO/Praktikum/Tubes/TubesPBOGit/Tubes_PBO/src/tubespbo/entity/Pasien.java</file>
         </group>
     </open-files>
 </project-private>
