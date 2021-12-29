@@ -11,4 +11,12 @@ package tubespbo.entity;
  */
 public class Pasien_Normal extends Pasien {
     private String ruang_rawat;
+    
+    public String getRuanganRawat() {
+        return ruang_rawat;
+    }
+
+    public void setRuanganRawat(String ruang_rawat) {
+        this.ruang_rawat = ruang_rawat;
+    }
 }

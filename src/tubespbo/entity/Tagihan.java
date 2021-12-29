@@ -16,4 +16,19 @@ public class Tagihan extends Terapi{
     private int total_biaya;
     private LocalDate tanggal_pembayaran;
     
+    public LocalDate getTanggalPembayaran() {
+        return tanggal_pembayaran;
+    }
+
+    public void setTanggalPembayaran(LocalDate tanggal_pembayaran) {
+        this.tanggal_pembayaran = tanggal_pembayaran;
+    }
+    
+    public void totalBiaya() {
+    
+    }
+    
+    public void displayTagihan() {
+    
+    }
 }

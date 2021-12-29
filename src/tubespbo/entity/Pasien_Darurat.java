@@ -13,19 +13,19 @@ public class Pasien_Darurat extends Pasien{
     private String ruangan_IGD;
     private int level;
     
-    // Setter
-    public void setLevel(int x){
-        this.level = x;
+   public String getRuanganIGD() {
+        return ruangan_IGD;
     }
-    public void setRuanganIGD(String s){
-        this.ruangan_IGD = s;
+
+    public void setRuanganIGD(String ruangan_IGD) {
+        this.ruangan_IGD = ruangan_IGD;
     }
     
-    // Getter
-    public int getLevel(){
+    public int getLevel() {
         return level;
     }
-    public String getRuanganIGD(){
-        return ruangan_IGD;
+
+    public void setLevel(int ruangan_IGD) {
+        this.level = level;
     }
 }

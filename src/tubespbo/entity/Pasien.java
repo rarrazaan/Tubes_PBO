@@ -13,37 +13,43 @@ public class Pasien {
     String nama_pasien, gender_pasien, alamat_pasien;
     int umur_pasien, kontak_pasien;
     
-    // Setter
-    public void setNamaPasien(String s){
-        this.nama_pasien = s;
-    }
-    public void setGenderPasien(String s){
-        this.gender_pasien = s;
-    }
-    public void setAlamatPasien(String s){
-        this.alamat_pasien = s;
-    }
-    public void setUmurPasien(int x){
-        this.umur_pasien = x;
-    }
-    public void setKontakPasien(int x){
-        this.kontak_pasien = x;
-    }
-    
-    // Getter
-    public String getNamaPasien(){
+    public String getNamaPasien() {
         return nama_pasien;
     }
-    public String getGenderPasien(){
+
+    public void setNamaPasien(String nama_pasien) {
+        this.nama_pasien = nama_pasien;
+    }
+    
+    public String getGenderPasien() {
         return gender_pasien;
     }
-    public String getAlamatPasien(){
+
+    public void setGenderPasien(String gender_pasien) {
+        this.gender_pasien = gender_pasien;
+    }
+    
+    public String getAlamatPasien() {
         return alamat_pasien;
     }
-    public int getUmurPasien(){
+
+    public void setAlamatPasien(String alamat_pasien) {
+        this.alamat_pasien = alamat_pasien;
+    }
+    
+    public int getUmurPasien() {
         return umur_pasien;
     }
-    public int getKontakPasien(){
+
+    public void setUmurPasien(int umur_pasien) {
+        this.umur_pasien = umur_pasien;
+    }
+    
+    public int getKontakPasien() {
         return kontak_pasien;
+    }
+
+    public void setKontakPasien(int kontak_pasien) {
+        this.kontak_pasien = kontak_pasien;
     }
 }

@@ -16,4 +16,23 @@ public class Management {
     Terapi terapi;
     Obat obat;
     
+    public String getNamaEmployee() {
+        return nama_employee;
+    }
+
+    public void setNamaEmployee(String nama_employee) {
+        this.nama_employee = nama_employee;
+    }
+    
+    public void rekapRekamMedis() {
+    
+    }
+    
+    public void mendaftarData() {
+    
+    }
+    
+    public void menyimpanData() {
+    
+    }
 }

@@ -14,43 +14,51 @@ public class Dokter {
     private String spesialis, catatan;
     private int kontak;
     
-    // Setter
-    public void setNamaDokter(String s){
-        this.nama_dokter = s;
-    }
-    public void setKontakDokter(int x){
-        this.kontak = x;
-    }
-    public void setGenderDokter(String s){
-        this.gender_dokter = s;
-    }
-    public void setAlamatDokter(String s){
-        this.alamat_dokter = s;
-    }
-    public void setSpesialis(String s){
-        this.spesialis = s;
-    }
-    public void setCatatan(String s){
-        this.catatan = s;
-    }
-    
-    // Getter
-    public String getNamaDokter(){
+    public String getNamaDokter() {
         return nama_dokter;
     }
-    public String getGenderDokter(){
-        return gender_dokter;
+
+    public void setNamaDokter(String nama_dokter) {
+        this.nama_dokter = nama_dokter;
     }
-    public int getKontakDokter(){
+    
+    public int getKontakDokter() {
         return kontak;
     }
-    public String getAlamatDokter(){
+
+    public void setKontakDokter(int kontak) {
+        this.kontak = kontak;
+    }
+    
+    public String getGenderDokter() {
+        return gender_dokter;
+    }
+
+    public void setGenderDokter(String gender_dokter) {
+        this.gender_dokter = gender_dokter;
+    }
+    
+    public String getAlamatDokter() {
         return alamat_dokter;
     }
-    public String getSpesialis(){
+
+    public void setAlamatDokter(String alamat_dokter) {
+        this.alamat_dokter = alamat_dokter;
+    }
+    
+    public String getSpesialis() {
         return spesialis;
     }
-    public String getCatatan(){
+
+    public void setSpesialis(String spesialis) {
+        this.spesialis = spesialis;
+    }
+    
+    public String getCatatan() {
         return catatan;
+    }
+
+    public void setCatatan(String catatan) {
+        this.catatan = catatan;
     }
 }
