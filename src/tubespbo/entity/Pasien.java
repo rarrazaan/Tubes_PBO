@@ -10,8 +10,8 @@ package tubespbo.entity;
  * @author DELL
  */
 public class Pasien {
-    String nama_pasien, gender_pasien, alamat_pasien;
-    int umur_pasien, kontak_pasien;
+    String nama_pasien, gender_pasien, alamat_pasien, kontak_pasien;
+    int umur_pasien;
     
     public String getNamaPasien() {
         return nama_pasien;
@@ -45,11 +45,11 @@ public class Pasien {
         this.umur_pasien = umur_pasien;
     }
     
-    public int getKontakPasien() {
+    public String getKontakPasien() {
         return kontak_pasien;
     }
 
-    public void setKontakPasien(int kontak_pasien) {
+    public void setKontakPasien(String kontak_pasien) {
         this.kontak_pasien = kontak_pasien;
     }
 }
