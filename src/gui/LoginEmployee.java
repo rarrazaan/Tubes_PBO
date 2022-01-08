@@ -37,6 +37,7 @@ public class LoginEmployee extends javax.swing.JPanel {
         emp_login = new javax.swing.JLabel();
 
         bg1.setBackground(new java.awt.Color(255, 255, 255));
+        bg1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153)));
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
 
