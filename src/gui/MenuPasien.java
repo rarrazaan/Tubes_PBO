@@ -38,10 +38,8 @@ public class MenuPasien extends javax.swing.JFrame {
             rs = stmt.executeQuery(sql);
             while(rs.next()){
                 pilih.addElement(rs.getString("nama_pasien"));
-                System.out.println(rs.getInt("id_pasien"));
                 ID.add(rs.getInt("id_pasien"));
             }
-            System.out.print(ID.size());
             if (ID.size()<1){
                 btn_update.setEnabled(false);
                 btn_del.setEnabled(false);
@@ -99,11 +97,6 @@ public class MenuPasien extends javax.swing.JFrame {
 
         jList1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 1, true));
         jList1.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jList1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jList1MouseClicked(evt);
@@ -141,22 +134,22 @@ public class MenuPasien extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         jLabel6.setText("jLabel6");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(760, 200, 59, 21);
+        jLabel6.setBounds(760, 200, 210, 21);
 
         jLabel7.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         jLabel7.setText("jLabel7");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(760, 260, 59, 21);
+        jLabel7.setBounds(760, 260, 210, 21);
 
         jLabel8.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         jLabel8.setText("jLabel8");
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(760, 320, 59, 21);
+        jLabel8.setBounds(760, 320, 210, 21);
 
         jLabel9.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         jLabel9.setText("jLabel9");
         jPanel1.add(jLabel9);
-        jLabel9.setBounds(760, 380, 59, 21);
+        jLabel9.setBounds(760, 380, 210, 21);
 
         jPanel4.setBackground(new java.awt.Color(0, 102, 102));
         jPanel4.setLayout(null);

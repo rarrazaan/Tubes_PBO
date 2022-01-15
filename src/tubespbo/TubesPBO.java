@@ -20,15 +20,11 @@ public class TubesPBO {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        try {
-            System.out.println("Hello");
-            JFrame frame1;
-            frame1 = new MenuPasien();
-            frame1.setTitle("TP Modul 12");
-            frame1.setVisible(true);
-        } catch (SQLException | ClassNotFoundException ex) {
-            Logger.getLogger(TubesPBO.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        System.out.println("Hello");
+        JFrame frame1;
+        frame1 = new TambahPasien();
+        frame1.setTitle("Puskesmas Management");
+        frame1.setVisible(true);
     }
     
 }

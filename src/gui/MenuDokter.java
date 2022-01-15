@@ -5,21 +5,61 @@
  */
 package gui;
 
+import static gui.MenuPasien.conn;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 
 /**
  *
  * @author DELL
  */
 public class MenuDokter extends javax.swing.JFrame {
-
+    static final String DB_URL = "jdbc:mysql://localhost:3306/puskesmas";
+    static final String DB_USER = "root";
+    static final String DB_PASS = "";
+    static Connection conn;
+    static Statement stmt;
+    static ResultSet rs;
+    ArrayList<Integer> ID = new ArrayList<>(50);
+    static int i, x;
     /**
      * Creates new form DataDokter
      */
     public MenuDokter() {
         initComponents();
+        DefaultListModel pilih = new DefaultListModel();
+        try {
+            //Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+            stmt = conn.createStatement();
+            String sql = "SELECT * FROM dokter";
+            rs = stmt.executeQuery(sql);
+            while(rs.next()){
+                pilih.addElement(rs.getString("nama_dokter"));
+                System.out.println(rs.getInt("id_dokter"));
+                ID.add(rs.getInt("id_dokter"));
+            }
+            System.out.print(ID.size());
+            if (ID.size()<1){
+                btn_update.setEnabled(false);
+                btn_del.setEnabled(false);
+            }
+            stmt.close();
+            conn.close();
+            } catch (SQLException e) {
+            }
+        if (ID.size()<1){
+            btn_update.setEnabled(false);
+            btn_del.setEnabled(false);
+        }
+        this.jList1.setModel(pilih);
     }
 
     /**
@@ -31,6 +71,7 @@ public class MenuDokter extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel3 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
@@ -61,10 +102,10 @@ public class MenuDokter extends javax.swing.JFrame {
         jPanel1.setLayout(null);
 
         jList1.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+        jList1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jList1MouseClicked(evt);
+            }
         });
         jScrollPane1.setViewportView(jList1);
 
@@ -73,15 +114,15 @@ public class MenuDokter extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel2.setText("UMUR");
+        jLabel2.setText("KONTAK");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(590, 200, 48, 21);
+        jLabel2.setBounds(590, 200, 70, 21);
 
         jLabel3.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel3.setText("JENIS");
+        jLabel3.setText("ALAMAT");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(590, 320, 46, 21);
+        jLabel3.setBounds(590, 320, 70, 21);
 
         jLabel4.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 153, 153));
@@ -98,22 +139,22 @@ public class MenuDokter extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel6.setText("jLabel6");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(690, 200, 63, 21);
+        jLabel6.setBounds(690, 200, 280, 21);
 
         jLabel7.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel7.setText("jLabel7");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(690, 260, 63, 21);
+        jLabel7.setBounds(690, 260, 270, 21);
 
         jLabel8.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel8.setText("jLabel8");
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(690, 320, 63, 21);
+        jLabel8.setBounds(690, 320, 260, 21);
 
         jLabel9.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel9.setText("jLabel9");
         jPanel1.add(jLabel9);
-        jLabel9.setBounds(690, 380, 63, 21);
+        jLabel9.setBounds(690, 380, 280, 21);
 
         jPanel4.setBackground(new java.awt.Color(0, 102, 102));
         jPanel4.setLayout(null);
@@ -245,15 +286,30 @@ public class MenuDokter extends javax.swing.JFrame {
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 350, 230, 250);
 
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -305,6 +361,32 @@ public class MenuDokter extends javax.swing.JFrame {
         HapusDokter a = new HapusDokter();
         a.setVisible(true);
     }//GEN-LAST:event_btn_delActionPerformed
+
+    private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
+        int n = jList1.getSelectedIndex();
+        try {
+            //Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+            stmt = conn.createStatement();
+            String sql = "SELECT * FROM dokter";
+            rs = stmt.executeQuery(sql);
+            n = ID.get(n);
+            while(rs.next()){
+                i = rs.getInt("id_dokter");
+                if(i==n){
+                    this.jLabel6.setText(String.valueOf(rs.getInt("kontak_dokter")));
+                    this.jLabel7.setText(rs.getString("gender_dokter"));
+                    this.jLabel8.setText(rs.getString("alamat_dokter"));
+                    this.jLabel9.setText(rs.getString("spesialis"));
+                    x=rs.getInt("id_dokter");
+                }
+            }
+            stmt.close();
+            conn.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPasien.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jList1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -361,6 +443,7 @@ public class MenuDokter extends javax.swing.JFrame {
     private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton obat;

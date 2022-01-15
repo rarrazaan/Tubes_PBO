@@ -94,7 +94,7 @@ public class UpdatePasien extends javax.swing.JFrame {
             }
         });
         jPanel1.add(rb_lk);
-        rb_lk.setBounds(420, 200, 93, 27);
+        rb_lk.setBounds(420, 200, 91, 27);
 
         rb_pr.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         rb_pr.setForeground(new java.awt.Color(0, 153, 153));
@@ -105,7 +105,7 @@ public class UpdatePasien extends javax.swing.JFrame {
             }
         });
         jPanel1.add(rb_pr);
-        rb_pr.setBounds(540, 200, 107, 27);
+        rb_pr.setBounds(540, 200, 103, 27);
 
         jLabel3.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 153, 153));
@@ -190,7 +190,7 @@ public class UpdatePasien extends javax.swing.JFrame {
             }
         });
         jPanel1.add(rb_lk1);
-        rb_lk1.setBounds(420, 420, 83, 27);
+        rb_lk1.setBounds(420, 420, 81, 27);
 
         rb_pr1.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         rb_pr1.setForeground(new java.awt.Color(0, 153, 153));
@@ -201,7 +201,7 @@ public class UpdatePasien extends javax.swing.JFrame {
             }
         });
         jPanel1.add(rb_pr1);
-        rb_pr1.setBounds(540, 420, 91, 27);
+        rb_pr1.setBounds(540, 420, 89, 27);
 
         jPanel2.setBackground(new java.awt.Color(0, 111, 111));
 
@@ -319,11 +319,11 @@ public class UpdatePasien extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 999, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
         );
 
         pack();
