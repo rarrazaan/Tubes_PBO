@@ -5,21 +5,70 @@
  */
 package gui;
 
+import static gui.HapusPasien.conn;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import static java.sql.Types.NULL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.ButtonGroup;
+import javax.swing.JOptionPane;
 /**
  *
  * @author RVN
  */
 public class UpdatePasien extends javax.swing.JFrame {
-
+    static final String DB_URL = "jdbc:mysql://localhost:3306/puskesmas";
+    static final String DB_USER = "root";
+    static final String DB_PASS = "";
+    static Connection conn;
+    static Statement stmt;
+    static ResultSet rs;
+    public static String nama;
+    static int id;
     /**
      * Creates new form UpdatePasien
      */
     public UpdatePasien() {
-        initComponents();
+        try {
+            initComponents();
+            conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+            stmt = conn.createStatement();
+            String sql = "SELECT pasien.*, pasiennormal.ruang_rawat, pasiendarurat.ruangan_IGD\n" +
+                    "FROM pasien \n" +
+                    "LEFT OUTER JOIN pasiennormal ON pasien.id_pasien = pasiennormal.id_pasien\n" +
+                    "LEFT OUTER JOIN pasiendarurat ON pasien.id_pasien = pasiendarurat.id_pasien;";
+            
+            rs = stmt.executeQuery(sql);
+            int n = MenuPasien.x;
+            int i;
+            while(rs.next()){
+                i = rs.getInt("id_pasien");
+                UpdatePasien.id = i;
+                if(i==n){
+                    this.edt_name.setText(rs.getString("nama_pasien"));
+                    if(rs.getString("gender_pasien").equals("Laki-Laki")){
+                        rb_lk.setSelected(true); 
+                    }else{
+                        rb_pr.setSelected(true);
+                    }
+                    this.edt_kontak.setText(rs.getString("kontak_pasien"));
+                    this.edt_alamat.setText(rs.getString("alamat_pasien"));
+                    this.edt_umur.setText(String.valueOf(rs.getString("umur_pasien")));                    
+                }
+            }
+            stmt.close();
+            conn.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(UpdatePasien.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
     /**
@@ -381,21 +430,95 @@ public class UpdatePasien extends javax.swing.JFrame {
     }//GEN-LAST:event_outActionPerformed
 
     private void btn_normalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_normalActionPerformed
+        String name = edt_name.getText();
+        UpdatePasien.nama = name;
+        String gender = ""; String jenis = "Normal";
+        String kontak = edt_kontak.getText();
+        String alamat = edt_alamat.getText();
+        int umur = Integer.parseInt(edt_umur.getText());
+        if (rb_lk.isSelected()) {
+            gender = "Laki-Laki";
+        } else if (rb_pr.isSelected()) {
+            gender = "Perempuan";
+        }
+        if (name.isEmpty() || gender.isEmpty() || alamat.isEmpty() || kontak.isEmpty() || umur==NULL || jenis.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Data isian ada yang kosong");
+        }
+        try{
+            //Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+
+            stmt = conn.createStatement();
+            String Nama = name;
+            String Gender = gender;
+            String Kontak = kontak;
+            String Alamat = alamat;
+            String Jenis = jenis;
+            int Umur = umur;
+            String sql = "UPDATE `pasien` SET `nama_pasien` = '"+Nama+"', `gender_pasien` = '"+Gender+"', `kontak_pasien` = '"+Kontak+"', `alamat_pasien` = '"+Alamat+"', `jenis_pasien` = '"+Jenis+"', `umur_pasien` = '"+Umur+"' WHERE `id_pasien` ='"+MenuPasien.x+"'";
+
+            stmt.executeUpdate(sql);
+            stmt.close();
+            conn.close();
+        } catch (SQLException e) {
+        }
         dispose();
         PasienNormal1 a = new PasienNormal1();
         a.setVisible(true);
     }//GEN-LAST:event_btn_normalActionPerformed
 
     private void btn_daruratActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_daruratActionPerformed
+        String name = edt_name.getText();
+        UpdatePasien.nama = name;
+        String gender = ""; String jenis = "Darurat";
+        String kontak = edt_kontak.getText();
+        String alamat = edt_alamat.getText();
+        int umur = Integer.parseInt(edt_umur.getText());
+        if (rb_lk.isSelected()) {
+            gender = "Laki-Laki";
+        } else if (rb_pr.isSelected()) {
+            gender = "Perempuan";
+        }
+        if (name.isEmpty() || gender.isEmpty() || alamat.isEmpty() || kontak.isEmpty() || umur==NULL || jenis.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Data isian ada yang kosong");
+        }
+        try{
+            //Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+
+            stmt = conn.createStatement();
+            String Nama = name;
+            String Gender = gender;
+            String Kontak = kontak;
+            String Alamat = alamat;
+            String Jenis = jenis;
+            int Umur = umur;
+            String sql = "UPDATE `pasien` SET `nama_pasien` = '"+Nama+"', `gender_pasien` = '"+Gender+"', `kontak_pasien` = '"+Kontak+"', `alamat_pasien` = '"+Alamat+"', `jenis_pasien` = '"+Jenis+"', `umur_pasien` = '"+Umur+"' WHERE `id_pasien` ='"+MenuPasien.x+"'";
+
+            stmt.executeUpdate(sql);
+            stmt.close();
+            conn.close();
+        } catch (SQLException e) {
+        }
         dispose();
         PasienDarurat1 a = new PasienDarurat1();
         a.setVisible(true);
     }//GEN-LAST:event_btn_daruratActionPerformed
 
     private void btn_delActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_delActionPerformed
-        dispose();
-        HapusPasien a = new HapusPasien();
-        a.setVisible(true);
+        try {
+            conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+            stmt = conn.createStatement();
+            String sql = "Delete FROM pasiennormal WHERE id_pasien = "+UpdatePasien.id;
+            stmt.executeUpdate(sql);
+            String sql1 = "Delete FROM pasiendarurat WHERE id_pasien = "+UpdatePasien.id;
+            stmt.executeUpdate(sql1);
+            stmt.close();
+            conn.close();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(UpdatePasien.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btn_delActionPerformed
 
     /**

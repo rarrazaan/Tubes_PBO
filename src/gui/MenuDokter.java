@@ -374,7 +374,7 @@ public class MenuDokter extends javax.swing.JFrame {
             while(rs.next()){
                 i = rs.getInt("id_dokter");
                 if(i==n){
-                    this.jLabel6.setText(String.valueOf(rs.getInt("kontak_dokter")));
+                    this.jLabel6.setText(rs.getString("kontak_dokter"));
                     this.jLabel7.setText(rs.getString("gender_dokter"));
                     this.jLabel8.setText(rs.getString("alamat_dokter"));
                     this.jLabel9.setText(rs.getString("spesialis"));

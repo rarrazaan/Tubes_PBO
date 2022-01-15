@@ -163,7 +163,7 @@ public class MenuManage extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTextArea1);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(380, 260, 440, 120);
+        jScrollPane1.setBounds(390, 250, 440, 120);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

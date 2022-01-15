@@ -62,12 +62,11 @@ public class HapusPasien extends javax.swing.JFrame {
         jToggleButton2 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setAutoRequestFocus(false);
         getContentPane().setLayout(null);
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(103, 20, 153, 33);
+        jLabel1.setBounds(170, 120, 153, 33);
 
         jToggleButton1.setBackground(new java.awt.Color(0, 153, 153));
         jToggleButton1.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N

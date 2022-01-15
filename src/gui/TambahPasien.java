@@ -12,7 +12,6 @@ import java.sql.Statement;
 import static java.sql.Types.NULL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 /**
  *
