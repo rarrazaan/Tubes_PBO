@@ -5,6 +5,7 @@
  */
 package gui;
 
+import static gui.HapusPasien.conn;
 import static gui.PasienDarurat.conn;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -137,6 +138,16 @@ public class PasienNormal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_batalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_batalActionPerformed
+        try{
+            //Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+            stmt = conn.createStatement();
+            String sql = "Delete FROM pasien WHERE id_pasien = "+PasienNormal.id;
+            stmt.executeUpdate(sql);
+            stmt.close();
+            conn.close();
+        } catch (SQLException e) {
+        }
         dispose();
         TambahPasien a = new TambahPasien();
         a.setVisible(true);

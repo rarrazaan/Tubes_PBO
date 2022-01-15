@@ -62,7 +62,10 @@ public class HapusPasien extends javax.swing.JFrame {
         jToggleButton2 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAutoRequestFocus(false);
         getContentPane().setLayout(null);
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(jLabel1);
         jLabel1.setBounds(103, 20, 153, 33);
 

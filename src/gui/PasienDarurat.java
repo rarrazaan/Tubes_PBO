@@ -7,6 +7,7 @@ package gui;
 
 import static gui.MenuPasien.conn;
 import static gui.MenuPasien.stmt;
+import static gui.PasienNormal.conn;
 import static gui.TambahPasien.conn;
 import static gui.TambahPasien.stmt;
 import java.sql.Connection;
@@ -74,6 +75,7 @@ public class PasienDarurat extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.setLayout(null);
 
         emp_login.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
@@ -184,6 +186,16 @@ public class PasienDarurat extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void btn_batalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_batalActionPerformed
+        try{
+            //Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+            stmt = conn.createStatement();
+            String sql = "Delete FROM pasien WHERE id_pasien = "+PasienDarurat.id;
+            stmt.executeUpdate(sql);
+            stmt.close();
+            conn.close();
+        } catch (SQLException e) {
+        }
         dispose();
         TambahPasien a = new TambahPasien();
         a.setVisible(true);
