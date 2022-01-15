@@ -43,16 +43,16 @@ public class MenuPasien extends javax.swing.JFrame {
             }
             System.out.print(ID.size());
             if (ID.size()<1){
-                jButton2.setEnabled(false);
-                jButton3.setEnabled(false);
+                btn_update.setEnabled(false);
+                btn_del.setEnabled(false);
             }
             stmt.close();
             conn.close();
             } catch (SQLException e) {
             }
         if (ID.size()<1){
-            jButton2.setEnabled(false);
-            jButton3.setEnabled(false);
+            btn_update.setEnabled(false);
+            btn_del.setEnabled(false);
         }
         this.jList1.setModel(pilih);
     }
@@ -67,54 +67,38 @@ public class MenuPasien extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        btn_update = new javax.swing.JButton();
+        btn_add = new javax.swing.JButton();
+        btn_del = new javax.swing.JButton();
+        btn_show = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
+        out = new javax.swing.JButton();
+        dashboard = new javax.swing.JButton();
+        dokter = new javax.swing.JButton();
+        pasien = new javax.swing.JButton();
+        obat = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153)));
         jPanel1.setPreferredSize(new java.awt.Dimension(741, 554));
-
-        jLabel1.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel1.setText("DATA PASIEN");
-
-        jButton1.setBackground(new java.awt.Color(0, 153, 153));
-        jButton1.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("TAMBAH DATA");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jButton2.setBackground(new java.awt.Color(0, 153, 153));
-        jButton2.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("UPDATE DATA");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
+        jPanel1.setLayout(null);
 
         jList1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 1, true));
+        jList1.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
@@ -127,171 +111,226 @@ public class MenuPasien extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jList1);
 
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(280, 180, 236, 256);
+
         jLabel2.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 153, 153));
         jLabel2.setText("Umur");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(590, 200, 46, 21);
 
         jLabel3.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 153, 153));
         jLabel3.setText("Jenis");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(590, 320, 44, 21);
 
         jLabel4.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 153, 153));
         jLabel4.setText("Ruangan");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(590, 380, 73, 21);
 
         jLabel5.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 153, 153));
         jLabel5.setText("Gender");
-
-        jButton3.setBackground(new java.awt.Color(0, 153, 153));
-        jButton3.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("HAPUS DATA");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
-        jButton4.setBackground(new java.awt.Color(0, 153, 153));
-        jButton4.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("TAMPIL DATA");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(590, 260, 61, 21);
 
         jLabel6.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         jLabel6.setText("jLabel6");
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(760, 200, 59, 21);
 
         jLabel7.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         jLabel7.setText("jLabel7");
+        jPanel1.add(jLabel7);
+        jLabel7.setBounds(760, 260, 59, 21);
 
         jLabel8.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         jLabel8.setText("jLabel8");
+        jPanel1.add(jLabel8);
+        jLabel8.setBounds(760, 320, 59, 21);
 
         jLabel9.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         jLabel9.setText("jLabel9");
+        jPanel1.add(jLabel9);
+        jLabel9.setBounds(760, 380, 59, 21);
 
-        jPanel2.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel4.setBackground(new java.awt.Color(0, 102, 102));
+        jPanel4.setLayout(null);
+
+        jLabel10.setFont(new java.awt.Font("Trebuchet MS", 1, 28)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("RS IMAM");
+        jPanel4.add(jLabel10);
+        jLabel10.setBounds(32, 23, 109, 34);
+
+        btn_update.setBackground(new java.awt.Color(0, 102, 102));
+        btn_update.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        btn_update.setForeground(new java.awt.Color(255, 255, 255));
+        btn_update.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-update-32.png"))); // NOI18N
+        btn_update.setText(" Update Pasien");
+        btn_update.setBorder(null);
+        btn_update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_updateActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btn_update);
+        btn_update.setBounds(250, 10, 166, 50);
+
+        btn_add.setBackground(new java.awt.Color(0, 102, 102));
+        btn_add.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        btn_add.setForeground(new java.awt.Color(255, 255, 255));
+        btn_add.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-add-32 (1).png"))); // NOI18N
+        btn_add.setText("Tambah Data");
+        btn_add.setBorder(null);
+        btn_add.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_addActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btn_add);
+        btn_add.setBounds(430, 10, 160, 50);
+
+        btn_del.setBackground(new java.awt.Color(0, 102, 102));
+        btn_del.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        btn_del.setForeground(new java.awt.Color(255, 255, 255));
+        btn_del.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-delete-32.png"))); // NOI18N
+        btn_del.setText("Hapus Data");
+        btn_del.setBorder(null);
+        btn_del.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_delActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btn_del);
+        btn_del.setBounds(610, 10, 160, 50);
+
+        btn_show.setBackground(new java.awt.Color(0, 102, 102));
+        btn_show.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        btn_show.setForeground(new java.awt.Color(255, 255, 255));
+        btn_show.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-show-property-32.png"))); // NOI18N
+        btn_show.setText("Tampil Data");
+        btn_show.setBorder(null);
+        btn_show.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_showActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btn_show);
+        btn_show.setBounds(790, 10, 160, 50);
+
+        jPanel1.add(jPanel4);
+        jPanel4.setBounds(-1, 1, 1000, 70);
+
+        jPanel2.setBackground(new java.awt.Color(0, 111, 111));
+
+        out.setBackground(new java.awt.Color(0, 127, 127));
+        out.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        out.setForeground(new java.awt.Color(255, 255, 255));
+        out.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-logout-32.png"))); // NOI18N
+        out.setText("LOG OUT");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 71, Short.MAX_VALUE)
+            .addComponent(out, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 180, Short.MAX_VALUE)
+                .addComponent(out, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(51, 51, 51)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(62, 62, 62)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(73, 73, 73)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(17, 17, 17)
-                                .addComponent(jLabel2)
-                                .addGap(43, 43, 43)
-                                .addComponent(jLabel5)
-                                .addGap(37, 37, 37)
-                                .addComponent(jLabel3)
-                                .addGap(31, 31, 31)
-                                .addComponent(jLabel4)))
-                        .addGap(41, 41, 41)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(110, 110, 110)
-                        .addComponent(jLabel6)
-                        .addGap(43, 43, 43)
-                        .addComponent(jLabel7)
-                        .addGap(37, 37, 37)
-                        .addComponent(jLabel8)
-                        .addGap(31, 31, 31)
-                        .addComponent(jLabel9)))
-                .addGap(29, 29, 29)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 43, Short.MAX_VALUE))
-        );
+        jPanel1.add(jPanel2);
+        jPanel2.setBounds(0, 350, 230, 250);
+
+        dashboard.setBackground(new java.awt.Color(0, 127, 127));
+        dashboard.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        dashboard.setForeground(new java.awt.Color(255, 255, 255));
+        dashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-information-40 (2).png"))); // NOI18N
+        dashboard.setText("     DASHBOARD");
+        dashboard.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dashboardActionPerformed(evt);
+            }
+        });
+        jPanel1.add(dashboard);
+        dashboard.setBounds(0, 70, 230, 70);
+
+        dokter.setBackground(new java.awt.Color(0, 127, 127));
+        dokter.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        dokter.setForeground(new java.awt.Color(255, 255, 255));
+        dokter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-doctor-40 (2).png"))); // NOI18N
+        dokter.setText("     DATA DOKTER");
+        dokter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dokterActionPerformed(evt);
+            }
+        });
+        jPanel1.add(dokter);
+        dokter.setBounds(0, 140, 230, 70);
+
+        pasien.setBackground(new java.awt.Color(0, 127, 127));
+        pasien.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        pasien.setForeground(new java.awt.Color(255, 255, 255));
+        pasien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-patient-40 (2).png"))); // NOI18N
+        pasien.setText("     DATA PASIEN");
+        pasien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pasienActionPerformed(evt);
+            }
+        });
+        jPanel1.add(pasien);
+        pasien.setBounds(0, 210, 230, 70);
+
+        obat.setBackground(new java.awt.Color(0, 127, 127));
+        obat.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        obat.setForeground(new java.awt.Color(255, 255, 255));
+        obat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-medicine-40 (3).png"))); // NOI18N
+        obat.setText("    DATA OBAT");
+        obat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                obatActionPerformed(evt);
+            }
+        });
+        jPanel1.add(obat);
+        obat.setBounds(0, 280, 230, 70);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 743, Short.MAX_VALUE)
+            .addGap(0, 1000, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 554, Short.MAX_VALUE)
+            .addGap(0, 600, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btn_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_addActionPerformed
         dispose();
-        AddPasien a = new AddPasien();
+        TambahPasien a = new TambahPasien();
         a.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btn_addActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void btn_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_updateActionPerformed
+        dispose();
+        UpdatePasien a = new UpdatePasien();
+        a.setVisible(true);
+    }//GEN-LAST:event_btn_updateActionPerformed
 
     private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
         int n = jList1.getSelectedIndex();
@@ -319,15 +358,48 @@ public class MenuPasien extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jList1MouseClicked
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btn_delActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_delActionPerformed
         dispose();
         HapusPasien a = new HapusPasien();
         a.setVisible(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btn_delActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void btn_showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_showActionPerformed
+        dispose();
+        TampilData a = new TampilData();
+        a.setVisible(true);
+    }//GEN-LAST:event_btn_showActionPerformed
+
+    private void dashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashboardActionPerformed
+        dispose();
+        MenuManage a = new MenuManage();
+        a.setVisible(true);
+    }//GEN-LAST:event_dashboardActionPerformed
+
+    private void dokterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dokterActionPerformed
+        dispose();
+        MenuDokter a = new MenuDokter();
+        a.setVisible(true);
+    }//GEN-LAST:event_dokterActionPerformed
+
+    private void pasienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pasienActionPerformed
+        dispose();
+        MenuPasien a = null;
+        try {
+            a = new MenuPasien();
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPasien.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MenuPasien.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        a.setVisible(true);
+    }//GEN-LAST:event_pasienActionPerformed
+
+    private void obatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_obatActionPerformed
+        dispose();
+        MenuObat a = new MenuObat();
+        a.setVisible(true);
+    }//GEN-LAST:event_obatActionPerformed
 
     /**
      * @param args the command line arguments
@@ -363,11 +435,13 @@ public class MenuPasien extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btn_add;
+    private javax.swing.JButton btn_del;
+    private javax.swing.JButton btn_show;
+    private javax.swing.JButton btn_update;
+    private javax.swing.JButton dashboard;
+    private javax.swing.JButton dokter;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -379,6 +453,10 @@ public class MenuPasien extends javax.swing.JFrame {
     private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton obat;
+    private javax.swing.JButton out;
+    private javax.swing.JButton pasien;
     // End of variables declaration//GEN-END:variables
 }

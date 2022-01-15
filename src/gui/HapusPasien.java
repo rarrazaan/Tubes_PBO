@@ -126,16 +126,28 @@ public class HapusPasien extends javax.swing.JFrame {
         } catch (SQLException e) {
         }
         dispose();
-        MenuPasien a;
-        a = new MenuPasien();
+        MenuPasien a = null;
+        try {
+            a = new MenuPasien();
+        } catch (SQLException ex) {
+            Logger.getLogger(HapusPasien.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(HapusPasien.class.getName()).log(Level.SEVERE, null, ex);
+        }
         a.setVisible(true);
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
         // TODO add your handling code here:
         dispose();
-        MenuPasien a;
-        a = new MenuPasien();
+        MenuPasien a = null;
+        try {
+            a = new MenuPasien();
+        } catch (SQLException ex) {
+            Logger.getLogger(HapusPasien.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(HapusPasien.class.getName()).log(Level.SEVERE, null, ex);
+        }
         a.setVisible(true);
     }//GEN-LAST:event_jToggleButton2ActionPerformed
 
