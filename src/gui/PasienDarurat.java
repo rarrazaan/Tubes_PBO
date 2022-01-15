@@ -69,13 +69,13 @@ public class PasienDarurat extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox<>();
         btn_simpan = new javax.swing.JButton();
-        btn_batal = new javax.swing.JToggleButton();
+        btn_batal = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
         jPanel1.setLayout(null);
 
         emp_login.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
@@ -138,7 +138,7 @@ public class PasienDarurat extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btn_batal);
-        btn_batal.setBounds(290, 270, 140, 40);
+        btn_batal.setBounds(280, 270, 140, 40);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 500, 350);
@@ -199,7 +199,6 @@ public class PasienDarurat extends javax.swing.JFrame {
         dispose();
         TambahPasien a = new TambahPasien();
         a.setVisible(true);
-
     }//GEN-LAST:event_btn_batalActionPerformed
 
     /**
@@ -241,7 +240,7 @@ public class PasienDarurat extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton btn_batal;
+    private javax.swing.JButton btn_batal;
     private javax.swing.JButton btn_simpan;
     private javax.swing.JLabel emp_login;
     private javax.swing.JComboBox<String> jComboBox1;

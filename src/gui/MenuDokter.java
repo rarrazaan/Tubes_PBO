@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -93,7 +94,7 @@ public class MenuDokter extends javax.swing.JFrame {
         pasien = new javax.swing.JButton();
         obat = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jButton9 = new javax.swing.JButton();
+        out = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -110,51 +111,51 @@ public class MenuDokter extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jList1);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(280, 150, 236, 278);
+        jScrollPane1.setBounds(280, 138, 236, 380);
 
         jLabel2.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 153, 153));
         jLabel2.setText("Kontak");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(590, 200, 70, 21);
+        jLabel2.setBounds(560, 170, 70, 21);
 
         jLabel3.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 153, 153));
         jLabel3.setText("Alamat");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(590, 320, 70, 21);
+        jLabel3.setBounds(560, 290, 70, 21);
 
         jLabel4.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 153, 153));
         jLabel4.setText("Spesialis");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(590, 380, 70, 21);
+        jLabel4.setBounds(560, 350, 70, 21);
 
         jLabel5.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 153, 153));
         jLabel5.setText("Gender");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(590, 260, 61, 21);
+        jLabel5.setBounds(560, 230, 61, 21);
 
         jLabel6.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        jLabel6.setText("jLabel6");
+        jLabel6.setText("-");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(690, 200, 280, 21);
+        jLabel6.setBounds(660, 170, 280, 21);
 
         jLabel7.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        jLabel7.setText("jLabel7");
+        jLabel7.setText("-");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(690, 260, 270, 21);
+        jLabel7.setBounds(660, 230, 260, 21);
 
         jLabel8.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        jLabel8.setText("jLabel8");
+        jLabel8.setText("-");
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(690, 320, 260, 21);
+        jLabel8.setBounds(660, 290, 260, 21);
 
         jLabel9.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        jLabel9.setText("jLabel9");
+        jLabel9.setText("-");
         jPanel1.add(jLabel9);
-        jLabel9.setBounds(690, 380, 280, 21);
+        jLabel9.setBounds(660, 350, 260, 21);
 
         jPanel4.setBackground(new java.awt.Color(0, 102, 102));
         jPanel4.setLayout(null);
@@ -168,7 +169,7 @@ public class MenuDokter extends javax.swing.JFrame {
         btn_update.setBackground(new java.awt.Color(0, 102, 102));
         btn_update.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
         btn_update.setForeground(new java.awt.Color(255, 255, 255));
-        btn_update.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-update-32.png"))); // NOI18N
+        btn_update.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-update-32 (1).png"))); // NOI18N
         btn_update.setText(" Update Data");
         btn_update.setBorder(null);
         btn_update.addActionListener(new java.awt.event.ActionListener() {
@@ -264,23 +265,28 @@ public class MenuDokter extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(0, 127, 127));
 
-        jButton9.setBackground(new java.awt.Color(0, 127, 127));
-        jButton9.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jButton9.setForeground(new java.awt.Color(255, 255, 255));
-        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-logout-32.png"))); // NOI18N
-        jButton9.setText("LOG OUT");
+        out.setBackground(new java.awt.Color(0, 127, 127));
+        out.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        out.setForeground(new java.awt.Color(255, 255, 255));
+        out.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-logout-32.png"))); // NOI18N
+        out.setText("LOG OUT");
+        out.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                outActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+            .addComponent(out, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 180, Short.MAX_VALUE)
-                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(out, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel1.add(jPanel2);
@@ -388,6 +394,19 @@ public class MenuDokter extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jList1MouseClicked
 
+    private void outActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outActionPerformed
+        try {
+            dispose();
+            JOptionPane.showMessageDialog(this, "Logout Berhasil");
+            LogIn a = new LogIn();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuManage.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MenuManage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_outActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -430,7 +449,6 @@ public class MenuDokter extends javax.swing.JFrame {
     private javax.swing.JButton btn_update;
     private javax.swing.JButton dashboard;
     private javax.swing.JButton dokter;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -447,6 +465,7 @@ public class MenuDokter extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton obat;
+    private javax.swing.JButton out;
     private javax.swing.JButton pasien;
     // End of variables declaration//GEN-END:variables
 }

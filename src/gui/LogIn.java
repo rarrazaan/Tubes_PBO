@@ -47,7 +47,7 @@ public class LogIn extends javax.swing.JFrame {
         emp_name = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         emp_psw = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        login = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPasswordField1 = new javax.swing.JPasswordField();
 
@@ -68,6 +68,7 @@ public class LogIn extends javax.swing.JFrame {
         jPanel1.add(emp_name);
         emp_name.setBounds(80, 167, 46, 21);
 
+        jTextField2.setFont(new java.awt.Font("Trebuchet MS", 0, 13)); // NOI18N
         jTextField2.setText("Masukkan Nama");
         jTextField2.setToolTipText("");
         jTextField2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -89,17 +90,17 @@ public class LogIn extends javax.swing.JFrame {
         jPanel1.add(emp_psw);
         emp_psw.setBounds(80, 270, 94, 21);
 
-        jButton1.setBackground(new java.awt.Color(0, 153, 153));
-        jButton1.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("LOG IN");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        login.setBackground(new java.awt.Color(0, 153, 153));
+        login.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        login.setForeground(new java.awt.Color(255, 255, 255));
+        login.setText("LOG IN");
+        login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                loginActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1);
-        jButton1.setBounds(80, 390, 434, 43);
+        jPanel1.add(login);
+        login.setBounds(80, 390, 434, 43);
 
         jPanel2.setBackground(new java.awt.Color(0, 153, 153));
 
@@ -117,6 +118,7 @@ public class LogIn extends javax.swing.JFrame {
         jPanel1.add(jPanel2);
         jPanel2.setBounds(678, 1, 71, 598);
 
+        jPasswordField1.setFont(new java.awt.Font("Trebuchet MS", 0, 13)); // NOI18N
         jPasswordField1.setText("  Masukkan");
         jPasswordField1.setPreferredSize(new java.awt.Dimension(89, 20));
         jPasswordField1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -152,7 +154,7 @@ public class LogIn extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jTextField2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
         String id_user = null;
         try {
             String nama = jTextField2.getText();
@@ -180,7 +182,7 @@ public class LogIn extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Login Gagal, Coba Lagi!!");
         }
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_loginActionPerformed
 
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
         // TODO add your handling code here:
@@ -239,10 +241,10 @@ public class LogIn extends javax.swing.JFrame {
     private javax.swing.JLabel emp_login;
     private javax.swing.JLabel emp_name;
     private javax.swing.JLabel emp_psw;
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JButton login;
     // End of variables declaration//GEN-END:variables
 }

@@ -110,6 +110,7 @@ public class UpdatePasien extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
         jPanel1.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
@@ -426,7 +427,16 @@ public class UpdatePasien extends javax.swing.JFrame {
     }//GEN-LAST:event_dashboardActionPerformed
 
     private void outActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outActionPerformed
-        // TODO add your handling code here:
+        try {
+            dispose();
+            JOptionPane.showMessageDialog(this, "Logout Berhasil");
+            LogIn a = new LogIn();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuManage.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MenuManage.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_outActionPerformed
 
     private void btn_normalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_normalActionPerformed

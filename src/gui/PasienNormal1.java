@@ -31,27 +31,15 @@ public class PasienNormal1 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btn_batal = new javax.swing.JToggleButton();
         emp_login = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         btn_simpan = new javax.swing.JButton();
+        btn_batal = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
-
-        btn_batal.setBackground(new java.awt.Color(0, 153, 153));
-        btn_batal.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        btn_batal.setForeground(new java.awt.Color(255, 255, 255));
-        btn_batal.setText("BATAL");
-        btn_batal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_batalActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btn_batal);
-        btn_batal.setBounds(280, 180, 140, 40);
 
         emp_login.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
         emp_login.setForeground(new java.awt.Color(0, 153, 153));
@@ -73,6 +61,8 @@ public class PasienNormal1 extends javax.swing.JFrame {
         jComboBox1.setBounds(220, 100, 90, 40);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
+        jPanel1.setLayout(null);
 
         btn_simpan.setBackground(new java.awt.Color(0, 153, 153));
         btn_simpan.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
@@ -84,36 +74,26 @@ public class PasienNormal1 extends javax.swing.JFrame {
                 btn_simpanActionPerformed(evt);
             }
         });
+        jPanel1.add(btn_simpan);
+        btn_simpan.setBounds(77, 180, 140, 41);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(77, 77, 77)
-                .addComponent(btn_simpan, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(283, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(180, Short.MAX_VALUE)
-                .addComponent(btn_simpan)
-                .addGap(39, 39, 39))
-        );
+        btn_batal.setBackground(new java.awt.Color(0, 153, 153));
+        btn_batal.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        btn_batal.setForeground(new java.awt.Color(255, 255, 255));
+        btn_batal.setText("BATAL");
+        btn_batal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_batalActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_batal);
+        btn_batal.setBounds(290, 180, 140, 40);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 500, 260);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btn_batalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_batalActionPerformed
-        dispose();
-        UpdatePasien a = new UpdatePasien();
-        a.setVisible(true);
-        
-    }//GEN-LAST:event_btn_batalActionPerformed
 
     private void btn_simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_simpanActionPerformed
         dispose();
@@ -127,6 +107,12 @@ public class PasienNormal1 extends javax.swing.JFrame {
         }
         a.setVisible(true);
     }//GEN-LAST:event_btn_simpanActionPerformed
+
+    private void btn_batalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_batalActionPerformed
+        dispose();
+        UpdatePasien a = new UpdatePasien();
+        a.setVisible(true);
+    }//GEN-LAST:event_btn_batalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -171,7 +157,7 @@ public class PasienNormal1 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton btn_batal;
+    private javax.swing.JButton btn_batal;
     private javax.swing.JButton btn_simpan;
     private javax.swing.JLabel emp_login;
     private javax.swing.JComboBox<String> jComboBox1;

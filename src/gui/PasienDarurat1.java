@@ -31,7 +31,6 @@ public class PasienDarurat1 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btn_batal = new javax.swing.JToggleButton();
         emp_login = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
@@ -39,21 +38,10 @@ public class PasienDarurat1 extends javax.swing.JFrame {
         jComboBox2 = new javax.swing.JComboBox<>();
         btn_simpan = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        btn_batal = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
-
-        btn_batal.setBackground(new java.awt.Color(0, 153, 153));
-        btn_batal.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        btn_batal.setForeground(new java.awt.Color(255, 255, 255));
-        btn_batal.setText("BATAL");
-        btn_batal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_batalActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btn_batal);
-        btn_batal.setBounds(290, 270, 140, 40);
 
         emp_login.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
         emp_login.setForeground(new java.awt.Color(0, 153, 153));
@@ -106,19 +94,26 @@ public class PasienDarurat1 extends javax.swing.JFrame {
         btn_simpan.setBounds(90, 270, 140, 41);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
         jPanel1.setLayout(null);
+
+        btn_batal.setBackground(new java.awt.Color(0, 153, 153));
+        btn_batal.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        btn_batal.setForeground(new java.awt.Color(255, 255, 255));
+        btn_batal.setText("BATAL");
+        btn_batal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_batalActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_batal);
+        btn_batal.setBounds(280, 270, 140, 40);
+
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 500, 350);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btn_batalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_batalActionPerformed
-        dispose();
-        UpdatePasien a = new UpdatePasien();
-        a.setVisible(true);
-        
-    }//GEN-LAST:event_btn_batalActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
@@ -136,6 +131,12 @@ public class PasienDarurat1 extends javax.swing.JFrame {
         }
         a.setVisible(true);
     }//GEN-LAST:event_btn_simpanActionPerformed
+
+    private void btn_batalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_batalActionPerformed
+        dispose();
+        UpdatePasien a = new UpdatePasien();
+        a.setVisible(true);
+    }//GEN-LAST:event_btn_batalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -180,7 +181,7 @@ public class PasienDarurat1 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton btn_batal;
+    private javax.swing.JButton btn_batal;
     private javax.swing.JButton btn_simpan;
     private javax.swing.JLabel emp_login;
     private javax.swing.JComboBox<String> jComboBox1;

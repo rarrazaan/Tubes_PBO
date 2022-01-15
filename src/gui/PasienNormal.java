@@ -65,14 +65,15 @@ public class PasienNormal extends javax.swing.JFrame {
         emp_login = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
-        btn_batal = new javax.swing.JToggleButton();
         btn_del = new javax.swing.JButton();
+        btn_batal1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
+        jPanel1.setLayout(null);
 
         btn_simpan.setBackground(new java.awt.Color(0, 153, 153));
         btn_simpan.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
@@ -84,29 +85,27 @@ public class PasienNormal extends javax.swing.JFrame {
                 btn_simpanActionPerformed(evt);
             }
         });
+        jPanel1.add(btn_simpan);
+        btn_simpan.setBounds(78, 179, 140, 41);
 
         emp_login.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
         emp_login.setForeground(new java.awt.Color(0, 153, 153));
         emp_login.setText("PASIEN NORMAL");
+        jPanel1.add(emp_login);
+        emp_login.setBounds(63, 35, 179, 29);
 
         jComboBox1.setBackground(new java.awt.Color(240, 240, 240));
         jComboBox1.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         jComboBox1.setForeground(new java.awt.Color(0, 153, 153));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PILIH", "NR-01", "NR-02" }));
+        jPanel1.add(jComboBox1);
+        jComboBox1.setBounds(196, 101, 90, 40);
 
         jLabel7.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 153, 153));
         jLabel7.setText("RUANGAN");
-
-        btn_batal.setBackground(new java.awt.Color(0, 153, 153));
-        btn_batal.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        btn_batal.setForeground(new java.awt.Color(255, 255, 255));
-        btn_batal.setText("BATAL");
-        btn_batal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_batalActionPerformed(evt);
-            }
-        });
+        jPanel1.add(jLabel7);
+        jLabel7.setBounds(78, 99, 100, 40);
 
         btn_del.setBackground(new java.awt.Color(255, 255, 255));
         btn_del.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
@@ -118,70 +117,26 @@ public class PasienNormal extends javax.swing.JFrame {
                 btn_delActionPerformed(evt);
             }
         });
+        jPanel1.add(btn_del);
+        btn_del.setBounds(360, 101, 44, 40);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(62, 62, 62)
-                        .addComponent(emp_login))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(77, 77, 77)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(74, 74, 74)
-                                .addComponent(btn_del, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btn_simpan, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(66, 66, 66)
-                                .addComponent(btn_batal, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(75, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(emp_login)
-                .addGap(35, 35, 35)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_del, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_simpan)
-                    .addComponent(btn_batal, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39))
-        );
+        btn_batal1.setBackground(new java.awt.Color(0, 153, 153));
+        btn_batal1.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        btn_batal1.setForeground(new java.awt.Color(255, 255, 255));
+        btn_batal1.setText("BATAL");
+        btn_batal1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_batal1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_batal1);
+        btn_batal1.setBounds(290, 180, 140, 40);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 500, 260);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btn_batalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_batalActionPerformed
-        try{
-            //Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
-            stmt = conn.createStatement();
-            String sql = "Delete FROM pasien WHERE id_pasien = "+PasienNormal.id;
-            stmt.executeUpdate(sql);
-            stmt.close();
-            conn.close();
-        } catch (SQLException e) {
-        }
-        dispose();
-        TambahPasien a = new TambahPasien();
-        a.setVisible(true);
-        
-    }//GEN-LAST:event_btn_batalActionPerformed
 
     private void btn_simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_simpanActionPerformed
         String ruangan = (String) jComboBox1.getSelectedItem();
@@ -226,6 +181,22 @@ public class PasienNormal extends javax.swing.JFrame {
         a.setVisible(true);
     }//GEN-LAST:event_btn_delActionPerformed
 
+    private void btn_batal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_batal1ActionPerformed
+        try{
+            //Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+            stmt = conn.createStatement();
+            String sql = "Delete FROM pasien WHERE id_pasien = "+PasienNormal.id;
+            stmt.executeUpdate(sql);
+            stmt.close();
+            conn.close();
+        } catch (SQLException e) {
+        }
+        dispose();
+        TambahPasien a = new TambahPasien();
+        a.setVisible(true);
+    }//GEN-LAST:event_btn_batal1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -265,7 +236,7 @@ public class PasienNormal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton btn_batal;
+    private javax.swing.JButton btn_batal1;
     private javax.swing.JButton btn_del;
     private javax.swing.JButton btn_simpan;
     private javax.swing.JLabel emp_login;

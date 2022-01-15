@@ -8,6 +8,7 @@ package gui;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -49,7 +50,7 @@ public class MenuObat extends javax.swing.JFrame {
         btn_add = new javax.swing.JButton();
         btn_del = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jButton5 = new javax.swing.JButton();
+        out = new javax.swing.JButton();
         dashboard = new javax.swing.JButton();
         dokter = new javax.swing.JButton();
         pasien = new javax.swing.JButton();
@@ -72,7 +73,7 @@ public class MenuObat extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jList1);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(290, 120, 236, 310);
+        jScrollPane1.setBounds(290, 140, 236, 380);
 
         jLabel2.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 153, 153));
@@ -99,22 +100,22 @@ public class MenuObat extends javax.swing.JFrame {
         jLabel5.setBounds(570, 220, 111, 21);
 
         jLabel6.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        jLabel6.setText("jLabel6");
+        jLabel6.setText("-");
         jPanel1.add(jLabel6);
         jLabel6.setBounds(740, 160, 220, 21);
 
         jLabel7.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        jLabel7.setText("jLabel7");
+        jLabel7.setText("-");
         jPanel1.add(jLabel7);
         jLabel7.setBounds(740, 220, 220, 21);
 
         jLabel8.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        jLabel8.setText("jLabel8");
+        jLabel8.setText("-");
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(740, 280, 230, 21);
+        jLabel8.setBounds(740, 280, 220, 21);
 
         jLabel9.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        jLabel9.setText("jLabel9");
+        jLabel9.setText("-");
         jPanel1.add(jLabel9);
         jLabel9.setBounds(740, 330, 220, 21);
 
@@ -130,7 +131,7 @@ public class MenuObat extends javax.swing.JFrame {
         btn_update.setBackground(new java.awt.Color(0, 102, 102));
         btn_update.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
         btn_update.setForeground(new java.awt.Color(255, 255, 255));
-        btn_update.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-update-32.png"))); // NOI18N
+        btn_update.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-update-32 (1).png"))); // NOI18N
         btn_update.setText(" Update Data");
         btn_update.setBorder(null);
         btn_update.addActionListener(new java.awt.event.ActionListener() {
@@ -174,23 +175,28 @@ public class MenuObat extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(0, 111, 111));
 
-        jButton5.setBackground(new java.awt.Color(0, 127, 127));
-        jButton5.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-logout-32.png"))); // NOI18N
-        jButton5.setText("LOG OUT");
+        out.setBackground(new java.awt.Color(0, 127, 127));
+        out.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        out.setForeground(new java.awt.Color(255, 255, 255));
+        out.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-logout-32.png"))); // NOI18N
+        out.setText("LOG OUT");
+        out.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                outActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+            .addComponent(out, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 180, Short.MAX_VALUE)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(out, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel1.add(jPanel2);
@@ -255,9 +261,9 @@ public class MenuObat extends javax.swing.JFrame {
         jLabel11.setBounds(570, 390, 150, 21);
 
         jLabel12.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        jLabel12.setText("jLabel9");
+        jLabel12.setText("-");
         jPanel1.add(jLabel12);
-        jLabel12.setBounds(740, 390, 230, 21);
+        jLabel12.setBounds(740, 390, 220, 21);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -335,6 +341,19 @@ public class MenuObat extends javax.swing.JFrame {
         a.setVisible(true);
     }//GEN-LAST:event_btn_delActionPerformed
 
+    private void outActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outActionPerformed
+        try {
+            dispose();
+            JOptionPane.showMessageDialog(this, "Logout Berhasil");
+            LogIn a = new LogIn();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuManage.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MenuManage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_outActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -376,7 +395,6 @@ public class MenuObat extends javax.swing.JFrame {
     private javax.swing.JButton btn_update;
     private javax.swing.JButton dashboard;
     private javax.swing.JButton dokter;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -395,6 +413,7 @@ public class MenuObat extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton obat;
+    private javax.swing.JButton out;
     private javax.swing.JButton pasien;
     // End of variables declaration//GEN-END:variables
 }

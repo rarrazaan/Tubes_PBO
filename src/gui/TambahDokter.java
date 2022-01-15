@@ -8,6 +8,7 @@ package gui;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -59,6 +60,7 @@ public class TambahDokter extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
 
         jPanel2.setBackground(new java.awt.Color(0, 127, 127));
 
@@ -67,6 +69,11 @@ public class TambahDokter extends javax.swing.JFrame {
         out.setForeground(new java.awt.Color(255, 255, 255));
         out.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-logout-32.png"))); // NOI18N
         out.setText("LOG OUT");
+        out.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                outActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -386,6 +393,19 @@ public class TambahDokter extends javax.swing.JFrame {
     private void edt_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edt_nameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_edt_nameActionPerformed
+
+    private void outActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outActionPerformed
+        try {
+            dispose();
+            JOptionPane.showMessageDialog(this, "Logout Berhasil");
+            LogIn a = new LogIn();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuManage.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MenuManage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_outActionPerformed
 
     /**
      * @param args the command line arguments

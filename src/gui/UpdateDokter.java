@@ -8,6 +8,7 @@ package gui;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -43,7 +44,7 @@ public class UpdateDokter extends javax.swing.JFrame {
         jTextField4 = new javax.swing.JTextField();
         rb_lk = new javax.swing.JRadioButton();
         jPanel3 = new javax.swing.JPanel();
-        jButton10 = new javax.swing.JButton();
+        out = new javax.swing.JButton();
         rb_pr = new javax.swing.JRadioButton();
         jTextField2 = new javax.swing.JTextField();
         btn_simpan = new javax.swing.JButton();
@@ -58,6 +59,7 @@ public class UpdateDokter extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
 
         jLabel4.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 153, 153));
@@ -113,23 +115,28 @@ public class UpdateDokter extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(0, 127, 127));
 
-        jButton10.setBackground(new java.awt.Color(0, 127, 127));
-        jButton10.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jButton10.setForeground(new java.awt.Color(255, 255, 255));
-        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-logout-32.png"))); // NOI18N
-        jButton10.setText("LOG OUT");
+        out.setBackground(new java.awt.Color(0, 127, 127));
+        out.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        out.setForeground(new java.awt.Color(255, 255, 255));
+        out.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-logout-32.png"))); // NOI18N
+        out.setText("LOG OUT");
+        out.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                outActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+            .addComponent(out, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(0, 180, Short.MAX_VALUE)
-                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(out, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         rb_pr.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
@@ -287,7 +294,7 @@ public class UpdateDokter extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(204, Short.MAX_VALUE))
+                .addContainerGap(203, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -376,6 +383,19 @@ public class UpdateDokter extends javax.swing.JFrame {
         a.setVisible(true);
     }//GEN-LAST:event_pasienActionPerformed
 
+    private void outActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outActionPerformed
+        try {
+            dispose();
+            JOptionPane.showMessageDialog(this, "Logout Berhasil");
+            LogIn a = new LogIn();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuManage.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MenuManage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_outActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -418,7 +438,6 @@ public class UpdateDokter extends javax.swing.JFrame {
     private javax.swing.JButton dokter;
     private javax.swing.JTextField edt_name;
     private javax.swing.JLabel emp_login;
-    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -434,6 +453,7 @@ public class UpdateDokter extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JButton obat;
+    private javax.swing.JButton out;
     private javax.swing.JButton pasien;
     private javax.swing.JRadioButton rb_lk;
     private javax.swing.JRadioButton rb_pr;

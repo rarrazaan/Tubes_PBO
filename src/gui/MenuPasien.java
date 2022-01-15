@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 /**
  *
  * @author DELL
@@ -138,22 +139,22 @@ public class MenuPasien extends javax.swing.JFrame {
         jLabel5.setBounds(580, 200, 61, 21);
 
         jLabel6.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        jLabel6.setText("jLabel6");
+        jLabel6.setText("-");
         jPanel1.add(jLabel6);
         jLabel6.setBounds(750, 150, 210, 21);
 
         jLabel7.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        jLabel7.setText("jLabel7");
+        jLabel7.setText("-");
         jPanel1.add(jLabel7);
         jLabel7.setBounds(750, 200, 210, 21);
 
         jLabel8.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        jLabel8.setText("jLabel8");
+        jLabel8.setText("-");
         jPanel1.add(jLabel8);
         jLabel8.setBounds(750, 380, 210, 21);
 
         jLabel9.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        jLabel9.setText("jLabel9");
+        jLabel9.setText("-");
         jPanel1.add(jLabel9);
         jLabel9.setBounds(750, 440, 210, 21);
 
@@ -169,8 +170,8 @@ public class MenuPasien extends javax.swing.JFrame {
         btn_update.setBackground(new java.awt.Color(0, 102, 102));
         btn_update.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
         btn_update.setForeground(new java.awt.Color(255, 255, 255));
-        btn_update.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-update-32.png"))); // NOI18N
-        btn_update.setText(" Update Pasien");
+        btn_update.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-update-32 (1).png"))); // NOI18N
+        btn_update.setText(" Update Data");
         btn_update.setBorder(null);
         btn_update.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -232,6 +233,11 @@ public class MenuPasien extends javax.swing.JFrame {
         out.setForeground(new java.awt.Color(255, 255, 255));
         out.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-logout-32.png"))); // NOI18N
         out.setText("LOG OUT");
+        out.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                outActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -308,7 +314,7 @@ public class MenuPasien extends javax.swing.JFrame {
         jLabel11.setBounds(580, 260, 61, 21);
 
         jLabel12.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        jLabel12.setText("jLabel12");
+        jLabel12.setText("-");
         jPanel1.add(jLabel12);
         jLabel12.setBounds(750, 260, 210, 21);
 
@@ -319,7 +325,7 @@ public class MenuPasien extends javax.swing.JFrame {
         jLabel13.setBounds(580, 320, 59, 21);
 
         jLabel14.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        jLabel14.setText("jLabel14");
+        jLabel14.setText("-");
         jPanel1.add(jLabel14);
         jLabel14.setBounds(750, 320, 210, 21);
 
@@ -330,7 +336,7 @@ public class MenuPasien extends javax.swing.JFrame {
         jLabel15.setBounds(580, 490, 45, 21);
 
         jLabel16.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        jLabel16.setText("jLabel16");
+        jLabel16.setText("-");
         jPanel1.add(jLabel16);
         jLabel16.setBounds(750, 490, 210, 21);
 
@@ -446,6 +452,19 @@ public class MenuPasien extends javax.swing.JFrame {
         MenuObat a = new MenuObat();
         a.setVisible(true);
     }//GEN-LAST:event_obatActionPerformed
+
+    private void outActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outActionPerformed
+        try {
+            dispose();
+            JOptionPane.showMessageDialog(this, "Logout Berhasil");
+            LogIn a = new LogIn();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuManage.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MenuManage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_outActionPerformed
 
     /**
      * @param args the command line arguments

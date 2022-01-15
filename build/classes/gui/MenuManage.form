@@ -208,20 +208,20 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jButton3" alignment="0" pref="230" max="32767" attributes="0"/>
+                  <Component id="out" alignment="0" pref="230" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="180" max="32767" attributes="0"/>
-                      <Component id="jButton3" min="-2" pref="70" max="-2" attributes="0"/>
+                      <Component id="out" min="-2" pref="70" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="jButton3">
+            <Component class="javax.swing.JButton" name="out">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="7f" green="7f" red="0" type="rgb"/>
@@ -238,7 +238,7 @@
                 <Property name="text" type="java.lang.String" value="LOG OUT"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="outActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
@@ -249,7 +249,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="390" y="250" width="440" height="120"/>
+              <AbsoluteConstraints x="380" y="250" width="400" height="140"/>
             </Constraint>
           </Constraints>
 
@@ -257,12 +257,13 @@
           <SubComponents>
             <Component class="javax.swing.JTextArea" name="jTextArea1">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="columns" type="int" value="20"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Trebuchet MS" size="18" style="1"/>
                 </Property>
                 <Property name="rows" type="int" value="5"/>
-                <Property name="text" type="java.lang.String" value="Imam Rafiif Arrazaan (1301194152) IF4305&#xa;Arvinda Dwi Safira (1301190083) IF4305&#xa;Tsaqib Sayyidan Sendjaja (1301193450) IF4305&#xa;Bambang Silva Prasetyo (1301194205) IF4305&#xa;"/>
+                <Property name="text" type="java.lang.String" value="Kelompok 7 - Puskesmas&#xa;Imam Rafiif Arrazaan &#x9;(1301194152)&#xa;Arvinda Dwi Safira&#x9;(1301190083)&#xa;Tsaqib Sayyidan Sendjaja &#x9;(1301193450)&#xa;Bambang Silva Prasetyo &#x9;(1301194205)&#xa;"/>
               </Properties>
             </Component>
           </SubComponents>

@@ -27,90 +27,70 @@ public class TambahCatatan extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btn_ok = new javax.swing.JToggleButton();
-        btn_batal = new javax.swing.JToggleButton();
-        jTextField1 = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
         emp_login = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        btn_ok1 = new javax.swing.JButton();
+        btn_batal1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
-        btn_ok.setBackground(new java.awt.Color(0, 153, 153));
-        btn_ok.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        btn_ok.setForeground(new java.awt.Color(255, 255, 255));
-        btn_ok.setText("OK");
-        btn_ok.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_okActionPerformed(evt);
-            }
-        });
-
-        btn_batal.setBackground(new java.awt.Color(0, 153, 153));
-        btn_batal.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        btn_batal.setForeground(new java.awt.Color(255, 255, 255));
-        btn_batal.setText("BATAL");
-        btn_batal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_batalActionPerformed(evt);
-            }
-        });
-
-        jTextField1.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
+        jPanel1.setLayout(null);
 
         emp_login.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
         emp_login.setForeground(new java.awt.Color(0, 153, 153));
         emp_login.setText("CATATAN DOKTER");
+        jPanel1.add(emp_login);
+        emp_login.setBounds(61, 34, 204, 29);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(emp_login)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField1)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(15, 15, 15)
-                                .addComponent(btn_ok, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(69, 69, 69)
-                                .addComponent(btn_batal, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 22, Short.MAX_VALUE)))
-                        .addGap(53, 53, 53))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(emp_login)
-                .addGap(26, 26, 26)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_ok, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_batal, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50))
-        );
+        jTextField1.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jPanel1.add(jTextField1);
+        jTextField1.setBounds(61, 89, 386, 170);
+
+        btn_ok1.setBackground(new java.awt.Color(0, 153, 153));
+        btn_ok1.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        btn_ok1.setForeground(new java.awt.Color(255, 255, 255));
+        btn_ok1.setText("OK");
+        btn_ok1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ok1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_ok1);
+        btn_ok1.setBounds(80, 310, 140, 40);
+
+        btn_batal1.setBackground(new java.awt.Color(0, 153, 153));
+        btn_batal1.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        btn_batal1.setForeground(new java.awt.Color(255, 255, 255));
+        btn_batal1.setText("BATAL");
+        btn_batal1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_batal1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_batal1);
+        btn_batal1.setBounds(280, 310, 140, 40);
+
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 500, 400);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_okActionPerformed
+    private void btn_ok1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ok1ActionPerformed
         dispose();
         TampilData a = new TampilData();
         a.setVisible(true);
-        
-    }//GEN-LAST:event_btn_okActionPerformed
+    }//GEN-LAST:event_btn_ok1ActionPerformed
 
-    private void btn_batalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_batalActionPerformed
+    private void btn_batal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_batal1ActionPerformed
         dispose();
         TampilData a = new TampilData();
         a.setVisible(true);
-        
-    }//GEN-LAST:event_btn_batalActionPerformed
+    }//GEN-LAST:event_btn_batal1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -148,9 +128,10 @@ public class TambahCatatan extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton btn_batal;
-    private javax.swing.JToggleButton btn_ok;
+    private javax.swing.JButton btn_batal1;
+    private javax.swing.JButton btn_ok1;
     private javax.swing.JLabel emp_login;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
