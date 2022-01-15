@@ -38,16 +38,12 @@ public class UpdatePasien extends javax.swing.JFrame {
         rb_lk = new javax.swing.JRadioButton();
         rb_pr = new javax.swing.JRadioButton();
         jLabel3 = new javax.swing.JLabel();
-        btn_simpan = new javax.swing.JButton();
         btn_simpan1 = new javax.swing.JButton();
         edt_kontak = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         edt_alamat = new javax.swing.JTextField();
         edt_umur = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        rb_lk1 = new javax.swing.JRadioButton();
-        rb_pr1 = new javax.swing.JRadioButton();
         jPanel2 = new javax.swing.JPanel();
         out = new javax.swing.JButton();
         obat = new javax.swing.JButton();
@@ -56,9 +52,10 @@ public class UpdatePasien extends javax.swing.JFrame {
         dashboard = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         emp_login = new javax.swing.JLabel();
+        btn_normal = new javax.swing.JButton();
+        btn_darurat = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -77,7 +74,7 @@ public class UpdatePasien extends javax.swing.JFrame {
             }
         });
         jPanel1.add(edt_name);
-        edt_name.setBounds(420, 140, 450, 30);
+        edt_name.setBounds(420, 140, 500, 30);
 
         jLabel2.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 153, 153));
@@ -94,7 +91,7 @@ public class UpdatePasien extends javax.swing.JFrame {
             }
         });
         jPanel1.add(rb_lk);
-        rb_lk.setBounds(420, 200, 91, 27);
+        rb_lk.setBounds(420, 200, 93, 27);
 
         rb_pr.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         rb_pr.setForeground(new java.awt.Color(0, 153, 153));
@@ -105,7 +102,7 @@ public class UpdatePasien extends javax.swing.JFrame {
             }
         });
         jPanel1.add(rb_pr);
-        rb_pr.setBounds(540, 200, 103, 27);
+        rb_pr.setBounds(540, 200, 107, 27);
 
         jLabel3.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 153, 153));
@@ -113,21 +110,8 @@ public class UpdatePasien extends javax.swing.JFrame {
         jPanel1.add(jLabel3);
         jLabel3.setBounds(280, 250, 69, 21);
 
-        btn_simpan.setBackground(new java.awt.Color(0, 153, 153));
-        btn_simpan.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        btn_simpan.setForeground(new java.awt.Color(255, 255, 255));
-        btn_simpan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-save-32.png"))); // NOI18N
-        btn_simpan.setText("SIMPAN");
-        btn_simpan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_simpanActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btn_simpan);
-        btn_simpan.setBounds(400, 530, 150, 45);
-
         btn_simpan1.setBackground(new java.awt.Color(0, 153, 153));
-        btn_simpan1.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        btn_simpan1.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
         btn_simpan1.setForeground(new java.awt.Color(255, 255, 255));
         btn_simpan1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-cancel-32.png"))); // NOI18N
         btn_simpan1.setText("BATAL");
@@ -137,7 +121,7 @@ public class UpdatePasien extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btn_simpan1);
-        btn_simpan1.setBounds(660, 530, 150, 45);
+        btn_simpan1.setBounds(530, 520, 150, 45);
 
         edt_kontak.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,7 +129,7 @@ public class UpdatePasien extends javax.swing.JFrame {
             }
         });
         jPanel1.add(edt_kontak);
-        edt_kontak.setBounds(420, 250, 450, 30);
+        edt_kontak.setBounds(420, 250, 500, 30);
 
         jLabel4.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 153, 153));
@@ -159,7 +143,7 @@ public class UpdatePasien extends javax.swing.JFrame {
             }
         });
         jPanel1.add(edt_alamat);
-        edt_alamat.setBounds(420, 300, 450, 50);
+        edt_alamat.setBounds(420, 300, 500, 50);
 
         edt_umur.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -167,41 +151,13 @@ public class UpdatePasien extends javax.swing.JFrame {
             }
         });
         jPanel1.add(edt_umur);
-        edt_umur.setBounds(420, 370, 450, 30);
+        edt_umur.setBounds(420, 370, 500, 30);
 
         jLabel5.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 153, 153));
         jLabel5.setText("UMUR");
         jPanel1.add(jLabel5);
         jLabel5.setBounds(280, 370, 48, 21);
-
-        jLabel7.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel7.setText("RUANGAN");
-        jPanel1.add(jLabel7);
-        jLabel7.setBounds(280, 470, 81, 21);
-
-        rb_lk1.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        rb_lk1.setForeground(new java.awt.Color(0, 153, 153));
-        rb_lk1.setText("NORMAL");
-        rb_lk1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rb_lk1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(rb_lk1);
-        rb_lk1.setBounds(420, 420, 81, 27);
-
-        rb_pr1.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        rb_pr1.setForeground(new java.awt.Color(0, 153, 153));
-        rb_pr1.setText("DARURAT");
-        rb_pr1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rb_pr1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(rb_pr1);
-        rb_pr1.setBounds(540, 420, 89, 27);
 
         jPanel2.setBackground(new java.awt.Color(0, 111, 111));
 
@@ -296,18 +252,11 @@ public class UpdatePasien extends javax.swing.JFrame {
         jPanel1.add(jPanel4);
         jPanel4.setBounds(-1, 1, 1000, 70);
 
-        jComboBox1.setBackground(new java.awt.Color(240, 240, 240));
-        jComboBox1.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(0, 153, 153));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PILIH", "NR-01", "NR-02", "IGD-01", "IGD-02" }));
-        jPanel1.add(jComboBox1);
-        jComboBox1.setBounds(420, 470, 70, 24);
-
         jLabel8.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 153, 153));
         jLabel8.setText("TIPE PASIEN");
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(280, 420, 100, 21);
+        jLabel8.setBounds(280, 430, 100, 21);
 
         emp_login.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
         emp_login.setForeground(new java.awt.Color(0, 153, 153));
@@ -315,15 +264,39 @@ public class UpdatePasien extends javax.swing.JFrame {
         jPanel1.add(emp_login);
         emp_login.setBounds(280, 90, 174, 29);
 
+        btn_normal.setBackground(new java.awt.Color(0, 153, 153));
+        btn_normal.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        btn_normal.setForeground(new java.awt.Color(255, 255, 255));
+        btn_normal.setText("NORMAL");
+        btn_normal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_normalActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_normal);
+        btn_normal.setBounds(420, 430, 140, 40);
+
+        btn_darurat.setBackground(new java.awt.Color(0, 153, 153));
+        btn_darurat.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        btn_darurat.setForeground(new java.awt.Color(255, 255, 255));
+        btn_darurat.setText("DARURAT");
+        btn_darurat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_daruratActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_darurat);
+        btn_darurat.setBounds(630, 430, 140, 40);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 999, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
         );
 
         pack();
@@ -341,10 +314,6 @@ public class UpdatePasien extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_rb_prActionPerformed
 
-    private void btn_simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_simpanActionPerformed
-       
-    }//GEN-LAST:event_btn_simpanActionPerformed
-
     private void btn_simpan1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_simpan1ActionPerformed
         
     }//GEN-LAST:event_btn_simpan1ActionPerformed
@@ -360,14 +329,6 @@ public class UpdatePasien extends javax.swing.JFrame {
     private void edt_umurActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edt_umurActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_edt_umurActionPerformed
-
-    private void rb_lk1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_lk1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rb_lk1ActionPerformed
-
-    private void rb_pr1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_pr1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rb_pr1ActionPerformed
 
     private void obatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_obatActionPerformed
         dispose();
@@ -403,6 +364,18 @@ public class UpdatePasien extends javax.swing.JFrame {
     private void outActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_outActionPerformed
+
+    private void btn_normalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_normalActionPerformed
+        dispose();
+        PasienNormal1 a = new PasienNormal1();
+        a.setVisible(true);
+    }//GEN-LAST:event_btn_normalActionPerformed
+
+    private void btn_daruratActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_daruratActionPerformed
+        dispose();
+        PasienDarurat1 a = new PasienDarurat1();
+        a.setVisible(true);
+    }//GEN-LAST:event_btn_daruratActionPerformed
 
     /**
      * @param args the command line arguments
@@ -440,7 +413,8 @@ public class UpdatePasien extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_simpan;
+    private javax.swing.JButton btn_darurat;
+    private javax.swing.JButton btn_normal;
     private javax.swing.JButton btn_simpan1;
     private javax.swing.JButton dashboard;
     private javax.swing.JButton dokter;
@@ -449,14 +423,12 @@ public class UpdatePasien extends javax.swing.JFrame {
     private javax.swing.JTextField edt_name;
     private javax.swing.JTextField edt_umur;
     private javax.swing.JLabel emp_login;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -465,8 +437,6 @@ public class UpdatePasien extends javax.swing.JFrame {
     private javax.swing.JButton out;
     private javax.swing.JButton pasien;
     private javax.swing.JRadioButton rb_lk;
-    private javax.swing.JRadioButton rb_lk1;
     private javax.swing.JRadioButton rb_pr;
-    private javax.swing.JRadioButton rb_pr1;
     // End of variables declaration//GEN-END:variables
 }

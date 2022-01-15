@@ -52,16 +52,12 @@ public final class TambahPasien extends javax.swing.JFrame {
         rb_lk = new javax.swing.JRadioButton();
         rb_pr = new javax.swing.JRadioButton();
         jLabel3 = new javax.swing.JLabel();
-        btn_simpan = new javax.swing.JButton();
         btn_simpan1 = new javax.swing.JButton();
         edt_kontak = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         edt_alamat = new javax.swing.JTextField();
         edt_umur = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        rb_nr = new javax.swing.JRadioButton();
-        rb_dr = new javax.swing.JRadioButton();
         jPanel2 = new javax.swing.JPanel();
         jButton5 = new javax.swing.JButton();
         obat = new javax.swing.JButton();
@@ -70,11 +66,10 @@ public final class TambahPasien extends javax.swing.JFrame {
         dashborad = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         emp_login = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        btn_darurat = new javax.swing.JButton();
+        btn_normal = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -113,7 +108,7 @@ public final class TambahPasien extends javax.swing.JFrame {
             }
         });
         jPanel1.add(rb_lk);
-        rb_lk.setBounds(420, 200, 91, 27);
+        rb_lk.setBounds(420, 200, 93, 27);
 
         buttonGroup1.add(rb_pr);
         rb_pr.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
@@ -125,7 +120,7 @@ public final class TambahPasien extends javax.swing.JFrame {
             }
         });
         jPanel1.add(rb_pr);
-        rb_pr.setBounds(540, 200, 103, 27);
+        rb_pr.setBounds(540, 200, 107, 27);
 
         jLabel3.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 153, 153));
@@ -133,21 +128,8 @@ public final class TambahPasien extends javax.swing.JFrame {
         jPanel1.add(jLabel3);
         jLabel3.setBounds(280, 250, 69, 21);
 
-        btn_simpan.setBackground(new java.awt.Color(0, 153, 153));
-        btn_simpan.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        btn_simpan.setForeground(new java.awt.Color(255, 255, 255));
-        btn_simpan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-save-32.png"))); // NOI18N
-        btn_simpan.setText("SIMPAN");
-        btn_simpan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_simpanActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btn_simpan);
-        btn_simpan.setBounds(400, 520, 150, 45);
-
         btn_simpan1.setBackground(new java.awt.Color(0, 153, 153));
-        btn_simpan1.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        btn_simpan1.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
         btn_simpan1.setForeground(new java.awt.Color(255, 255, 255));
         btn_simpan1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-cancel-32.png"))); // NOI18N
         btn_simpan1.setText("BATAL");
@@ -157,7 +139,7 @@ public final class TambahPasien extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btn_simpan1);
-        btn_simpan1.setBounds(660, 520, 150, 45);
+        btn_simpan1.setBounds(520, 510, 150, 45);
 
         edt_kontak.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -194,36 +176,6 @@ public final class TambahPasien extends javax.swing.JFrame {
         jLabel5.setText("UMUR");
         jPanel1.add(jLabel5);
         jLabel5.setBounds(280, 370, 48, 21);
-
-        jLabel7.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel7.setText("RUANGAN");
-        jPanel1.add(jLabel7);
-        jLabel7.setBounds(280, 470, 81, 21);
-
-        buttonGroup2.add(rb_nr);
-        rb_nr.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        rb_nr.setForeground(new java.awt.Color(0, 153, 153));
-        rb_nr.setText("NORMAL");
-        rb_nr.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rb_nrActionPerformed(evt);
-            }
-        });
-        jPanel1.add(rb_nr);
-        rb_nr.setBounds(420, 420, 81, 27);
-
-        buttonGroup2.add(rb_dr);
-        rb_dr.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        rb_dr.setForeground(new java.awt.Color(0, 153, 153));
-        rb_dr.setText("DARURAT");
-        rb_dr.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rb_drActionPerformed(evt);
-            }
-        });
-        jPanel1.add(rb_dr);
-        rb_dr.setBounds(540, 420, 89, 27);
 
         jPanel2.setBackground(new java.awt.Color(0, 111, 111));
 
@@ -313,18 +265,11 @@ public final class TambahPasien extends javax.swing.JFrame {
         jPanel1.add(jPanel4);
         jPanel4.setBounds(-1, 1, 1000, 70);
 
-        jComboBox1.setBackground(new java.awt.Color(240, 240, 240));
-        jComboBox1.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(0, 153, 153));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PILIH", "NR-01", "NR-02", "IGD-01", "IGD-02" }));
-        jPanel1.add(jComboBox1);
-        jComboBox1.setBounds(420, 470, 70, 24);
-
         jLabel8.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 153, 153));
         jLabel8.setText("TIPE PASIEN");
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(280, 420, 100, 21);
+        jLabel8.setBounds(280, 440, 100, 21);
 
         emp_login.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
         emp_login.setForeground(new java.awt.Color(0, 153, 153));
@@ -332,18 +277,29 @@ public final class TambahPasien extends javax.swing.JFrame {
         jPanel1.add(emp_login);
         emp_login.setBounds(280, 90, 178, 29);
 
-        jLabel9.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel9.setText("LEVEL");
-        jPanel1.add(jLabel9);
-        jLabel9.setBounds(590, 470, 60, 21);
+        btn_darurat.setBackground(new java.awt.Color(0, 153, 153));
+        btn_darurat.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        btn_darurat.setForeground(new java.awt.Color(255, 255, 255));
+        btn_darurat.setText("DARURAT");
+        btn_darurat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_daruratActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_darurat);
+        btn_darurat.setBounds(630, 430, 140, 40);
 
-        jComboBox2.setBackground(new java.awt.Color(240, 240, 240));
-        jComboBox2.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jComboBox2.setForeground(new java.awt.Color(0, 153, 153));
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PILIH", "1", "2", "3", "4" }));
-        jPanel1.add(jComboBox2);
-        jComboBox2.setBounds(680, 470, 70, 24);
+        btn_normal.setBackground(new java.awt.Color(0, 153, 153));
+        btn_normal.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        btn_normal.setForeground(new java.awt.Color(255, 255, 255));
+        btn_normal.setText("NORMAL");
+        btn_normal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_normalActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_normal);
+        btn_normal.setBounds(420, 430, 140, 40);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -371,78 +327,6 @@ public final class TambahPasien extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_rb_prActionPerformed
 
-    private void btn_simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_simpanActionPerformed
-        try{                                           
-            String name = edt_name.getText();
-            String gender = ""; String jenis = "";
-            String kontak = edt_kontak.getText();
-            String alamat = edt_alamat.getText();
-            String ruangan = (String) jComboBox1.getSelectedItem();
-            int umur = Integer.parseInt(edt_umur.getText());
-            if (rb_lk.isSelected()) {
-                gender = "Laki-Laki";
-            } else if (rb_pr.isSelected()) {
-                gender = "Perempuan";
-            }
-            if (rb_dr.isSelected()) {
-                jenis = "Darurat";
-            } else if (rb_nr.isSelected()) {
-                jenis = "Normal";
-            }
-            if (name.isEmpty() || gender.isEmpty() || alamat.isEmpty() || kontak.isEmpty() || umur==NULL || jenis.isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Data isian ada yang kosong");
-            }
-            try{
-                //Class.forName("com.mysql.cj.jdbc.Driver");
-                conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
-                stmt = conn.createStatement();
-                String Nama = name;
-                String Gender = gender;
-                String Kontak = kontak;
-                String Alamat = alamat;
-                String Jenis = jenis;
-                int Umur = umur;
-                
-                String sql = "INSERT INTO `pasien` (`id_pasien`, `nama_pasien`, `gender_pasien`, `alamat_pasien`, `umur_pasien`, `kontak_pasien`, `jenis_pasien`) VALUES (NULL, '"+Nama+"','"+Gender+"','"+Alamat+"','"+Umur+"','"+Kontak+"','"+Jenis+"')";
-                // INSERT INTO `pasien` (`id_pasien`, `nama_pasien`, `gender_pasien`, `alamat_pasien`, `umur_pasien`, `kontak_pasien`) VALUES ('1', 'as', 'as', 'as', '30', 'as')
-                stmt.executeUpdate(sql);
-                stmt.close();
-                conn.close();
-            } catch (SQLException e) {
-            }
-            try{
-                conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
-                stmt = conn.createStatement();
-                System.out.println("\n\nfdgdfg\n\n");
-                String sql = "SELECT id_pasien FROM pasien WHERE nama_pasien=\""+name+"\"";
-                rs = stmt.executeQuery(sql);
-                int id = rs.getInt("id_pasien");
-                System.out.println(name+id+sql);
-                if ("Darurat".equals(jenis)){
-                    jLabel9.setVisible(true);
-                    jComboBox2.setVisible(true);
-                    int lvl = (int) jComboBox2.getSelectedItem();
-                    sql = "INSERT INTO pasiendarurat (`id_pasien`, `level`, `ruangan_IGD`) VALUES ("+id+", "+lvl+", \""+ruangan+"\")";
-                    stmt.executeUpdate(sql);
-                    stmt.close();
-                    conn.close();
-                }else {
-                    sql = "INSERT INTO pasiennormal (`id_pasien`, `ruang_rawat`) VALUES ("+id+", \""+ruangan+"\")";
-                    stmt.executeUpdate(sql);
-                    stmt.close();
-                    conn.close();
-                }
-            }catch (SQLException e) {
-            }
-            dispose();
-            MenuPasien a;
-            a = new MenuPasien();
-            a.setVisible(true);
-        } catch (SQLException | ClassNotFoundException ex) {
-            Logger.getLogger(TambahPasien.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_btn_simpanActionPerformed
-
     private void btn_simpan1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_simpan1ActionPerformed
         try {
             // TODO add your handling code here:
@@ -467,14 +351,6 @@ public final class TambahPasien extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_edt_umurActionPerformed
 
-    private void rb_nrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_nrActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rb_nrActionPerformed
-
-    private void rb_drActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_drActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rb_drActionPerformed
-
     private void obatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_obatActionPerformed
        dispose();
         MenuObat a = new MenuObat();
@@ -496,6 +372,18 @@ public final class TambahPasien extends javax.swing.JFrame {
         MenuManage a = new MenuManage();
         a.setVisible(true);
     }//GEN-LAST:event_dashboradActionPerformed
+
+    private void btn_daruratActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_daruratActionPerformed
+        dispose();
+        PasienDarurat a = new PasienDarurat();
+        a.setVisible(true);
+    }//GEN-LAST:event_btn_daruratActionPerformed
+
+    private void btn_normalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_normalActionPerformed
+        dispose();
+        PasienNormal a = new PasienNormal();
+        a.setVisible(true);
+    }//GEN-LAST:event_btn_normalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -532,7 +420,8 @@ public final class TambahPasien extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_simpan;
+    private javax.swing.JButton btn_darurat;
+    private javax.swing.JButton btn_normal;
     private javax.swing.JButton btn_simpan1;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
@@ -544,25 +433,19 @@ public final class TambahPasien extends javax.swing.JFrame {
     private javax.swing.JTextField edt_umur;
     private javax.swing.JLabel emp_login;
     private javax.swing.JButton jButton5;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JButton obat;
     private javax.swing.JButton pasien;
-    private javax.swing.JRadioButton rb_dr;
     private javax.swing.JRadioButton rb_lk;
-    private javax.swing.JRadioButton rb_nr;
     private javax.swing.JRadioButton rb_pr;
     // End of variables declaration//GEN-END:variables
 }

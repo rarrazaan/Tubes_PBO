@@ -164,7 +164,7 @@ public class UpdateObat extends javax.swing.JFrame {
         });
 
         btn_simpan.setBackground(new java.awt.Color(0, 153, 153));
-        btn_simpan.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        btn_simpan.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
         btn_simpan.setForeground(new java.awt.Color(255, 255, 255));
         btn_simpan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-save-32.png"))); // NOI18N
         btn_simpan.setText("SIMPAN");
@@ -175,7 +175,7 @@ public class UpdateObat extends javax.swing.JFrame {
         });
 
         btn_simpan1.setBackground(new java.awt.Color(0, 153, 153));
-        btn_simpan1.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        btn_simpan1.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
         btn_simpan1.setForeground(new java.awt.Color(255, 255, 255));
         btn_simpan1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-cancel-32.png"))); // NOI18N
         btn_simpan1.setText("BATAL");

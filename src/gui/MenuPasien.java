@@ -87,6 +87,12 @@ public class MenuPasien extends javax.swing.JFrame {
         dokter = new javax.swing.JButton();
         pasien = new javax.swing.JButton();
         obat = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -105,51 +111,51 @@ public class MenuPasien extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jList1);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(280, 180, 236, 256);
+        jScrollPane1.setBounds(280, 146, 236, 370);
 
         jLabel2.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 153, 153));
         jLabel2.setText("Umur");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(590, 200, 46, 21);
+        jLabel2.setBounds(580, 150, 46, 21);
 
         jLabel3.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel3.setText("Jenis");
+        jLabel3.setText("Jenis Pasien");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(590, 320, 44, 21);
+        jLabel3.setBounds(580, 380, 110, 21);
 
         jLabel4.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 153, 153));
         jLabel4.setText("Ruangan");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(590, 380, 73, 21);
+        jLabel4.setBounds(580, 440, 73, 21);
 
         jLabel5.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 153, 153));
         jLabel5.setText("Gender");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(590, 260, 61, 21);
+        jLabel5.setBounds(580, 200, 61, 21);
 
         jLabel6.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         jLabel6.setText("jLabel6");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(760, 200, 210, 21);
+        jLabel6.setBounds(750, 150, 210, 21);
 
         jLabel7.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         jLabel7.setText("jLabel7");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(760, 260, 210, 21);
+        jLabel7.setBounds(750, 200, 210, 21);
 
         jLabel8.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         jLabel8.setText("jLabel8");
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(760, 320, 210, 21);
+        jLabel8.setBounds(750, 380, 210, 21);
 
         jLabel9.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         jLabel9.setText("jLabel9");
         jPanel1.add(jLabel9);
-        jLabel9.setBounds(760, 380, 210, 21);
+        jLabel9.setBounds(750, 440, 210, 21);
 
         jPanel4.setBackground(new java.awt.Color(0, 102, 102));
         jPanel4.setLayout(null);
@@ -295,6 +301,39 @@ public class MenuPasien extends javax.swing.JFrame {
         jPanel1.add(obat);
         obat.setBounds(0, 280, 230, 70);
 
+        jLabel11.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel11.setText("Alamat");
+        jPanel1.add(jLabel11);
+        jLabel11.setBounds(580, 260, 61, 21);
+
+        jLabel12.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        jLabel12.setText("jLabel12");
+        jPanel1.add(jLabel12);
+        jLabel12.setBounds(750, 260, 210, 21);
+
+        jLabel13.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel13.setText("Kontak");
+        jPanel1.add(jLabel13);
+        jLabel13.setBounds(580, 320, 59, 21);
+
+        jLabel14.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        jLabel14.setText("jLabel14");
+        jPanel1.add(jLabel14);
+        jLabel14.setBounds(750, 320, 210, 21);
+
+        jLabel15.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel15.setText("Level");
+        jPanel1.add(jLabel15);
+        jLabel15.setBounds(580, 490, 45, 21);
+
+        jLabel16.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        jLabel16.setText("jLabel16");
+        jPanel1.add(jLabel16);
+        jLabel16.setBounds(750, 490, 210, 21);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -435,6 +474,12 @@ public class MenuPasien extends javax.swing.JFrame {
     private javax.swing.JButton dashboard;
     private javax.swing.JButton dokter;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

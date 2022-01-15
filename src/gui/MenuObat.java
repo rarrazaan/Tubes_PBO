@@ -72,51 +72,51 @@ public class MenuObat extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jList1);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(300, 110, 236, 256);
+        jScrollPane1.setBounds(290, 120, 236, 310);
 
         jLabel2.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 153, 153));
         jLabel2.setText("Jenis");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(580, 130, 44, 21);
+        jLabel2.setBounds(570, 160, 44, 21);
 
         jLabel3.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 153, 153));
         jLabel3.setText("Jumlah");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(580, 250, 62, 21);
+        jLabel3.setBounds(570, 280, 62, 21);
 
         jLabel4.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 153, 153));
         jLabel4.setText("Harga");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(580, 300, 49, 21);
+        jLabel4.setBounds(570, 330, 49, 21);
 
         jLabel5.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 153, 153));
         jLabel5.setText("Masa Berlaku");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(580, 190, 111, 21);
+        jLabel5.setBounds(570, 220, 111, 21);
 
         jLabel6.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         jLabel6.setText("jLabel6");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(750, 130, 220, 21);
+        jLabel6.setBounds(740, 160, 220, 21);
 
         jLabel7.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         jLabel7.setText("jLabel7");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(750, 190, 220, 21);
+        jLabel7.setBounds(740, 220, 220, 21);
 
         jLabel8.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         jLabel8.setText("jLabel8");
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(750, 250, 230, 21);
+        jLabel8.setBounds(740, 280, 230, 21);
 
         jLabel9.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         jLabel9.setText("jLabel9");
         jPanel1.add(jLabel9);
-        jLabel9.setBounds(750, 300, 220, 21);
+        jLabel9.setBounds(740, 330, 220, 21);
 
         jPanel4.setBackground(new java.awt.Color(0, 102, 102));
         jPanel4.setLayout(null);
@@ -252,12 +252,12 @@ public class MenuObat extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(0, 153, 153));
         jLabel11.setText("Tanggal Produksi");
         jPanel1.add(jLabel11);
-        jLabel11.setBounds(580, 350, 150, 21);
+        jLabel11.setBounds(570, 390, 150, 21);
 
         jLabel12.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         jLabel12.setText("jLabel9");
         jPanel1.add(jLabel12);
-        jLabel12.setBounds(750, 350, 230, 21);
+        jLabel12.setBounds(740, 390, 230, 21);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);

@@ -114,27 +114,27 @@ public class MenuDokter extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel2.setText("KONTAK");
+        jLabel2.setText("Kontak");
         jPanel1.add(jLabel2);
         jLabel2.setBounds(590, 200, 70, 21);
 
         jLabel3.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel3.setText("ALAMAT");
+        jLabel3.setText("Alamat");
         jPanel1.add(jLabel3);
         jLabel3.setBounds(590, 320, 70, 21);
 
         jLabel4.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel4.setText("SPESIALIS");
+        jLabel4.setText("Spesialis");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(590, 380, 79, 21);
+        jLabel4.setBounds(590, 380, 70, 21);
 
         jLabel5.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel5.setText("GENDER");
+        jLabel5.setText("Gender");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(590, 260, 67, 21);
+        jLabel5.setBounds(590, 260, 61, 21);
 
         jLabel6.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel6.setText("jLabel6");

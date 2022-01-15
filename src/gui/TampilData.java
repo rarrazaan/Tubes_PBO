@@ -35,6 +35,7 @@ public class TampilData extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
+        btn_add = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         out = new javax.swing.JButton();
         dashboard = new javax.swing.JButton();
@@ -58,6 +59,11 @@ public class TampilData extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        btn_ok1 = new javax.swing.JButton();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
 
         jLabel12.setText("jLabel12");
 
@@ -74,6 +80,20 @@ public class TampilData extends javax.swing.JFrame {
         jLabel10.setText("RS IMAM");
         jPanel4.add(jLabel10);
         jLabel10.setBounds(32, 23, 109, 34);
+
+        btn_add.setBackground(new java.awt.Color(0, 102, 102));
+        btn_add.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        btn_add.setForeground(new java.awt.Color(255, 255, 255));
+        btn_add.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-add-32 (1).png"))); // NOI18N
+        btn_add.setText("Tambah Catatan");
+        btn_add.setBorder(null);
+        btn_add.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_addActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btn_add);
+        btn_add.setBounds(290, 10, 180, 50);
 
         jPanel1.add(jPanel4);
         jPanel4.setBounds(-1, 1, 1000, 70);
@@ -95,12 +115,12 @@ public class TampilData extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 180, Short.MAX_VALUE)
+                .addGap(0, 300, Short.MAX_VALUE)
                 .addComponent(out, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(0, 350, 230, 250);
+        jPanel2.setBounds(0, 350, 230, 370);
 
         dashboard.setBackground(new java.awt.Color(0, 127, 127));
         dashboard.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
@@ -157,42 +177,42 @@ public class TampilData extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         jLabel5.setText("Biaya Terapi");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(290, 360, 110, 21);
+        jLabel5.setBounds(300, 360, 110, 21);
 
         jLabel3.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         jLabel3.setText("Nama Obat");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(290, 260, 100, 21);
+        jLabel3.setBounds(300, 240, 100, 21);
 
         jLabel2.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         jLabel2.setText("Nama Dokter");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(290, 210, 120, 21);
+        jLabel2.setBounds(300, 200, 120, 21);
 
         jLabel7.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         jLabel7.setText("Tanggal Bayar");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(290, 460, 130, 21);
+        jLabel7.setBounds(300, 440, 130, 21);
 
         jLabel4.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         jLabel4.setText("Durasi Terapi");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(290, 310, 120, 21);
+        jLabel4.setBounds(300, 320, 120, 21);
 
         jLabel6.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         jLabel6.setText("Tanggal Terapi");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(290, 410, 130, 21);
+        jLabel6.setBounds(300, 400, 130, 21);
 
         jLabel8.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         jLabel8.setText("Total Biaya");
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(290, 510, 110, 21);
+        jLabel8.setBounds(300, 480, 110, 21);
 
         jLabel1.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         jLabel1.setText("Nama Pasien");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(290, 160, 120, 21);
+        jLabel1.setBounds(300, 160, 120, 21);
 
         emp_login.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
         emp_login.setForeground(new java.awt.Color(0, 153, 153));
@@ -203,42 +223,74 @@ public class TampilData extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabel9.setText("jLabel9");
         jPanel1.add(jLabel9);
-        jLabel9.setBounds(500, 160, 60, 18);
+        jLabel9.setBounds(510, 160, 400, 18);
 
         jLabel11.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabel11.setText("jLabel11");
         jPanel1.add(jLabel11);
-        jLabel11.setBounds(500, 210, 60, 18);
+        jLabel11.setBounds(510, 200, 400, 18);
 
         jLabel13.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabel13.setText("jLabel13");
         jPanel1.add(jLabel13);
-        jLabel13.setBounds(500, 260, 60, 18);
+        jLabel13.setBounds(510, 240, 400, 18);
 
         jLabel14.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabel14.setText("jLabel14");
         jPanel1.add(jLabel14);
-        jLabel14.setBounds(500, 310, 60, 18);
+        jLabel14.setBounds(510, 320, 400, 18);
 
         jLabel15.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabel15.setText("jLabel15");
         jPanel1.add(jLabel15);
-        jLabel15.setBounds(500, 360, 60, 18);
+        jLabel15.setBounds(510, 360, 400, 18);
 
         jLabel16.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabel16.setText("jLabel16");
         jPanel1.add(jLabel16);
-        jLabel16.setBounds(500, 410, 60, 18);
+        jLabel16.setBounds(510, 400, 400, 18);
 
         jLabel17.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabel17.setText("jLabel17");
         jPanel1.add(jLabel17);
-        jLabel17.setBounds(500, 460, 60, 18);
+        jLabel17.setBounds(510, 440, 400, 18);
 
         jLabel18.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabel18.setText("jLabel18");
         jPanel1.add(jLabel18);
-        jLabel18.setBounds(500, 510, 60, 18);
+        jLabel18.setBounds(510, 480, 400, 18);
+
+        jLabel19.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        jLabel19.setText("Catatan Dokter");
+        jPanel1.add(jLabel19);
+        jLabel19.setBounds(300, 520, 130, 21);
+
+        jLabel20.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel20.setText("jLabel18");
+        jPanel1.add(jLabel20);
+        jLabel20.setBounds(510, 520, 400, 80);
+
+        btn_ok1.setBackground(new java.awt.Color(0, 153, 153));
+        btn_ok1.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        btn_ok1.setForeground(new java.awt.Color(255, 255, 255));
+        btn_ok1.setText("OK");
+        btn_ok1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ok1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_ok1);
+        btn_ok1.setBounds(540, 630, 150, 45);
+
+        jLabel21.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        jLabel21.setText("Keluhan");
+        jPanel1.add(jLabel21);
+        jLabel21.setBounds(300, 280, 100, 21);
+
+        jLabel22.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
+        jLabel22.setText("jLabel22");
+        jPanel1.add(jLabel22);
+        jLabel22.setBounds(510, 280, 400, 18);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -248,7 +300,7 @@ public class TampilData extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 598, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
         );
 
         pack();
@@ -284,6 +336,25 @@ public class TampilData extends javax.swing.JFrame {
         MenuObat a = new MenuObat();
         a.setVisible(true);
     }//GEN-LAST:event_obatActionPerformed
+
+    private void btn_ok1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ok1ActionPerformed
+        dispose();
+        MenuPasien a = null;
+        try {
+            a = new MenuPasien();
+        } catch (SQLException ex) {
+            Logger.getLogger(TampilData.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(TampilData.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        a.setVisible(true);
+    }//GEN-LAST:event_btn_ok1ActionPerformed
+
+    private void btn_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_addActionPerformed
+        dispose();
+        TambahCatatan a = new TambahCatatan();
+        a.setVisible(true);
+    }//GEN-LAST:event_btn_addActionPerformed
 
     /**
      * @param args the command line arguments
@@ -322,6 +393,8 @@ public class TampilData extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_add;
+    private javax.swing.JButton btn_ok1;
     private javax.swing.JButton dashboard;
     private javax.swing.JButton dokter;
     private javax.swing.JLabel emp_login;
@@ -335,7 +408,11 @@ public class TampilData extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
