@@ -5,21 +5,49 @@
  */
 package gui;
 
+import static gui.PasienDarurat.conn;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author RVN
  */
 public class PasienNormal extends javax.swing.JFrame {
-
+    static final String DB_URL = "jdbc:mysql://localhost:3306/puskesmas";
+    static final String DB_USER = "root";
+    static final String DB_PASS = "";
+    static Connection conn;
+    static Statement stmt;
+    static ResultSet rs;
+    static int id;
     /**
      * Creates new form TambahCatatan
      */
     public PasienNormal() {
         initComponents();
+        try {
+            initComponents();
+            conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+            stmt = conn.createStatement();
+            System.out.println(TambahPasien.nama);
+            String sql = "SELECT id_pasien FROM pasien WHERE nama_pasien='"+TambahPasien.nama+"'";
+            rs = stmt.executeQuery(sql);
+            while(rs.next()){
+                PasienDarurat.id = rs.getInt("id_pasien");
+            }
+            System.out.println(PasienDarurat.id);
+            stmt.close();
+            conn.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(PasienDarurat.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -116,16 +144,39 @@ public class PasienNormal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_batalActionPerformed
 
     private void btn_simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_simpanActionPerformed
-        dispose();
-        MenuPasien a = null;
-        try {
-            a = new MenuPasien();
-        } catch (SQLException ex) {
-            Logger.getLogger(PasienDarurat.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(PasienDarurat.class.getName()).log(Level.SEVERE, null, ex);
+        String ruangan = (String) jComboBox1.getSelectedItem();
+        if ("PILIH".equals(ruangan)){
+            JOptionPane.showMessageDialog(this, "Data isian ada yang kosong");
+            dispose(); 
+            //System.out.println(TambahPasien.nama);
+            PasienNormal a = new PasienNormal();
+            a.setVisible(true);
+        }else{
+            try{
+                //Class.forName("com.mysql.cj.jdbc.Driver");
+                conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+                stmt = conn.createStatement();
+                String sql = "INSERT INTO `pasiennormal` (`id_pasien`, `ruang_rawat`) VALUES ('"+PasienDarurat.id+"','"+ruangan+"')";
+                // INSERT INTO `pasien` (`id_pasien`, `nama_pasien`, `gender_pasien`, `alamat_pasien`, `umur_pasien`, `kontak_pasien`) VALUES ('1', 'as', 'as', 'as', '30', 'as')
+
+                stmt.executeUpdate(sql);
+                stmt.close();
+                conn.close();
+            }catch (SQLException e){
+
+            }
+            dispose();
+            MenuPasien a = null;
+            try {
+                a = new MenuPasien();
+            } catch (SQLException ex) {
+                Logger.getLogger(PasienDarurat.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(PasienDarurat.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            a.setVisible(true);
         }
-        a.setVisible(true);
+        
     }//GEN-LAST:event_btn_simpanActionPerformed
 
     /**

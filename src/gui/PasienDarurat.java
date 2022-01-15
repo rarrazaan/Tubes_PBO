@@ -5,21 +5,51 @@
  */
 package gui;
 
+import static gui.MenuPasien.conn;
+import static gui.MenuPasien.stmt;
+import static gui.TambahPasien.conn;
+import static gui.TambahPasien.stmt;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author RVN
  */
 public class PasienDarurat extends javax.swing.JFrame {
-
+    static final String DB_URL = "jdbc:mysql://localhost:3306/puskesmas";
+    static final String DB_USER = "root";
+    static final String DB_PASS = "";
+    static Connection conn;
+    static Statement stmt;
+    static ResultSet rs;
+    static int id;
     /**
      * Creates new form TambahCatatan
      */
     public PasienDarurat() {
-        initComponents();
+        try {
+            initComponents();
+            conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+            stmt = conn.createStatement();
+            System.out.println(TambahPasien.nama);
+            String sql = "SELECT id_pasien FROM pasien WHERE nama_pasien='"+TambahPasien.nama+"'";
+            rs = stmt.executeQuery(sql);
+            while(rs.next()){
+                PasienDarurat.id = rs.getInt("id_pasien");
+            }
+            System.out.println(PasienDarurat.id);
+            stmt.close();
+            conn.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(PasienDarurat.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -31,41 +61,26 @@ public class PasienDarurat extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btn_batal = new javax.swing.JToggleButton();
+        jPanel1 = new javax.swing.JPanel();
         emp_login = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox<>();
         btn_simpan = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
+        btn_batal = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        btn_batal.setBackground(new java.awt.Color(0, 153, 153));
-        btn_batal.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        btn_batal.setForeground(new java.awt.Color(255, 255, 255));
-        btn_batal.setText("BATAL");
-        btn_batal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_batalActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btn_batal);
-        btn_batal.setBounds(290, 270, 140, 40);
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(null);
 
         emp_login.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
         emp_login.setForeground(new java.awt.Color(0, 153, 153));
         emp_login.setText("PASIEN DARURAT");
-        getContentPane().add(emp_login);
-        emp_login.setBounds(61, 34, 191, 29);
-
-        jLabel7.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel7.setText("RUANGAN");
-        getContentPane().add(jLabel7);
-        jLabel7.setBounds(80, 90, 81, 40);
+        jPanel1.add(emp_login);
+        emp_login.setBounds(70, 30, 191, 29);
 
         jComboBox1.setBackground(new java.awt.Color(240, 240, 240));
         jComboBox1.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
@@ -76,20 +91,26 @@ public class PasienDarurat extends javax.swing.JFrame {
                 jComboBox1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jComboBox1);
+        jPanel1.add(jComboBox1);
         jComboBox1.setBounds(220, 90, 130, 40);
+
+        jLabel7.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel7.setText("RUANGAN");
+        jPanel1.add(jLabel7);
+        jLabel7.setBounds(80, 90, 81, 40);
 
         jLabel9.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 153, 153));
         jLabel9.setText("LEVEL");
-        getContentPane().add(jLabel9);
+        jPanel1.add(jLabel9);
         jLabel9.setBounds(80, 170, 60, 40);
 
         jComboBox2.setBackground(new java.awt.Color(240, 240, 240));
         jComboBox2.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         jComboBox2.setForeground(new java.awt.Color(0, 153, 153));
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PILIH", "1", "2", "3", "4" }));
-        getContentPane().add(jComboBox2);
+        jPanel1.add(jComboBox2);
         jComboBox2.setBounds(220, 170, 130, 40);
 
         btn_simpan.setBackground(new java.awt.Color(0, 153, 153));
@@ -102,40 +123,72 @@ public class PasienDarurat extends javax.swing.JFrame {
                 btn_simpanActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_simpan);
+        jPanel1.add(btn_simpan);
         btn_simpan.setBounds(90, 270, 140, 41);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(null);
+        btn_batal.setBackground(new java.awt.Color(0, 153, 153));
+        btn_batal.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        btn_batal.setForeground(new java.awt.Color(255, 255, 255));
+        btn_batal.setText("BATAL");
+        btn_batal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_batalActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_batal);
+        btn_batal.setBounds(290, 270, 140, 40);
+
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 500, 350);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_batalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_batalActionPerformed
+    private void btn_simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_simpanActionPerformed
+        String ruangan = (String) jComboBox1.getSelectedItem();
+        String lvl = (String) jComboBox2.getSelectedItem();
+        int level = Integer.parseInt(lvl);
+        if ("PILIH".equals(ruangan) || "PILIH".equals(lvl)){
+            JOptionPane.showMessageDialog(this, "Data isian ada yang kosong");
+            dispose(); 
+            //System.out.println(TambahPasien.nama);
+            PasienDarurat a = new PasienDarurat();
+            a.setVisible(true);
+        }else{
+            try{
+                //Class.forName("com.mysql.cj.jdbc.Driver");
+                conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+                stmt = conn.createStatement();
+                String sql = "INSERT INTO `pasiendarurat` (`id_pasien`, `level`, `ruangan_IGD`) VALUES ('"+PasienDarurat.id+"',"+level+",'"+ruangan+"')";
+                // INSERT INTO `pasien` (`id_pasien`, `nama_pasien`, `gender_pasien`, `alamat_pasien`, `umur_pasien`, `kontak_pasien`) VALUES ('1', 'as', 'as', 'as', '30', 'as')
+
+                stmt.executeUpdate(sql);
+                stmt.close();
+                conn.close();
+            }catch (SQLException e){
+
+            }
+        }
         dispose();
-        TambahPasien a = new TambahPasien();
+        MenuPasien a = null;
+        try {
+            a = new MenuPasien();
+        } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(PasienDarurat.class.getName()).log(Level.SEVERE, null, ex);
+        }
         a.setVisible(true);
-        
-    }//GEN-LAST:event_btn_batalActionPerformed
+    }//GEN-LAST:event_btn_simpanActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
-    private void btn_simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_simpanActionPerformed
+    private void btn_batalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_batalActionPerformed
         dispose();
-        MenuPasien a = null;
-        try {
-            a = new MenuPasien();
-        } catch (SQLException ex) {
-            Logger.getLogger(PasienDarurat.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(PasienDarurat.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        TambahPasien a = new TambahPasien();
         a.setVisible(true);
-    }//GEN-LAST:event_btn_simpanActionPerformed
+
+    }//GEN-LAST:event_btn_batalActionPerformed
 
     /**
      * @param args the command line arguments

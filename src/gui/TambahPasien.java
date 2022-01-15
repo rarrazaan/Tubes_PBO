@@ -25,6 +25,7 @@ public final class TambahPasien extends javax.swing.JFrame {
     static Connection conn;
     static Statement stmt;
     static ResultSet rs;
+    public static String nama;
     /**
      * Creates new form AddPasien
      */
@@ -358,7 +359,15 @@ public final class TambahPasien extends javax.swing.JFrame {
     }//GEN-LAST:event_obatActionPerformed
 
     private void pasienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pasienActionPerformed
-        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            dispose();
+            MenuPasien a;
+            a = new MenuPasien();
+            a.setVisible(true);
+        } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(TambahPasien.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_pasienActionPerformed
 
     private void dokterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dokterActionPerformed
@@ -374,12 +383,81 @@ public final class TambahPasien extends javax.swing.JFrame {
     }//GEN-LAST:event_dashboradActionPerformed
 
     private void btn_daruratActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_daruratActionPerformed
-        dispose();
+        String name = edt_name.getText();
+        TambahPasien.nama = name;
+        String gender = ""; String jenis = "Darurat";
+        String kontak = edt_kontak.getText();
+        String alamat = edt_alamat.getText();
+        int umur = Integer.parseInt(edt_umur.getText());
+        if (rb_lk.isSelected()) {
+            gender = "Laki-Laki";
+        } else if (rb_pr.isSelected()) {
+            gender = "Perempuan";
+        }
+        if (name.isEmpty() || gender.isEmpty() || alamat.isEmpty() || kontak.isEmpty() || umur==NULL) {
+            JOptionPane.showMessageDialog(this, "Data isian ada yang kosong");
+        }else{
+            try{
+                //Class.forName("com.mysql.cj.jdbc.Driver");
+                conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+                stmt = conn.createStatement();
+                String Nama = name;
+                String Gender = gender;
+                String Kontak = kontak;
+                String Alamat = alamat;
+                String Jenis = jenis;
+                int Umur = umur;
+
+                String sql = "INSERT INTO `pasien` (`id_pasien`, `nama_pasien`, `gender_pasien`, `alamat_pasien`, `umur_pasien`, `kontak_pasien`, `jenis_pasien`) VALUES (NULL, '"+Nama+"','"+Gender+"','"+Alamat+"','"+Umur+"','"+Kontak+"','"+Jenis+"')";
+                // INSERT INTO `pasien` (`id_pasien`, `nama_pasien`, `gender_pasien`, `alamat_pasien`, `umur_pasien`, `kontak_pasien`) VALUES ('1', 'as', 'as', 'as', '30', 'as')
+
+                stmt.executeUpdate(sql);
+                stmt.close();
+                conn.close();
+            } catch (SQLException e) {
+            }
+        }
+        dispose(); 
+        //System.out.println(TambahPasien.nama);
         PasienDarurat a = new PasienDarurat();
         a.setVisible(true);
     }//GEN-LAST:event_btn_daruratActionPerformed
 
     private void btn_normalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_normalActionPerformed
+        String name = edt_name.getText();
+        TambahPasien.nama = name;
+        String gender = ""; String jenis = "Normal";
+        String kontak = edt_kontak.getText();
+        String alamat = edt_alamat.getText();
+        int umur = Integer.parseInt(edt_umur.getText());
+        if (rb_lk.isSelected()) {
+            gender = "Laki-Laki";
+        } else if (rb_pr.isSelected()) {
+            gender = "Perempuan";
+        }
+        if (name.isEmpty() || gender.isEmpty() || alamat.isEmpty() || kontak.isEmpty() || umur==NULL) {
+            JOptionPane.showMessageDialog(this, "Data isian ada yang kosong");
+        }
+        try{
+            //Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+            System.out.println("\nconn");
+            stmt = conn.createStatement();
+            String Nama = name;
+            String Gender = gender;
+            String Kontak = kontak;
+            String Alamat = alamat;
+            String Jenis = jenis;
+            int Umur = umur;
+
+            String sql = "INSERT INTO `pasien` (`id_pasien`, `nama_pasien`, `gender_pasien`, `alamat_pasien`, `umur_pasien`, `kontak_pasien`, `jenis_pasien`) VALUES (NULL, '"+Nama+"','"+Gender+"','"+Alamat+"','"+Umur+"','"+Kontak+"','"+Jenis+"')";
+            // INSERT INTO `pasien` (`id_pasien`, `nama_pasien`, `gender_pasien`, `alamat_pasien`, `umur_pasien`, `kontak_pasien`) VALUES ('1', 'as', 'as', 'as', '30', 'as')
+
+            stmt.executeUpdate(sql);
+            stmt.close();
+            conn.close();
+        } catch (SQLException e) {
+        }
         dispose();
         PasienNormal a = new PasienNormal();
         a.setVisible(true);

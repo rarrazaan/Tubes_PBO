@@ -46,8 +46,8 @@ public class MenuPasien extends javax.swing.JFrame {
             }
             stmt.close();
             conn.close();
-            } catch (SQLException e) {
-            }
+        } catch (SQLException e) {
+        }
         if (ID.size()<1){
             btn_update.setEnabled(false);
             btn_del.setEnabled(false);
@@ -370,7 +370,11 @@ public class MenuPasien extends javax.swing.JFrame {
             //Class.forName("com.mysql.cj.jdbc.Driver");
             conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
             stmt = conn.createStatement();
-            String sql = "SELECT * FROM pasien";
+            String sql = "SELECT pasien.*, pasiennormal.ruang_rawat, pasiendarurat.ruangan_IGD, pasiendarurat.level\n" +
+                "FROM pasien \n" +
+                "LEFT OUTER JOIN pasiennormal ON pasien.id_pasien = pasiennormal.id_pasien\n" +
+                "LEFT OUTER JOIN pasiendarurat ON pasien.id_pasien = pasiendarurat.id_pasien;";
+
             rs = stmt.executeQuery(sql);
             n = ID.get(n);
             while(rs.next()){
@@ -378,8 +382,18 @@ public class MenuPasien extends javax.swing.JFrame {
                 if(i==n){
                     this.jLabel6.setText(String.valueOf(rs.getInt("umur_pasien")));
                     this.jLabel7.setText(rs.getString("gender_pasien"));
-                    this.jLabel8.setText(rs.getString("nama_pasien"));
-                    this.jLabel9.setText(rs.getString("alamat_pasien"));
+                    this.jLabel8.setText(rs.getString("jenis_pasien"));
+                    this.jLabel12.setText(rs.getString("alamat_pasien"));
+                    this.jLabel14.setText(rs.getString("kontak_pasien"));
+                    if ("Darurat".equals(rs.getString("jenis_pasien"))){
+                        this.jLabel9.setText(rs.getString("ruangan_IGD"));
+                        this.jLabel16.setText(rs.getString("level"));
+                    }else{
+                        this.jLabel9.setText(rs.getString("ruang_rawat"));
+                        this.jLabel16.setText("-");
+                    }
+                    
+                    
                     x=rs.getInt("id_pasien");
                 }
             }
