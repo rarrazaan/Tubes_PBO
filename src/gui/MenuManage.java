@@ -41,6 +41,8 @@ public class MenuManage extends javax.swing.JFrame {
         obat = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -154,6 +156,15 @@ public class MenuManage extends javax.swing.JFrame {
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 350, 230, 250);
 
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        jTextArea1.setRows(5);
+        jTextArea1.setText("Imam Rafiif Arrazaan (1301194152) IF4305\nArvinda Dwi Safira (1301190083) IF4305\nTsaqib Sayyidan Sendjaja (1301193450) IF4305\nBambang Silva Prasetyo (1301194205) IF4305\n");
+        jScrollPane1.setViewportView(jTextArea1);
+
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(380, 260, 440, 120);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -255,6 +266,8 @@ public class MenuManage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JButton obat;
     private javax.swing.JButton pasien;
     // End of variables declaration//GEN-END:variables

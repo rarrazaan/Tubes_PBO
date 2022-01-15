@@ -319,19 +319,19 @@ public class MenuObat extends javax.swing.JFrame {
 
     private void btn_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_updateActionPerformed
         dispose();
-        UpdatePasien a = new UpdatePasien();
+        UpdateObat a = new UpdateObat();
         a.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_btn_updateActionPerformed
 
     private void btn_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_addActionPerformed
         dispose();
-        TambahPasien a = new TambahPasien();
+        TambahObat a = new TambahObat();
         a.setVisible(true);
     }//GEN-LAST:event_btn_addActionPerformed
 
     private void btn_delActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_delActionPerformed
         dispose();
-        HapusPasien a = new HapusPasien();
+        HapusObat a = new HapusObat();
         a.setVisible(true);
     }//GEN-LAST:event_btn_delActionPerformed
 

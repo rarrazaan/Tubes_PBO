@@ -56,6 +56,7 @@ public class UpdatePasien extends javax.swing.JFrame {
         emp_login = new javax.swing.JLabel();
         btn_normal = new javax.swing.JButton();
         btn_darurat = new javax.swing.JButton();
+        btn_del = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -288,6 +289,20 @@ public class UpdatePasien extends javax.swing.JFrame {
         jPanel1.add(btn_darurat);
         btn_darurat.setBounds(630, 430, 140, 40);
 
+        btn_del.setBackground(new java.awt.Color(255, 255, 255));
+        btn_del.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        btn_del.setForeground(new java.awt.Color(0, 153, 153));
+        btn_del.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-delete-32.png"))); // NOI18N
+        btn_del.setText("Hapus Data");
+        btn_del.setBorder(null);
+        btn_del.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_delActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_del);
+        btn_del.setBounds(800, 430, 130, 40);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -377,6 +392,12 @@ public class UpdatePasien extends javax.swing.JFrame {
         a.setVisible(true);
     }//GEN-LAST:event_btn_daruratActionPerformed
 
+    private void btn_delActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_delActionPerformed
+        dispose();
+        HapusPasien a = new HapusPasien();
+        a.setVisible(true);
+    }//GEN-LAST:event_btn_delActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -414,6 +435,7 @@ public class UpdatePasien extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_darurat;
+    private javax.swing.JButton btn_del;
     private javax.swing.JButton btn_normal;
     private javax.swing.JButton btn_simpan1;
     private javax.swing.JButton dashboard;
