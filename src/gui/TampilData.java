@@ -5,7 +5,13 @@
  */
 package gui;
 
+import static gui.UpdatePasien.conn;
+import static gui.UpdatePasien.rs;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -15,12 +21,47 @@ import javax.swing.JOptionPane;
  * @author RVN
  */
 public class TampilData extends javax.swing.JFrame {
-
+    static final String DB_URL = "jdbc:mysql://localhost:3306/puskesmas";
+    static final String DB_USER = "root";
+    static final String DB_PASS = "";
+    static Connection conn;
+    static Statement stmt;
+    static ResultSet rs;
     /**
      * Creates new form RekamMedis
      */
     public TampilData() {
-        initComponents();
+        try {
+            initComponents();
+            conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+            stmt = conn.createStatement();
+            String sql = "SELECT terapi.*, pasien.nama_pasien, dokter.nama_dokter, obat.nama_obat, rekammedis.*, tagihan.*\n" +
+                    "FROM terapi\n" +
+                    "LEFT JOIN pasien ON pasien.id_pasien=terapi.id_pasien\n" +
+                    "LEFT JOIN dokter ON dokter.id_dokter=terapi.id_dokter\n" +
+                    "LEFT JOIN obat ON obat.id_obat=terapi.id_obat\n" +
+                    "LEFT JOIN rekammedis ON rekammedis.id_pasien=terapi.id_pasien\n" +
+                    "LEFT JOIN tagihan ON tagihan.id_terapi=terapi.id_terapi\n" +
+                    "WHERE terapi.id_pasien=";
+            int n = MenuPasien.x;
+            rs = stmt.executeQuery(sql+n);
+            while(rs.next()){
+                this.jLabel9.setText(rs.getString("nama_pasien"));
+                this.jLabel11.setText(rs.getString("nama_dokter"));
+                this.jLabel13.setText(rs.getString("nama_obat"));
+                this.jLabel22.setText(rs.getString("keluhan"));   
+                this.jLabel14.setText(rs.getString("durasi_terapi"));
+                this.jLabel15.setText(rs.getString("biaya_terapi"));
+                this.jLabel16.setText(rs.getString("tanggal_terapi"));
+                this.jLabel17.setText(rs.getString("tanggal_pembayaran"));
+                this.jLabel18.setText(rs.getString("total_biaya"));
+                this.jLabel20.setText(rs.getString("pemeriksaan"));
+            }
+            stmt.close();
+            conn.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(TampilData.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -273,7 +314,7 @@ public class TampilData extends javax.swing.JFrame {
         jLabel19.setBounds(300, 520, 130, 21);
 
         jLabel20.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jLabel20.setText("jLabel18");
+        jLabel20.setText("jLabel20");
         jPanel1.add(jLabel20);
         jLabel20.setBounds(510, 520, 400, 80);
 

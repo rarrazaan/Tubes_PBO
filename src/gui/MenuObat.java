@@ -5,9 +5,16 @@
  */
 package gui;
 
+import static gui.MenuDokter.conn;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,12 +22,45 @@ import javax.swing.JOptionPane;
  * @author RVN
  */
 public class MenuObat extends javax.swing.JFrame {
-
+    static final String DB_URL = "jdbc:mysql://localhost:3306/puskesmas";
+    static final String DB_USER = "root";
+    static final String DB_PASS = "";
+    static Connection conn;
+    static Statement stmt;
+    static ResultSet rs;
+    ArrayList<Integer> ID = new ArrayList<>(50);
+    static int i, x;
     /**
      * Creates new form MenuObat
      */
     public MenuObat() {
         initComponents();
+        DefaultListModel pilih = new DefaultListModel();
+        try {
+            //Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+            stmt = conn.createStatement();
+            String sql = "SELECT * FROM obat";
+            rs = stmt.executeQuery(sql);
+            while(rs.next()){
+                pilih.addElement(rs.getString("nama_obat"));
+                System.out.println(rs.getInt("id_obat"));
+                ID.add(rs.getInt("id_obat"));
+            }
+            System.out.print(ID.size());
+            if (ID.size()<1){
+                btn_update.setEnabled(false);
+                btn_del.setEnabled(false);
+            }
+            stmt.close();
+            conn.close();
+            } catch (SQLException e) {
+            }
+        if (ID.size()<1){
+            btn_update.setEnabled(false);
+            btn_del.setEnabled(false);
+        }
+        this.jList1.setModel(pilih);
     }
 
     /**
@@ -291,7 +331,30 @@ public class MenuObat extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
-      
+        int n = jList1.getSelectedIndex();
+        try {
+            //Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+            stmt = conn.createStatement();
+            String sql = "SELECT * FROM obat";
+            rs = stmt.executeQuery(sql);
+            n = ID.get(n);
+            while(rs.next()){
+                i = rs.getInt("id_obat");
+                if(i==n){
+                    this.jLabel6.setText(rs.getString("jenis_obat"));
+                    this.jLabel7.setText(rs.getString("masa_berlaku"));
+                    this.jLabel8.setText(rs.getString("jumlah_obat"));
+                    this.jLabel9.setText(rs.getString("harga_obat"));
+                    this.jLabel12.setText(rs.getString("tanggal_produksi"));
+                    x=rs.getInt("id_obat");
+                }
+            }
+            stmt.close();
+            conn.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPasien.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jList1MouseClicked
 
     private void dashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashboardActionPerformed

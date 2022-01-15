@@ -5,8 +5,6 @@
  */
 package gui;
 
-import static gui.HapusPasien.conn;
-import static gui.PasienDarurat.conn;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -32,22 +30,19 @@ public class PasienNormal extends javax.swing.JFrame {
      * Creates new form TambahCatatan
      */
     public PasienNormal() {
-        initComponents();
         try {
             initComponents();
             conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
             stmt = conn.createStatement();
-            System.out.println(TambahPasien.nama);
             String sql = "SELECT id_pasien FROM pasien WHERE nama_pasien='"+TambahPasien.nama+"'";
             rs = stmt.executeQuery(sql);
             while(rs.next()){
-                PasienDarurat.id = rs.getInt("id_pasien");
+                PasienNormal.id = rs.getInt("id_pasien");
             }
-            System.out.println(PasienDarurat.id);
             stmt.close();
             conn.close();
         } catch (SQLException ex) {
-            Logger.getLogger(PasienDarurat.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PasienNormal.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -151,7 +146,7 @@ public class PasienNormal extends javax.swing.JFrame {
                 //Class.forName("com.mysql.cj.jdbc.Driver");
                 conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
                 stmt = conn.createStatement();
-                String sql = "INSERT INTO `pasiennormal` (`id_pasien`, `ruang_rawat`) VALUES ('"+PasienDarurat.id+"','"+ruangan+"')";
+                String sql = "INSERT INTO `pasiennormal` (`id_pasien`, `ruang_rawat`) VALUES ('"+PasienNormal.id+"','"+ruangan+"')";
                 // INSERT INTO `pasien` (`id_pasien`, `nama_pasien`, `gender_pasien`, `alamat_pasien`, `umur_pasien`, `kontak_pasien`) VALUES ('1', 'as', 'as', 'as', '30', 'as')
 
                 stmt.executeUpdate(sql);
@@ -164,10 +159,8 @@ public class PasienNormal extends javax.swing.JFrame {
             MenuPasien a = null;
             try {
                 a = new MenuPasien();
-            } catch (SQLException ex) {
-                Logger.getLogger(PasienDarurat.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(PasienDarurat.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException | ClassNotFoundException ex) {
+                Logger.getLogger(PasienNormal.class.getName()).log(Level.SEVERE, null, ex);
             }
             a.setVisible(true);
         }

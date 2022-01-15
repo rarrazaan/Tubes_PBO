@@ -5,21 +5,45 @@
  */
 package gui;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author RVN
  */
 public class PasienDarurat1 extends javax.swing.JFrame {
-
+    static final String DB_URL = "jdbc:mysql://localhost:3306/puskesmas";
+    static final String DB_USER = "root";
+    static final String DB_PASS = "";
+    static Connection conn;
+    static Statement stmt;
+    static ResultSet rs;
+    static int id;
     /**
      * Creates new form TambahCatatan
      */
     public PasienDarurat1() {
-        initComponents();
+        try {
+            initComponents();
+            conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+            stmt = conn.createStatement();
+            String sql = "SELECT id_pasien FROM pasien WHERE nama_pasien='"+UpdatePasien.nama+"'";
+            rs = stmt.executeQuery(sql);
+            while(rs.next()){
+                PasienDarurat1.id = rs.getInt("id_pasien");
+            }
+            stmt.close();
+            conn.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(PasienDarurat1.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -120,13 +144,35 @@ public class PasienDarurat1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void btn_simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_simpanActionPerformed
+        String ruangan = (String) jComboBox1.getSelectedItem();
+        String lvl = (String) jComboBox2.getSelectedItem();
+        int level = Integer.parseInt(lvl);
+        if ("PILIH".equals(ruangan) || "PILIH".equals(lvl)){
+            JOptionPane.showMessageDialog(this, "Data isian ada yang kosong");
+            dispose(); 
+            //System.out.println(TambahPasien.nama);
+            PasienDarurat1 a = new PasienDarurat1();
+            a.setVisible(true);
+        }else{
+            try{
+                //Class.forName("com.mysql.cj.jdbc.Driver");
+                conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+                stmt = conn.createStatement();
+                String sql = "INSERT INTO `pasiendarurat` (`id_pasien`, `level`, `ruangan_IGD`) VALUES ('"+PasienDarurat1.id+"',"+level+",'"+ruangan+"')";
+                // INSERT INTO `pasien` (`id_pasien`, `nama_pasien`, `gender_pasien`, `alamat_pasien`, `umur_pasien`, `kontak_pasien`) VALUES ('1', 'as', 'as', 'as', '30', 'as')
+
+                stmt.executeUpdate(sql);
+                stmt.close();
+                conn.close();
+            }catch (SQLException e){
+
+            }
+        }
         dispose();
         MenuPasien a = null;
         try {
             a = new MenuPasien();
-        } catch (SQLException ex) {
-            Logger.getLogger(PasienDarurat1.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
+        } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(PasienDarurat1.class.getName()).log(Level.SEVERE, null, ex);
         }
         a.setVisible(true);

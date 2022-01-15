@@ -5,7 +5,13 @@
  */
 package gui;
 
+import static gui.TambahPasien.conn;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import static java.sql.Types.NULL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -15,12 +21,19 @@ import javax.swing.JOptionPane;
  * @author RVN
  */
 public class TambahDokter extends javax.swing.JFrame {
-
+    static final String DB_URL = "jdbc:mysql://localhost:3306/puskesmas";
+    static final String DB_USER = "root";
+    static final String DB_PASS = "";
+    static Connection conn;
+    static Statement stmt;
+    static ResultSet rs;
+    public static String nama;
     /**
      * Creates new form TambahDokter
      */
     public TambahDokter() {
         initComponents();
+        
     }
 
     /**
@@ -37,7 +50,7 @@ public class TambahDokter extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         out = new javax.swing.JButton();
         btn_simpan = new javax.swing.JButton();
-        btn_simpan1 = new javax.swing.JButton();
+        btn_batal = new javax.swing.JButton();
         obat = new javax.swing.JButton();
         pasien = new javax.swing.JButton();
         dokter = new javax.swing.JButton();
@@ -99,14 +112,14 @@ public class TambahDokter extends javax.swing.JFrame {
             }
         });
 
-        btn_simpan1.setBackground(new java.awt.Color(0, 153, 153));
-        btn_simpan1.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
-        btn_simpan1.setForeground(new java.awt.Color(255, 255, 255));
-        btn_simpan1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-cancel-32.png"))); // NOI18N
-        btn_simpan1.setText("BATAL");
-        btn_simpan1.addActionListener(new java.awt.event.ActionListener() {
+        btn_batal.setBackground(new java.awt.Color(0, 153, 153));
+        btn_batal.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        btn_batal.setForeground(new java.awt.Color(255, 255, 255));
+        btn_batal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-cancel-32.png"))); // NOI18N
+        btn_batal.setText("BATAL");
+        btn_batal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_simpan1ActionPerformed(evt);
+                btn_batalActionPerformed(evt);
             }
         });
 
@@ -260,7 +273,7 @@ public class TambahDokter extends javax.swing.JFrame {
                                     .addGap(180, 180, 180)
                                     .addComponent(btn_simpan, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(110, 110, 110)
-                                    .addComponent(btn_simpan1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(btn_batal, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
@@ -314,7 +327,7 @@ public class TambahDokter extends javax.swing.JFrame {
                             .addGap(150, 150, 150)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(btn_simpan, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btn_simpan1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(btn_batal, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
@@ -344,12 +357,48 @@ public class TambahDokter extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_simpanActionPerformed
-        
+        String name = edt_name.getText();
+        TambahDokter.nama = name;
+        String gender = "";
+        String kontak = jTextField2.getText();
+        String alamat = jTextField4.getText();
+        String spesialis = jTextField5.getText();
+        if (rb_lk.isSelected()) {
+            gender = "Laki-Laki";
+        } else if (rb_pr.isSelected()) {
+            gender = "Perempuan";
+        }
+        if (name.isEmpty() || gender.isEmpty() || alamat.isEmpty() || kontak.isEmpty() || spesialis.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Data isian ada yang kosong");
+        }else{
+            try{
+                //Class.forName("com.mysql.cj.jdbc.Driver");
+                conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+                stmt = conn.createStatement();
+                String Nama = name;
+                String Gender = gender;
+                String Kontak = kontak;
+                String Alamat = alamat;
+                String Spesialis = spesialis;
+
+                String sql = "INSERT INTO `dokter` (`id_dokter`, `nama_dokter`, `gender_dokter`, `alamat_dokter`, `spesialis`, `kontak_dokter`) VALUES (NULL, '"+Nama+"','"+Gender+"','"+Alamat+"','"+Spesialis+"','"+Kontak+"')";
+
+                stmt.executeUpdate(sql);
+                stmt.close();
+                conn.close();
+            } catch (SQLException e) {
+            }
+        }
+        dispose();
+        MenuDokter a = new MenuDokter();
+        a.setVisible(true);
     }//GEN-LAST:event_btn_simpanActionPerformed
 
-    private void btn_simpan1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_simpan1ActionPerformed
-        
-    }//GEN-LAST:event_btn_simpan1ActionPerformed
+    private void btn_batalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_batalActionPerformed
+        dispose();
+        MenuDokter a = new MenuDokter();
+        a.setVisible(true);
+    }//GEN-LAST:event_btn_batalActionPerformed
 
     private void obatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_obatActionPerformed
         dispose();
@@ -443,8 +492,8 @@ public class TambahDokter extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_batal;
     private javax.swing.JButton btn_simpan;
-    private javax.swing.JButton btn_simpan1;
     private javax.swing.JButton dashboard;
     private javax.swing.JButton dokter;
     private javax.swing.JTextField edt_name;

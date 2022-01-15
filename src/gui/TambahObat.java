@@ -5,7 +5,12 @@
  */
 package gui;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import static java.sql.Types.NULL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -15,7 +20,13 @@ import javax.swing.JOptionPane;
  * @author RVN
  */
 public class TambahObat extends javax.swing.JFrame {
-
+    static final String DB_URL = "jdbc:mysql://localhost:3306/puskesmas";
+    static final String DB_USER = "root";
+    static final String DB_PASS = "";
+    static Connection conn;
+    static Statement stmt;
+    static ResultSet rs;
+    public static String nama;
     /**
      * Creates new form TambahObat
      */
@@ -42,7 +53,6 @@ public class TambahObat extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
@@ -53,9 +63,12 @@ public class TambahObat extends javax.swing.JFrame {
         pasien = new javax.swing.JButton();
         obat = new javax.swing.JButton();
         btn_simpan = new javax.swing.JButton();
-        btn_simpan1 = new javax.swing.JButton();
+        btn_batal = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
+        cb_tanggal1 = new javax.swing.JComboBox<>();
+        cb_bulan = new javax.swing.JComboBox<>();
+        cb_tahun = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -109,14 +122,6 @@ public class TambahObat extends javax.swing.JFrame {
         jTextField1.setBounds(480, 170, 400, 30);
         jPanel1.add(jTextField2);
         jTextField2.setBounds(480, 230, 400, 30);
-
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField3);
-        jTextField3.setBounds(480, 290, 400, 30);
         jPanel1.add(jTextField4);
         jTextField4.setBounds(480, 350, 400, 30);
 
@@ -224,18 +229,18 @@ public class TambahObat extends javax.swing.JFrame {
         jPanel1.add(btn_simpan);
         btn_simpan.setBounds(410, 530, 150, 45);
 
-        btn_simpan1.setBackground(new java.awt.Color(0, 153, 153));
-        btn_simpan1.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
-        btn_simpan1.setForeground(new java.awt.Color(255, 255, 255));
-        btn_simpan1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-cancel-32.png"))); // NOI18N
-        btn_simpan1.setText("BATAL");
-        btn_simpan1.addActionListener(new java.awt.event.ActionListener() {
+        btn_batal.setBackground(new java.awt.Color(0, 153, 153));
+        btn_batal.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        btn_batal.setForeground(new java.awt.Color(255, 255, 255));
+        btn_batal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-cancel-32.png"))); // NOI18N
+        btn_batal.setText("BATAL");
+        btn_batal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_simpan1ActionPerformed(evt);
+                btn_batalActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_simpan1);
-        btn_simpan1.setBounds(670, 530, 150, 45);
+        jPanel1.add(btn_batal);
+        btn_batal.setBounds(670, 530, 150, 45);
 
         jPanel4.setBackground(new java.awt.Color(0, 102, 102));
         jPanel4.setLayout(null);
@@ -249,22 +254,83 @@ public class TambahObat extends javax.swing.JFrame {
         jPanel1.add(jPanel4);
         jPanel4.setBounds(1, 1, 1000, 70);
 
+        cb_tanggal1.setMaximumRowCount(31);
+        cb_tanggal1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        jPanel1.add(cb_tanggal1);
+        cb_tanggal1.setBounds(480, 290, 37, 20);
+
+        cb_bulan.setMaximumRowCount(12);
+        cb_bulan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+        cb_bulan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb_bulanActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cb_bulan);
+        cb_bulan.setBounds(550, 290, 37, 20);
+
+        cb_tahun.setMaximumRowCount(30);
+        cb_tahun.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022" }));
+        cb_tahun.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb_tahunActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cb_tahun);
+        cb_tahun.setBounds(620, 290, 80, 20);
+
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 1000, 600);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_simpan1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_simpan1ActionPerformed
-
-    }//GEN-LAST:event_btn_simpan1ActionPerformed
+    private void btn_batalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_batalActionPerformed
+        dispose();
+        MenuObat a = new MenuObat();
+        a.setVisible(true);
+    }//GEN-LAST:event_btn_batalActionPerformed
 
     private void btn_simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_simpanActionPerformed
+        String name = jTextField1.getText();
+        TambahObat.nama = name;
+        String jenis = jTextField2.getText();
+        String tgl_produksi = cb_tahun.getSelectedItem().toString() + "-" + (cb_bulan.getSelectedIndex()+1) + "-" +cb_tanggal1.getSelectedItem().toString() ;
+        String masa_berlaku = jTextField4.getText();
+        int jml_obat = Integer.parseInt(jTextField5.getText());
+        int harga_obat = Integer.parseInt(jTextField6.getText());
 
+        if (name.isEmpty() || jenis.isEmpty() || tgl_produksi.isEmpty() || masa_berlaku.isEmpty() || jml_obat==NULL || harga_obat==NULL) {
+            JOptionPane.showMessageDialog(this, "Data isian ada yang kosong");
+        }else{
+            try{
+                //Class.forName("com.mysql.cj.jdbc.Driver");
+                conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+                stmt = conn.createStatement();
+                String Nama = name;
+                String Jenis = jenis;
+                String TglProduksi = tgl_produksi;
+                String MasaBerlaku = masa_berlaku;
+                int JmlObat = jml_obat;
+                int HargaObat = harga_obat;
+
+                String sql = "INSERT INTO `obat` (`id_obat`, `nama_obat`, `jenis_obat`, `tanggal_produksi`, `masa_berlaku`, `jumlah_obat`, `harga_obat`) VALUES (NULL, '"+Nama+"','"+Jenis+"','"+TglProduksi+"','"+MasaBerlaku+"','"+JmlObat+"','"+HargaObat+"')";
+
+                stmt.executeUpdate(sql);
+                stmt.close();
+                conn.close();
+            } catch (SQLException e) {
+            }
+        }
+        dispose();
+        MenuObat a = new MenuObat();
+        a.setVisible(true);
     }//GEN-LAST:event_btn_simpanActionPerformed
 
     private void obatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_obatActionPerformed
-        // TODO add your handling code here:
+        dispose();
+        MenuObat a = new MenuObat();
+        a.setVisible(true);
     }//GEN-LAST:event_obatActionPerformed
 
     private void pasienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pasienActionPerformed
@@ -309,9 +375,13 @@ public class TambahObat extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField5ActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void cb_bulanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_bulanActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_cb_bulanActionPerformed
+
+    private void cb_tahunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_tahunActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cb_tahunActionPerformed
 
     /**
      * @param args the command line arguments
@@ -349,8 +419,11 @@ public class TambahObat extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_batal;
     private javax.swing.JButton btn_simpan;
-    private javax.swing.JButton btn_simpan1;
+    private javax.swing.JComboBox<String> cb_bulan;
+    private javax.swing.JComboBox<String> cb_tahun;
+    private javax.swing.JComboBox<String> cb_tanggal1;
     private javax.swing.JButton dashboard;
     private javax.swing.JButton dokter;
     private javax.swing.JLabel jLabel1;
@@ -366,7 +439,6 @@ public class TambahObat extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;

@@ -5,11 +5,6 @@
  */
 package gui;
 
-import static gui.MenuPasien.conn;
-import static gui.MenuPasien.stmt;
-import static gui.PasienNormal.conn;
-import static gui.TambahPasien.conn;
-import static gui.TambahPasien.stmt;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;

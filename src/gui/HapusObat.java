@@ -5,17 +5,50 @@
  */
 package gui;
 
+import static gui.HapusDokter.conn;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author RVN
  */
 public class HapusObat extends javax.swing.JFrame {
-
+    static final String DB_URL = "jdbc:mysql://localhost:3306/puskesmas";
+    static final String DB_USER = "root";
+    static final String DB_PASS = "";
+    static Connection conn;
+    static Statement stmt;
+    static ResultSet rs;
     /**
      * Creates new form HapusObat
      */
     public HapusObat() {
         initComponents();
+        try {
+            //Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+            stmt = conn.createStatement();
+            String sql = "SELECT * FROM obat";
+            rs = stmt.executeQuery(sql); 
+            int n = MenuObat.x;
+            int i;
+            while(rs.next()){
+                i = rs.getInt("id_obat");
+                if(i==n){ 
+                    this.jLabel1.setText("Hapus "+rs.getString("nama_obat")+" ?");
+                }
+            }
+            stmt.close();
+            conn.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuPasien.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -30,6 +63,7 @@ public class HapusObat extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         btn_ok = new javax.swing.JButton();
         btn_batal = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -40,11 +74,18 @@ public class HapusObat extends javax.swing.JFrame {
         btn_ok.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         btn_ok.setForeground(new java.awt.Color(255, 255, 255));
         btn_ok.setText("OK");
+        btn_ok.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_okActionPerformed(evt);
+            }
+        });
 
         btn_batal.setBackground(new java.awt.Color(0, 153, 153));
         btn_batal.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         btn_batal.setForeground(new java.awt.Color(255, 255, 255));
         btn_batal.setText("BATAL");
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -56,11 +97,17 @@ public class HapusObat extends javax.swing.JFrame {
                 .addGap(42, 42, 42)
                 .addComponent(btn_batal, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(86, 86, 86))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(172, 172, 172)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(282, Short.MAX_VALUE)
+                .addGap(111, 111, 111)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 138, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_ok, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_batal, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -84,6 +131,22 @@ public class HapusObat extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_okActionPerformed
+        try{
+            //Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+            stmt = conn.createStatement();
+            String sql = "Delete FROM obat WHERE id_obat = "+MenuObat.x;
+            stmt.executeUpdate(sql);
+            stmt.close();
+            conn.close();
+        } catch (SQLException e) {
+        }
+        dispose();
+        MenuObat a = new MenuObat();
+        a.setVisible(true);
+    }//GEN-LAST:event_btn_okActionPerformed
 
     /**
      * @param args the command line arguments
@@ -123,6 +186,7 @@ public class HapusObat extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_batal;
     private javax.swing.JButton btn_ok;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

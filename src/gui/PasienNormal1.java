@@ -5,21 +5,46 @@
  */
 package gui;
 
+import static gui.PasienNormal.conn;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author RVN
  */
 public class PasienNormal1 extends javax.swing.JFrame {
-
+    static final String DB_URL = "jdbc:mysql://localhost:3306/puskesmas";
+    static final String DB_USER = "root";
+    static final String DB_PASS = "";
+    static Connection conn;
+    static Statement stmt;
+    static ResultSet rs;
+    static int id;
     /**
      * Creates new form TambahCatatan
      */
     public PasienNormal1() {
-        initComponents();
+        try {
+            initComponents();
+            conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+            stmt = conn.createStatement();
+            String sql = "SELECT id_pasien FROM pasien WHERE nama_pasien='"+UpdatePasien.nama+"'";
+            rs = stmt.executeQuery(sql);
+            while(rs.next()){
+                PasienNormal1.id = rs.getInt("id_pasien");
+            }
+            stmt.close();
+            conn.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(PasienNormal1.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -31,34 +56,15 @@ public class PasienNormal1 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        emp_login = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         btn_simpan = new javax.swing.JButton();
         btn_batal = new javax.swing.JButton();
+        emp_login = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
-
-        emp_login.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
-        emp_login.setForeground(new java.awt.Color(0, 153, 153));
-        emp_login.setText("PASIEN NORMAL");
-        getContentPane().add(emp_login);
-        emp_login.setBounds(61, 34, 179, 29);
-
-        jLabel7.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel7.setText("RUANGAN");
-        getContentPane().add(jLabel7);
-        jLabel7.setBounds(70, 100, 100, 40);
-
-        jComboBox1.setBackground(new java.awt.Color(240, 240, 240));
-        jComboBox1.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(0, 153, 153));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PILIH", "NR-01", "NR-02" }));
-        getContentPane().add(jComboBox1);
-        jComboBox1.setBounds(220, 100, 90, 40);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
@@ -89,6 +95,25 @@ public class PasienNormal1 extends javax.swing.JFrame {
         jPanel1.add(btn_batal);
         btn_batal.setBounds(290, 180, 140, 40);
 
+        emp_login.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
+        emp_login.setForeground(new java.awt.Color(0, 153, 153));
+        emp_login.setText("PASIEN NORMAL");
+        jPanel1.add(emp_login);
+        emp_login.setBounds(60, 30, 179, 29);
+
+        jLabel7.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel7.setText("RUANGAN");
+        jPanel1.add(jLabel7);
+        jLabel7.setBounds(70, 100, 100, 40);
+
+        jComboBox1.setBackground(new java.awt.Color(240, 240, 240));
+        jComboBox1.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jComboBox1.setForeground(new java.awt.Color(0, 153, 153));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PILIH", "NR-01", "NR-02" }));
+        jPanel1.add(jComboBox1);
+        jComboBox1.setBounds(220, 100, 90, 40);
+
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 500, 260);
 
@@ -96,19 +121,40 @@ public class PasienNormal1 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_simpanActionPerformed
-        dispose();
-        MenuPasien a = null;
-        try {
-            a = new MenuPasien();
-        } catch (SQLException ex) {
-            Logger.getLogger(PasienDarurat.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(PasienDarurat.class.getName()).log(Level.SEVERE, null, ex);
+        String ruangan = (String) jComboBox1.getSelectedItem();
+        if ("PILIH".equals(ruangan)){
+            JOptionPane.showMessageDialog(this, "Data isian ada yang kosong");
+            dispose(); 
+            //System.out.println(TambahPasien.nama);
+            PasienNormal a = new PasienNormal();
+            a.setVisible(true);
+        }else{
+            try{
+                //Class.forName("com.mysql.cj.jdbc.Driver");
+                conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+                stmt = conn.createStatement();
+                String sql = "INSERT INTO `pasiennormal` (`id_pasien`, `ruang_rawat`) VALUES ('"+PasienNormal1.id+"','"+ruangan+"')";
+                // INSERT INTO `pasien` (`id_pasien`, `nama_pasien`, `gender_pasien`, `alamat_pasien`, `umur_pasien`, `kontak_pasien`) VALUES ('1', 'as', 'as', 'as', '30', 'as')
+
+                stmt.executeUpdate(sql);
+                stmt.close();
+                conn.close();
+            }catch (SQLException e){
+
+            }
+            dispose();
+            MenuPasien a = null;
+            try {
+                a = new MenuPasien();
+            } catch (SQLException | ClassNotFoundException ex) {
+                Logger.getLogger(PasienNormal1.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            a.setVisible(true);
         }
-        a.setVisible(true);
     }//GEN-LAST:event_btn_simpanActionPerformed
 
     private void btn_batalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_batalActionPerformed
+        
         dispose();
         UpdatePasien a = new UpdatePasien();
         a.setVisible(true);

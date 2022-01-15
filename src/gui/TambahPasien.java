@@ -25,6 +25,7 @@ public final class TambahPasien extends javax.swing.JFrame {
     static Statement stmt;
     static ResultSet rs;
     public static String nama;
+    
     /**
      * Creates new form AddPasien
      */

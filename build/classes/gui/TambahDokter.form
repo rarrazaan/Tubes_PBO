@@ -120,7 +120,7 @@
                                           <EmptySpace min="-2" pref="180" max="-2" attributes="0"/>
                                           <Component id="btn_simpan" min="-2" pref="150" max="-2" attributes="0"/>
                                           <EmptySpace min="110" pref="110" max="-2" attributes="0"/>
-                                          <Component id="btn_simpan1" min="-2" pref="150" max="-2" attributes="0"/>
+                                          <Component id="btn_batal" min="-2" pref="150" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -192,7 +192,7 @@
                                   <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="btn_simpan" min="-2" pref="45" max="-2" attributes="0"/>
-                                      <Component id="btn_simpan1" min="-2" pref="45" max="-2" attributes="0"/>
+                                      <Component id="btn_batal" min="-2" pref="45" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -268,7 +268,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_simpanActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btn_simpan1">
+            <Component class="javax.swing.JButton" name="btn_batal">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="99" green="99" red="0" type="rgb"/>
@@ -285,7 +285,7 @@
                 <Property name="text" type="java.lang.String" value="BATAL"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_simpan1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_batalActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="obat">

@@ -5,10 +5,6 @@
  */
 package gui;
 
-import static gui.HapusPasien.conn;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -17,7 +13,6 @@ import java.sql.Statement;
 import static java.sql.Types.NULL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 /**
  *
@@ -87,7 +82,7 @@ public class UpdatePasien extends javax.swing.JFrame {
         rb_lk = new javax.swing.JRadioButton();
         rb_pr = new javax.swing.JRadioButton();
         jLabel3 = new javax.swing.JLabel();
-        btn_simpan1 = new javax.swing.JButton();
+        btn_batal = new javax.swing.JButton();
         edt_kontak = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         edt_alamat = new javax.swing.JTextField();
@@ -142,7 +137,7 @@ public class UpdatePasien extends javax.swing.JFrame {
             }
         });
         jPanel1.add(rb_lk);
-        rb_lk.setBounds(420, 200, 93, 27);
+        rb_lk.setBounds(420, 200, 91, 27);
 
         rb_pr.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         rb_pr.setForeground(new java.awt.Color(0, 153, 153));
@@ -153,7 +148,7 @@ public class UpdatePasien extends javax.swing.JFrame {
             }
         });
         jPanel1.add(rb_pr);
-        rb_pr.setBounds(540, 200, 107, 27);
+        rb_pr.setBounds(540, 200, 103, 27);
 
         jLabel3.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 153, 153));
@@ -161,18 +156,18 @@ public class UpdatePasien extends javax.swing.JFrame {
         jPanel1.add(jLabel3);
         jLabel3.setBounds(280, 250, 69, 21);
 
-        btn_simpan1.setBackground(new java.awt.Color(0, 153, 153));
-        btn_simpan1.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
-        btn_simpan1.setForeground(new java.awt.Color(255, 255, 255));
-        btn_simpan1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-cancel-32.png"))); // NOI18N
-        btn_simpan1.setText("BATAL");
-        btn_simpan1.addActionListener(new java.awt.event.ActionListener() {
+        btn_batal.setBackground(new java.awt.Color(0, 153, 153));
+        btn_batal.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        btn_batal.setForeground(new java.awt.Color(255, 255, 255));
+        btn_batal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-cancel-32.png"))); // NOI18N
+        btn_batal.setText("BATAL");
+        btn_batal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_simpan1ActionPerformed(evt);
+                btn_batalActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_simpan1);
-        btn_simpan1.setBounds(530, 520, 150, 45);
+        jPanel1.add(btn_batal);
+        btn_batal.setBounds(530, 520, 150, 45);
 
         edt_kontak.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -379,9 +374,9 @@ public class UpdatePasien extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_rb_prActionPerformed
 
-    private void btn_simpan1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_simpan1ActionPerformed
+    private void btn_batalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_batalActionPerformed
         
-    }//GEN-LAST:event_btn_simpan1ActionPerformed
+    }//GEN-LAST:event_btn_batalActionPerformed
 
     private void edt_kontakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edt_kontakActionPerformed
         // TODO add your handling code here:
@@ -402,16 +397,14 @@ public class UpdatePasien extends javax.swing.JFrame {
     }//GEN-LAST:event_obatActionPerformed
 
     private void pasienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pasienActionPerformed
-        dispose();
-        MenuPasien a = null;
         try {
-            a = new MenuPasien();
-        } catch (SQLException ex) {
-            Logger.getLogger(UpdatePasien.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
+            dispose();
+            MenuPasien a = new MenuPasien();
+            a.setVisible(true);
+        } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(UpdatePasien.class.getName()).log(Level.SEVERE, null, ex);
         }
-        a.setVisible(true);
+        
     }//GEN-LAST:event_pasienActionPerformed
 
     private void dokterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dokterActionPerformed
@@ -567,10 +560,10 @@ public class UpdatePasien extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_batal;
     private javax.swing.JButton btn_darurat;
     private javax.swing.JButton btn_del;
     private javax.swing.JButton btn_normal;
-    private javax.swing.JButton btn_simpan1;
     private javax.swing.JButton dashboard;
     private javax.swing.JButton dokter;
     private javax.swing.JTextField edt_alamat;
