@@ -106,6 +106,7 @@ public class TampilData extends javax.swing.JFrame {
         btn_ok1 = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
+        btn_terapi = new javax.swing.JButton();
 
         jLabel12.setText("jLabel12");
 
@@ -141,7 +142,7 @@ public class TampilData extends javax.swing.JFrame {
         jPanel1.add(jPanel4);
         jPanel4.setBounds(-1, 1, 1000, 70);
 
-        jPanel2.setBackground(new java.awt.Color(0, 111, 111));
+        jPanel2.setBackground(new java.awt.Color(0, 102, 102));
 
         out.setBackground(new java.awt.Color(0, 127, 127));
         out.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
@@ -163,12 +164,12 @@ public class TampilData extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 300, Short.MAX_VALUE)
+                .addGap(0, 230, Short.MAX_VALUE)
                 .addComponent(out, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(0, 350, 230, 370);
+        jPanel2.setBounds(0, 420, 230, 300);
 
         dashboard.setBackground(new java.awt.Color(0, 127, 127));
         dashboard.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
@@ -269,42 +270,50 @@ public class TampilData extends javax.swing.JFrame {
         emp_login.setBounds(280, 100, 380, 29);
 
         jLabel9.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jLabel9.setText("jLabel9");
+        jLabel9.setText("-");
+        jLabel9.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jPanel1.add(jLabel9);
         jLabel9.setBounds(510, 160, 400, 18);
 
         jLabel11.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jLabel11.setText("jLabel11");
+        jLabel11.setText("-");
+        jLabel11.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jPanel1.add(jLabel11);
         jLabel11.setBounds(510, 200, 400, 18);
 
         jLabel13.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jLabel13.setText("jLabel13");
+        jLabel13.setText("-");
+        jLabel13.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jPanel1.add(jLabel13);
         jLabel13.setBounds(510, 240, 400, 18);
 
         jLabel14.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jLabel14.setText("jLabel14");
+        jLabel14.setText("-");
+        jLabel14.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jPanel1.add(jLabel14);
         jLabel14.setBounds(510, 320, 400, 18);
 
         jLabel15.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jLabel15.setText("jLabel15");
+        jLabel15.setText("-");
+        jLabel15.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jPanel1.add(jLabel15);
         jLabel15.setBounds(510, 360, 400, 18);
 
         jLabel16.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jLabel16.setText("jLabel16");
+        jLabel16.setText("-");
+        jLabel16.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jPanel1.add(jLabel16);
         jLabel16.setBounds(510, 400, 400, 18);
 
         jLabel17.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jLabel17.setText("jLabel17");
+        jLabel17.setText("-");
+        jLabel17.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jPanel1.add(jLabel17);
         jLabel17.setBounds(510, 440, 400, 18);
 
         jLabel18.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jLabel18.setText("jLabel18");
+        jLabel18.setText("-");
+        jLabel18.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jPanel1.add(jLabel18);
         jLabel18.setBounds(510, 480, 400, 18);
 
@@ -314,7 +323,8 @@ public class TampilData extends javax.swing.JFrame {
         jLabel19.setBounds(300, 520, 130, 21);
 
         jLabel20.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jLabel20.setText("jLabel20");
+        jLabel20.setText("-");
+        jLabel20.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jPanel1.add(jLabel20);
         jLabel20.setBounds(510, 520, 400, 80);
 
@@ -336,9 +346,24 @@ public class TampilData extends javax.swing.JFrame {
         jLabel21.setBounds(300, 280, 100, 21);
 
         jLabel22.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jLabel22.setText("jLabel22");
+        jLabel22.setText("-");
+        jLabel22.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jPanel1.add(jLabel22);
         jLabel22.setBounds(510, 280, 400, 18);
+
+        btn_terapi.setBackground(new java.awt.Color(0, 127, 127));
+        btn_terapi.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        btn_terapi.setForeground(new java.awt.Color(255, 255, 255));
+        btn_terapi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-examination-40 (1).png"))); // NOI18N
+        btn_terapi.setText("     DATA TERAPI");
+        btn_terapi.setBorder(null);
+        btn_terapi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_terapiActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_terapi);
+        btn_terapi.setBounds(0, 350, 230, 70);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -417,6 +442,19 @@ public class TampilData extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_outActionPerformed
 
+    private void btn_terapiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_terapiActionPerformed
+        dispose();
+        MenuTerapi a = null;
+        try {
+            a = new MenuTerapi();
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuTerapi.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MenuTerapi.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        a.setVisible(true);
+    }//GEN-LAST:event_btn_terapiActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -456,6 +494,7 @@ public class TampilData extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_add;
     private javax.swing.JButton btn_ok1;
+    private javax.swing.JButton btn_terapi;
     private javax.swing.JButton dashboard;
     private javax.swing.JButton dokter;
     private javax.swing.JLabel emp_login;

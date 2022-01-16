@@ -84,6 +84,11 @@ public class HapusObat extends javax.swing.JFrame {
         btn_batal.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         btn_batal.setForeground(new java.awt.Color(255, 255, 255));
         btn_batal.setText("BATAL");
+        btn_batal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_batalActionPerformed(evt);
+            }
+        });
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
@@ -147,6 +152,12 @@ public class HapusObat extends javax.swing.JFrame {
         MenuObat a = new MenuObat();
         a.setVisible(true);
     }//GEN-LAST:event_btn_okActionPerformed
+
+    private void btn_batalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_batalActionPerformed
+        dispose();
+        MenuObat a = new MenuObat();
+        a.setVisible(true);
+    }//GEN-LAST:event_btn_batalActionPerformed
 
     /**
      * @param args the command line arguments

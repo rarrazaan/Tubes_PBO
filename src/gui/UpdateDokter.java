@@ -94,15 +94,19 @@ public class UpdateDokter extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         pasien = new javax.swing.JButton();
         emp_login = new javax.swing.JLabel();
+        btn_terapi = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
+        jPanel1.setLayout(null);
 
         jLabel4.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 153, 153));
         jLabel4.setText("GENDER");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(284, 257, 70, 21);
 
         dokter.setBackground(new java.awt.Color(0, 127, 127));
         dokter.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
@@ -114,10 +118,14 @@ public class UpdateDokter extends javax.swing.JFrame {
                 dokterActionPerformed(evt);
             }
         });
+        jPanel1.add(dokter);
+        dokter.setBounds(0, 140, 230, 70);
 
         jLabel5.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 153, 153));
         jLabel5.setText("ALAMAT");
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(284, 307, 67, 21);
 
         dashboard.setBackground(new java.awt.Color(0, 127, 127));
         dashboard.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
@@ -129,10 +137,14 @@ public class UpdateDokter extends javax.swing.JFrame {
                 dashboardActionPerformed(evt);
             }
         });
+        jPanel1.add(dashboard);
+        dashboard.setBounds(0, 70, 230, 70);
 
         jLabel6.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 153, 153));
         jLabel6.setText("SPESIALIS");
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(284, 367, 79, 21);
 
         jPanel4.setBackground(new java.awt.Color(0, 102, 102));
         jPanel4.setLayout(null);
@@ -143,6 +155,13 @@ public class UpdateDokter extends javax.swing.JFrame {
         jPanel4.add(jLabel10);
         jLabel10.setBounds(32, 23, 109, 34);
 
+        jPanel1.add(jPanel4);
+        jPanel4.setBounds(1, 1, 1000, 70);
+        jPanel1.add(jTextField5);
+        jTextField5.setBounds(424, 367, 500, 30);
+        jPanel1.add(jTextField4);
+        jTextField4.setBounds(424, 307, 500, 39);
+
         rb_lk.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         rb_lk.setForeground(new java.awt.Color(0, 153, 153));
         rb_lk.setText("LAKI-LAKI");
@@ -151,8 +170,10 @@ public class UpdateDokter extends javax.swing.JFrame {
                 rb_lkActionPerformed(evt);
             }
         });
+        jPanel1.add(rb_lk);
+        rb_lk.setBounds(424, 257, 93, 27);
 
-        jPanel3.setBackground(new java.awt.Color(0, 127, 127));
+        jPanel3.setBackground(new java.awt.Color(0, 102, 102));
 
         out.setBackground(new java.awt.Color(0, 127, 127));
         out.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
@@ -174,9 +195,12 @@ public class UpdateDokter extends javax.swing.JFrame {
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(0, 180, Short.MAX_VALUE)
+                .addGap(0, 110, Short.MAX_VALUE)
                 .addComponent(out, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+
+        jPanel1.add(jPanel3);
+        jPanel3.setBounds(0, 420, 230, 180);
 
         rb_pr.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         rb_pr.setForeground(new java.awt.Color(0, 153, 153));
@@ -186,6 +210,10 @@ public class UpdateDokter extends javax.swing.JFrame {
                 rb_prActionPerformed(evt);
             }
         });
+        jPanel1.add(rb_pr);
+        rb_pr.setBounds(544, 257, 107, 27);
+        jPanel1.add(jTextField2);
+        jTextField2.setBounds(424, 217, 500, 30);
 
         btn_simpan.setBackground(new java.awt.Color(0, 153, 153));
         btn_simpan.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
@@ -197,12 +225,16 @@ public class UpdateDokter extends javax.swing.JFrame {
                 btn_simpanActionPerformed(evt);
             }
         });
+        jPanel1.add(btn_simpan);
+        btn_simpan.setBounds(412, 500, 150, 45);
 
         edt_name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 edt_nameActionPerformed(evt);
             }
         });
+        jPanel1.add(edt_name);
+        edt_name.setBounds(424, 167, 500, 30);
 
         btn_batal.setBackground(new java.awt.Color(0, 153, 153));
         btn_batal.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
@@ -214,10 +246,14 @@ public class UpdateDokter extends javax.swing.JFrame {
                 btn_batalActionPerformed(evt);
             }
         });
+        jPanel1.add(btn_batal);
+        btn_batal.setBounds(672, 500, 150, 45);
 
         jLabel1.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 153, 153));
         jLabel1.setText("NAMA");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(284, 167, 47, 21);
 
         obat.setBackground(new java.awt.Color(0, 127, 127));
         obat.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
@@ -229,10 +265,14 @@ public class UpdateDokter extends javax.swing.JFrame {
                 obatActionPerformed(evt);
             }
         });
+        jPanel1.add(obat);
+        obat.setBounds(0, 280, 230, 70);
 
         jLabel3.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 153, 153));
         jLabel3.setText("KONTAK");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(284, 217, 69, 21);
 
         pasien.setBackground(new java.awt.Color(0, 127, 127));
         pasien.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
@@ -244,127 +284,42 @@ public class UpdateDokter extends javax.swing.JFrame {
                 pasienActionPerformed(evt);
             }
         });
+        jPanel1.add(pasien);
+        pasien.setBounds(0, 210, 230, 70);
 
         emp_login.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
         emp_login.setForeground(new java.awt.Color(0, 153, 153));
         emp_login.setText("UPDATE DOKTER");
+        jPanel1.add(emp_login);
+        emp_login.setBounds(284, 106, 187, 29);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(283, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(emp_login)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel3))
-                        .addGap(71, 71, 71)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(edt_name, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))
-                        .addGap(70, 70, 70)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(rb_lk)
-                                .addGap(27, 27, 27)
-                                .addComponent(rb_pr))
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addGap(61, 61, 61)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(77, 77, 77))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(1, 1, 1)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(dashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(dokter, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(pasien, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(obat, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(180, 180, 180)
-                                    .addComponent(btn_simpan, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(110, 110, 110)
-                                    .addComponent(btn_batal, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(105, 105, 105)
-                .addComponent(emp_login)
-                .addGap(32, 32, 32)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabel3))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(edt_name, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(10, 10, 10)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabel5))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(rb_lk)
-                            .addComponent(rb_pr))
-                        .addGap(23, 23, 23)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(203, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(69, 69, 69)
-                            .addComponent(dashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(0, 0, 0)
-                            .addComponent(dokter, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(pasien, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, 0)
-                    .addComponent(obat, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(150, 150, 150)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btn_simpan, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btn_batal, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
+        btn_terapi.setBackground(new java.awt.Color(0, 127, 127));
+        btn_terapi.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        btn_terapi.setForeground(new java.awt.Color(255, 255, 255));
+        btn_terapi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-examination-40 (1).png"))); // NOI18N
+        btn_terapi.setText("     DATA TERAPI");
+        btn_terapi.setBorder(null);
+        btn_terapi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_terapiActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_terapi);
+        btn_terapi.setBounds(0, 350, 230, 70);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1001, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 603, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -433,7 +388,9 @@ public class UpdateDokter extends javax.swing.JFrame {
     }//GEN-LAST:event_edt_nameActionPerformed
 
     private void btn_batalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_batalActionPerformed
-
+        dispose();
+        MenuDokter a = new MenuDokter();
+        a.setVisible(true);
     }//GEN-LAST:event_btn_batalActionPerformed
 
     private void obatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_obatActionPerformed
@@ -467,6 +424,19 @@ public class UpdateDokter extends javax.swing.JFrame {
             Logger.getLogger(MenuManage.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_outActionPerformed
+
+    private void btn_terapiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_terapiActionPerformed
+        dispose();
+        MenuTerapi a = null;
+        try {
+            a = new MenuTerapi();
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuTerapi.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MenuTerapi.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        a.setVisible(true);
+    }//GEN-LAST:event_btn_terapiActionPerformed
 
     /**
      * @param args the command line arguments
@@ -506,6 +476,7 @@ public class UpdateDokter extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_batal;
     private javax.swing.JButton btn_simpan;
+    private javax.swing.JButton btn_terapi;
     private javax.swing.JButton dashboard;
     private javax.swing.JButton dokter;
     private javax.swing.JTextField edt_name;

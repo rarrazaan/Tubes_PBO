@@ -101,6 +101,7 @@ public class UpdatePasien extends javax.swing.JFrame {
         btn_normal = new javax.swing.JButton();
         btn_darurat = new javax.swing.JButton();
         btn_del = new javax.swing.JButton();
+        btn_terapi = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -137,7 +138,7 @@ public class UpdatePasien extends javax.swing.JFrame {
             }
         });
         jPanel1.add(rb_lk);
-        rb_lk.setBounds(420, 200, 91, 27);
+        rb_lk.setBounds(420, 200, 93, 27);
 
         rb_pr.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         rb_pr.setForeground(new java.awt.Color(0, 153, 153));
@@ -148,7 +149,7 @@ public class UpdatePasien extends javax.swing.JFrame {
             }
         });
         jPanel1.add(rb_pr);
-        rb_pr.setBounds(540, 200, 103, 27);
+        rb_pr.setBounds(540, 200, 107, 27);
 
         jLabel3.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 153, 153));
@@ -205,7 +206,7 @@ public class UpdatePasien extends javax.swing.JFrame {
         jPanel1.add(jLabel5);
         jLabel5.setBounds(280, 370, 48, 21);
 
-        jPanel2.setBackground(new java.awt.Color(0, 111, 111));
+        jPanel2.setBackground(new java.awt.Color(0, 102, 102));
 
         out.setBackground(new java.awt.Color(0, 127, 127));
         out.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
@@ -227,12 +228,12 @@ public class UpdatePasien extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 180, Short.MAX_VALUE)
+                .addGap(0, 110, Short.MAX_VALUE)
                 .addComponent(out, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(0, 350, 230, 250);
+        jPanel2.setBounds(0, 420, 230, 180);
 
         obat.setBackground(new java.awt.Color(0, 127, 127));
         obat.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
@@ -348,6 +349,20 @@ public class UpdatePasien extends javax.swing.JFrame {
         jPanel1.add(btn_del);
         btn_del.setBounds(800, 430, 130, 40);
 
+        btn_terapi.setBackground(new java.awt.Color(0, 127, 127));
+        btn_terapi.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        btn_terapi.setForeground(new java.awt.Color(255, 255, 255));
+        btn_terapi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-examination-40 (1).png"))); // NOI18N
+        btn_terapi.setText("     DATA TERAPI");
+        btn_terapi.setBorder(null);
+        btn_terapi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_terapiActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_terapi);
+        btn_terapi.setBounds(0, 350, 230, 70);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -375,7 +390,16 @@ public class UpdatePasien extends javax.swing.JFrame {
     }//GEN-LAST:event_rb_prActionPerformed
 
     private void btn_batalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_batalActionPerformed
-        
+        dispose();
+        MenuPasien a = null;
+        try {
+            a = new MenuPasien();
+        } catch (SQLException ex) {
+            Logger.getLogger(UpdatePasien.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(UpdatePasien.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        a.setVisible(true);
     }//GEN-LAST:event_btn_batalActionPerformed
 
     private void edt_kontakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edt_kontakActionPerformed
@@ -397,14 +421,16 @@ public class UpdatePasien extends javax.swing.JFrame {
     }//GEN-LAST:event_obatActionPerformed
 
     private void pasienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pasienActionPerformed
+        dispose();
+        MenuPasien a = null;
         try {
-            dispose();
-            MenuPasien a = new MenuPasien();
-            a.setVisible(true);
-        } catch (SQLException | ClassNotFoundException ex) {
+            a = new MenuPasien();
+        } catch (SQLException ex) {
+            Logger.getLogger(UpdatePasien.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
             Logger.getLogger(UpdatePasien.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        a.setVisible(true);
     }//GEN-LAST:event_pasienActionPerformed
 
     private void dokterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dokterActionPerformed
@@ -524,6 +550,19 @@ public class UpdatePasien extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_delActionPerformed
 
+    private void btn_terapiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_terapiActionPerformed
+        dispose();
+        MenuTerapi a = null;
+        try {
+            a = new MenuTerapi();
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuTerapi.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MenuTerapi.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        a.setVisible(true);
+    }//GEN-LAST:event_btn_terapiActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -564,6 +603,7 @@ public class UpdatePasien extends javax.swing.JFrame {
     private javax.swing.JButton btn_darurat;
     private javax.swing.JButton btn_del;
     private javax.swing.JButton btn_normal;
+    private javax.swing.JButton btn_terapi;
     private javax.swing.JButton dashboard;
     private javax.swing.JButton dokter;
     private javax.swing.JTextField edt_alamat;

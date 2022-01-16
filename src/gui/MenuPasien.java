@@ -78,10 +78,10 @@ public class MenuPasien extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
-        btn_update = new javax.swing.JButton();
-        btn_add = new javax.swing.JButton();
         btn_del = new javax.swing.JButton();
         btn_show = new javax.swing.JButton();
+        btn_add = new javax.swing.JButton();
+        btn_update = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         out = new javax.swing.JButton();
         dashboard = new javax.swing.JButton();
@@ -94,6 +94,7 @@ public class MenuPasien extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
+        btn_terapi = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -167,34 +168,6 @@ public class MenuPasien extends javax.swing.JFrame {
         jPanel4.add(jLabel10);
         jLabel10.setBounds(32, 23, 109, 34);
 
-        btn_update.setBackground(new java.awt.Color(0, 102, 102));
-        btn_update.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
-        btn_update.setForeground(new java.awt.Color(255, 255, 255));
-        btn_update.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-update-32 (1).png"))); // NOI18N
-        btn_update.setText(" Update Data");
-        btn_update.setBorder(null);
-        btn_update.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_updateActionPerformed(evt);
-            }
-        });
-        jPanel4.add(btn_update);
-        btn_update.setBounds(250, 10, 166, 50);
-
-        btn_add.setBackground(new java.awt.Color(0, 102, 102));
-        btn_add.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
-        btn_add.setForeground(new java.awt.Color(255, 255, 255));
-        btn_add.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-add-32 (1).png"))); // NOI18N
-        btn_add.setText("Tambah Data");
-        btn_add.setBorder(null);
-        btn_add.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_addActionPerformed(evt);
-            }
-        });
-        jPanel4.add(btn_add);
-        btn_add.setBounds(430, 10, 160, 50);
-
         btn_del.setBackground(new java.awt.Color(0, 102, 102));
         btn_del.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
         btn_del.setForeground(new java.awt.Color(255, 255, 255));
@@ -223,10 +196,38 @@ public class MenuPasien extends javax.swing.JFrame {
         jPanel4.add(btn_show);
         btn_show.setBounds(790, 10, 160, 50);
 
+        btn_add.setBackground(new java.awt.Color(0, 102, 102));
+        btn_add.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        btn_add.setForeground(new java.awt.Color(255, 255, 255));
+        btn_add.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-add-32 (1).png"))); // NOI18N
+        btn_add.setText("Tambah Data");
+        btn_add.setBorder(null);
+        btn_add.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_addActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btn_add);
+        btn_add.setBounds(430, 10, 160, 50);
+
+        btn_update.setBackground(new java.awt.Color(0, 102, 102));
+        btn_update.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        btn_update.setForeground(new java.awt.Color(255, 255, 255));
+        btn_update.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-update-32 (1).png"))); // NOI18N
+        btn_update.setText(" Update Data");
+        btn_update.setBorder(null);
+        btn_update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_updateActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btn_update);
+        btn_update.setBounds(250, 10, 166, 50);
+
         jPanel1.add(jPanel4);
         jPanel4.setBounds(-1, 1, 1000, 70);
 
-        jPanel2.setBackground(new java.awt.Color(0, 111, 111));
+        jPanel2.setBackground(new java.awt.Color(0, 102, 102));
 
         out.setBackground(new java.awt.Color(0, 127, 127));
         out.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
@@ -248,12 +249,12 @@ public class MenuPasien extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 180, Short.MAX_VALUE)
+                .addGap(0, 110, Short.MAX_VALUE)
                 .addComponent(out, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(0, 350, 230, 250);
+        jPanel2.setBounds(0, 420, 230, 180);
 
         dashboard.setBackground(new java.awt.Color(0, 127, 127));
         dashboard.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
@@ -340,6 +341,20 @@ public class MenuPasien extends javax.swing.JFrame {
         jPanel1.add(jLabel16);
         jLabel16.setBounds(750, 490, 210, 21);
 
+        btn_terapi.setBackground(new java.awt.Color(0, 127, 127));
+        btn_terapi.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        btn_terapi.setForeground(new java.awt.Color(255, 255, 255));
+        btn_terapi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-examination-40 (1).png"))); // NOI18N
+        btn_terapi.setText("     DATA TERAPI");
+        btn_terapi.setBorder(null);
+        btn_terapi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_terapiActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_terapi);
+        btn_terapi.setBounds(0, 350, 230, 70);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -357,18 +372,6 @@ public class MenuPasien extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btn_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_addActionPerformed
-        dispose();
-        TambahPasien a = new TambahPasien();
-        a.setVisible(true);
-    }//GEN-LAST:event_btn_addActionPerformed
-
-    private void btn_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_updateActionPerformed
-        dispose();
-        UpdatePasien a = new UpdatePasien();
-        a.setVisible(true);
-    }//GEN-LAST:event_btn_updateActionPerformed
 
     private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
         int n = jList1.getSelectedIndex();
@@ -435,16 +438,7 @@ public class MenuPasien extends javax.swing.JFrame {
     }//GEN-LAST:event_dokterActionPerformed
 
     private void pasienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pasienActionPerformed
-        dispose();
-        MenuPasien a = null;
-        try {
-            a = new MenuPasien();
-        } catch (SQLException ex) {
-            Logger.getLogger(MenuPasien.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(MenuPasien.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        a.setVisible(true);
+        
     }//GEN-LAST:event_pasienActionPerformed
 
     private void obatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_obatActionPerformed
@@ -465,6 +459,31 @@ public class MenuPasien extends javax.swing.JFrame {
             Logger.getLogger(MenuManage.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_outActionPerformed
+
+    private void btn_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_addActionPerformed
+        dispose();
+        TambahPasien a = new TambahPasien();
+        a.setVisible(true);
+    }//GEN-LAST:event_btn_addActionPerformed
+
+    private void btn_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_updateActionPerformed
+        dispose();
+        UpdatePasien a = new UpdatePasien();
+        a.setVisible(true);
+    }//GEN-LAST:event_btn_updateActionPerformed
+
+    private void btn_terapiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_terapiActionPerformed
+        dispose();
+        MenuTerapi a = null;
+        try {
+            a = new MenuTerapi();
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuTerapi.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MenuTerapi.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        a.setVisible(true);
+    }//GEN-LAST:event_btn_terapiActionPerformed
 
     /**
      * @param args the command line arguments
@@ -503,6 +522,7 @@ public class MenuPasien extends javax.swing.JFrame {
     private javax.swing.JButton btn_add;
     private javax.swing.JButton btn_del;
     private javax.swing.JButton btn_show;
+    private javax.swing.JButton btn_terapi;
     private javax.swing.JButton btn_update;
     private javax.swing.JButton dashboard;
     private javax.swing.JButton dokter;

@@ -100,47 +100,73 @@ public class UpdateObat extends javax.swing.JFrame {
         cb_tahun = new javax.swing.JComboBox<>();
         cb_bulan = new javax.swing.JComboBox<>();
         cb_tanggal1 = new javax.swing.JComboBox<>();
+        btn_terapi = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
+        jPanel1.setLayout(null);
 
         jLabel4.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 153, 153));
         jLabel4.setText("TANGGAL PRODUKSI");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(292, 280, 168, 21);
 
         jLabel5.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 153, 153));
         jLabel5.setText("MASA BERLAKU");
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(292, 340, 125, 21);
 
         jLabel6.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 153, 153));
         jLabel6.setText("JUMLAH OBAT");
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(292, 400, 119, 21);
 
         jLabel7.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 153, 153));
         jLabel7.setText("HARGA OBAT");
+        jPanel1.add(jLabel7);
+        jLabel7.setBounds(292, 460, 108, 21);
+        jPanel1.add(jTextField1);
+        jTextField1.setBounds(482, 160, 400, 30);
+        jPanel1.add(jTextField2);
+        jTextField2.setBounds(482, 220, 400, 30);
+        jPanel1.add(jTextField4);
+        jTextField4.setBounds(482, 340, 400, 30);
 
         jLabel1.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 153, 153));
         jLabel1.setText("UPDATE OBAT");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(292, 100, 157, 29);
 
         jTextField5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField5ActionPerformed(evt);
             }
         });
+        jPanel1.add(jTextField5);
+        jTextField5.setBounds(482, 400, 400, 30);
 
         jLabel2.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 153, 153));
         jLabel2.setText("NAMA OBAT");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(292, 160, 98, 21);
+        jPanel1.add(jTextField6);
+        jTextField6.setBounds(482, 460, 400, 30);
 
         jLabel3.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 153, 153));
         jLabel3.setText("JENIS OBAT");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(292, 220, 97, 21);
 
-        jPanel5.setBackground(new java.awt.Color(0, 111, 111));
+        jPanel5.setBackground(new java.awt.Color(0, 102, 102));
 
         out.setBackground(new java.awt.Color(0, 127, 127));
         out.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
@@ -162,9 +188,12 @@ public class UpdateObat extends javax.swing.JFrame {
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addGap(0, 180, Short.MAX_VALUE)
+                .addGap(0, 110, Short.MAX_VALUE)
                 .addComponent(out, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+
+        jPanel1.add(jPanel5);
+        jPanel5.setBounds(0, 420, 230, 180);
 
         dashboard.setBackground(new java.awt.Color(0, 127, 127));
         dashboard.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
@@ -176,6 +205,8 @@ public class UpdateObat extends javax.swing.JFrame {
                 dashboardActionPerformed(evt);
             }
         });
+        jPanel1.add(dashboard);
+        dashboard.setBounds(1, 70, 230, 70);
 
         dokter.setBackground(new java.awt.Color(0, 127, 127));
         dokter.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
@@ -187,6 +218,8 @@ public class UpdateObat extends javax.swing.JFrame {
                 dokterActionPerformed(evt);
             }
         });
+        jPanel1.add(dokter);
+        dokter.setBounds(0, 140, 230, 70);
 
         pasien.setBackground(new java.awt.Color(0, 127, 127));
         pasien.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
@@ -198,6 +231,8 @@ public class UpdateObat extends javax.swing.JFrame {
                 pasienActionPerformed(evt);
             }
         });
+        jPanel1.add(pasien);
+        pasien.setBounds(0, 210, 230, 70);
 
         obat.setBackground(new java.awt.Color(0, 127, 127));
         obat.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
@@ -209,6 +244,8 @@ public class UpdateObat extends javax.swing.JFrame {
                 obatActionPerformed(evt);
             }
         });
+        jPanel1.add(obat);
+        obat.setBounds(0, 280, 230, 70);
 
         btn_simpan.setBackground(new java.awt.Color(0, 153, 153));
         btn_simpan.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
@@ -220,6 +257,8 @@ public class UpdateObat extends javax.swing.JFrame {
                 btn_simpanActionPerformed(evt);
             }
         });
+        jPanel1.add(btn_simpan);
+        btn_simpan.setBounds(412, 520, 150, 45);
 
         btn_batal.setBackground(new java.awt.Color(0, 153, 153));
         btn_batal.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
@@ -231,6 +270,8 @@ public class UpdateObat extends javax.swing.JFrame {
                 btn_batalActionPerformed(evt);
             }
         });
+        jPanel1.add(btn_batal);
+        btn_batal.setBounds(672, 520, 150, 45);
 
         jPanel6.setBackground(new java.awt.Color(0, 102, 102));
         jPanel6.setLayout(null);
@@ -241,6 +282,9 @@ public class UpdateObat extends javax.swing.JFrame {
         jPanel6.add(jLabel10);
         jLabel10.setBounds(32, 23, 109, 34);
 
+        jPanel1.add(jPanel6);
+        jPanel6.setBounds(1, 1, 1000, 70);
+
         cb_tahun.setMaximumRowCount(30);
         cb_tahun.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022" }));
         cb_tahun.addActionListener(new java.awt.event.ActionListener() {
@@ -248,6 +292,8 @@ public class UpdateObat extends javax.swing.JFrame {
                 cb_tahunActionPerformed(evt);
             }
         });
+        jPanel1.add(cb_tahun);
+        cb_tahun.setBounds(624, 281, 80, 22);
 
         cb_bulan.setMaximumRowCount(12);
         cb_bulan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
@@ -256,143 +302,37 @@ public class UpdateObat extends javax.swing.JFrame {
                 cb_bulanActionPerformed(evt);
             }
         });
+        jPanel1.add(cb_bulan);
+        cb_bulan.setBounds(550, 281, 41, 22);
 
         cb_tanggal1.setMaximumRowCount(31);
         cb_tanggal1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        jPanel1.add(cb_tanggal1);
+        cb_tanggal1.setBounds(476, 281, 41, 22);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(483, Short.MAX_VALUE)
-                .addComponent(cb_tanggal1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(cb_bulan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(cb_tahun, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(297, 297, 297))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(1, 1, 1)
-                            .addComponent(dashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(291, 291, 291)
-                            .addComponent(jLabel1))
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(1, 1, 1)
-                            .addComponent(dokter, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(60, 60, 60)
-                            .addComponent(jLabel2)
-                            .addGap(92, 92, 92)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(1, 1, 1)
-                            .addComponent(pasien, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(60, 60, 60)
-                            .addComponent(jLabel3)
-                            .addGap(93, 93, 93)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(1, 1, 1)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(obat, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(60, 60, 60)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel4)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel5)
-                                    .addGap(65, 65, 65)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel6)
-                                    .addGap(71, 71, 71)
-                                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel7)
-                                    .addGap(82, 82, 82)
-                                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGap(120, 120, 120)
-                                    .addComponent(btn_simpan, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(110, 110, 110)
-                                    .addComponent(btn_batal, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(280, 280, 280)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cb_tanggal1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cb_bulan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cb_tahun, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(299, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(69, 69, 69)
-                            .addComponent(dashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(99, 99, 99)
-                            .addComponent(jLabel1))
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(dokter, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(20, 20, 20)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel2)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(pasien, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(10, 10, 10)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel3)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(obat, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(0, 0, 0)
-                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel4)
-                            .addGap(39, 39, 39)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel5)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(30, 30, 30)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel6)
-                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(30, 30, 30)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel7)
-                                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(30, 30, 30)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btn_simpan, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btn_batal, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
+        btn_terapi.setBackground(new java.awt.Color(0, 127, 127));
+        btn_terapi.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        btn_terapi.setForeground(new java.awt.Color(255, 255, 255));
+        btn_terapi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-examination-40 (1).png"))); // NOI18N
+        btn_terapi.setText("     DATA TERAPI");
+        btn_terapi.setBorder(null);
+        btn_terapi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_terapiActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_terapi);
+        btn_terapi.setBounds(0, 350, 230, 70);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 601, Short.MAX_VALUE)
         );
 
         pack();
@@ -496,6 +436,19 @@ public class UpdateObat extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cb_bulanActionPerformed
 
+    private void btn_terapiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_terapiActionPerformed
+        dispose();
+        MenuTerapi a = null;
+        try {
+            a = new MenuTerapi();
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuTerapi.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MenuTerapi.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        a.setVisible(true);
+    }//GEN-LAST:event_btn_terapiActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -534,6 +487,7 @@ public class UpdateObat extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_batal;
     private javax.swing.JButton btn_simpan;
+    private javax.swing.JButton btn_terapi;
     private javax.swing.JComboBox<String> cb_bulan;
     private javax.swing.JComboBox<String> cb_tahun;
     private javax.swing.JComboBox<String> cb_tanggal1;

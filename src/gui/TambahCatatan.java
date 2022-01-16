@@ -5,17 +5,19 @@
  */
 package gui;
 
+
 /**
  *
  * @author RVN
  */
 public class TambahCatatan extends javax.swing.JFrame {
-
+    
     /**
-     * Creates new form TambahCatatan
+     * Creates new form HapusObat
      */
     public TambahCatatan() {
         initComponents();
+        
     }
 
     /**
@@ -27,70 +29,112 @@ public class TambahCatatan extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        btn_ok = new javax.swing.JButton();
+        btn_batal = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         emp_login = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        btn_ok1 = new javax.swing.JButton();
-        btn_batal1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
-        jPanel1.setLayout(null);
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
+
+        btn_ok.setBackground(new java.awt.Color(0, 153, 153));
+        btn_ok.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        btn_ok.setForeground(new java.awt.Color(255, 255, 255));
+        btn_ok.setText("OK");
+        btn_ok.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_okActionPerformed(evt);
+            }
+        });
+
+        btn_batal.setBackground(new java.awt.Color(0, 153, 153));
+        btn_batal.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        btn_batal.setForeground(new java.awt.Color(255, 255, 255));
+        btn_batal.setText("BATAL");
+        btn_batal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_batalActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
 
         emp_login.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
         emp_login.setForeground(new java.awt.Color(0, 153, 153));
         emp_login.setText("CATATAN DOKTER");
-        jPanel1.add(emp_login);
-        emp_login.setBounds(61, 34, 204, 29);
 
-        jTextField1.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jPanel1.add(jTextField1);
-        jTextField1.setBounds(61, 89, 386, 170);
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(85, 85, 85)
+                        .addComponent(btn_ok, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(57, 57, 57)
+                        .addComponent(btn_batal, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(emp_login)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(emp_login)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(42, 42, 42)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_ok, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_batal, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(53, Short.MAX_VALUE))
+        );
 
-        btn_ok1.setBackground(new java.awt.Color(0, 153, 153));
-        btn_ok1.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        btn_ok1.setForeground(new java.awt.Color(255, 255, 255));
-        btn_ok1.setText("OK");
-        btn_ok1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_ok1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btn_ok1);
-        btn_ok1.setBounds(80, 310, 140, 40);
-
-        btn_batal1.setBackground(new java.awt.Color(0, 153, 153));
-        btn_batal1.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        btn_batal1.setForeground(new java.awt.Color(255, 255, 255));
-        btn_batal1.setText("BATAL");
-        btn_batal1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_batal1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btn_batal1);
-        btn_batal1.setBounds(280, 310, 140, 40);
-
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 500, 400);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 521, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_ok1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ok1ActionPerformed
-        dispose();
-        TampilData a = new TampilData();
-        a.setVisible(true);
-    }//GEN-LAST:event_btn_ok1ActionPerformed
+    private void btn_okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_okActionPerformed
+        
+    }//GEN-LAST:event_btn_okActionPerformed
 
-    private void btn_batal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_batal1ActionPerformed
+    private void btn_batalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_batalActionPerformed
         dispose();
         TampilData a = new TampilData();
         a.setVisible(true);
-    }//GEN-LAST:event_btn_batal1ActionPerformed
+    }//GEN-LAST:event_btn_batalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -118,6 +162,7 @@ public class TambahCatatan extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(TambahCatatan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -128,10 +173,12 @@ public class TambahCatatan extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_batal1;
-    private javax.swing.JButton btn_ok1;
+    private javax.swing.JButton btn_batal;
+    private javax.swing.JButton btn_ok;
     private javax.swing.JLabel emp_login;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }
