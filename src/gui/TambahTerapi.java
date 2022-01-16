@@ -429,17 +429,17 @@ public class TambahTerapi extends javax.swing.JFrame {
             String name = jTextField1.getText();
             String biaya = jTextField2.getText();
             String tgl_terapi = cb_tahun.getSelectedItem().toString() + "-" + (cb_bulan.getSelectedIndex()+1) + "-" +cb_tanggal1.getSelectedItem().toString() ;
-            int durasi = Integer.parseInt(jTextField3.getText());
+            String durasi = jTextField3.getText();
             
-            if (name.isEmpty() || biaya.isEmpty() || tgl_terapi.isEmpty() || durasi==NULL || dok==NULL || pas==NULL || oba==NULL) {
+            if (name.isEmpty() || biaya.isEmpty() || tgl_terapi.isEmpty() || durasi.isEmpty() || dok==NULL || pas==NULL || oba==NULL) {
                 JOptionPane.showMessageDialog(this, "Data isian ada yang kosong");
             }else{
                 try{
                     //Class.forName("com.mysql.cj.jdbc.Driver");
                     conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
                     stmt = conn.createStatement();
-                    int Dok = dok, Pas = pas, Oba = oba, Durasi = durasi;
-                    String Nama = name, Biaya = biaya, TglTerapi = tgl_terapi;
+                    int Dok = dok, Pas = pas, Oba = oba;
+                    String Nama = name, Biaya = biaya, TglTerapi = tgl_terapi, Durasi = durasi;
                     
                     String sql = "INSERT INTO `terapi` (`id_terapi`, `id_pasien`, `id_dokter`, `id_obat`, `durasi_terapi`, `biaya_terapi`, `tanggal_terapi`, `nama_terapi`) VALUES (NULL, '"+Pas+"', '"+Dok+"', '"+Oba+"', '"+Durasi+"', '"+Biaya+"', '"+TglTerapi+"', '"+Nama+"')";
                     stmt.executeUpdate(sql);
