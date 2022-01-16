@@ -297,8 +297,7 @@ public class UpdateDokter extends javax.swing.JFrame {
         btn_terapi.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         btn_terapi.setForeground(new java.awt.Color(255, 255, 255));
         btn_terapi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-examination-40 (1).png"))); // NOI18N
-        btn_terapi.setText("     DATA TERAPI");
-        btn_terapi.setBorder(null);
+        btn_terapi.setText("    DATA TERAPI");
         btn_terapi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_terapiActionPerformed(evt);

@@ -56,7 +56,6 @@ public class TambahObat extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         emp_login = new javax.swing.JLabel();
-        btn_terapi = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -73,6 +72,7 @@ public class TambahObat extends javax.swing.JFrame {
         jTextField6 = new javax.swing.JTextField();
         btn_simpan = new javax.swing.JButton();
         btn_batal = new javax.swing.JButton();
+        btn_terapi = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -179,20 +179,6 @@ public class TambahObat extends javax.swing.JFrame {
         jPanel1.add(emp_login);
         emp_login.setBounds(278, 102, 161, 29);
 
-        btn_terapi.setBackground(new java.awt.Color(0, 127, 127));
-        btn_terapi.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        btn_terapi.setForeground(new java.awt.Color(255, 255, 255));
-        btn_terapi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-examination-40 (1).png"))); // NOI18N
-        btn_terapi.setText("     DATA TERAPI");
-        btn_terapi.setBorder(null);
-        btn_terapi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_terapiActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btn_terapi);
-        btn_terapi.setBounds(0, 350, 230, 70);
-
         jLabel2.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 153, 153));
         jLabel2.setText("NAMA OBAT");
@@ -296,6 +282,19 @@ public class TambahObat extends javax.swing.JFrame {
         jPanel1.add(btn_batal);
         btn_batal.setBounds(670, 530, 150, 45);
 
+        btn_terapi.setBackground(new java.awt.Color(0, 127, 127));
+        btn_terapi.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        btn_terapi.setForeground(new java.awt.Color(255, 255, 255));
+        btn_terapi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-examination-40 (1).png"))); // NOI18N
+        btn_terapi.setText("    DATA TERAPI");
+        btn_terapi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_terapiActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_terapi);
+        btn_terapi.setBounds(0, 350, 230, 70);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -371,19 +370,6 @@ public class TambahObat extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_outActionPerformed
 
-    private void btn_terapiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_terapiActionPerformed
-        dispose();
-        MenuTerapi a = null;
-        try {
-            a = new MenuTerapi();
-        } catch (SQLException ex) {
-            Logger.getLogger(MenuTerapi.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(MenuTerapi.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        a.setVisible(true);
-    }//GEN-LAST:event_btn_terapiActionPerformed
-
     private void cb_bulanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_bulanActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cb_bulanActionPerformed
@@ -437,6 +423,19 @@ public class TambahObat extends javax.swing.JFrame {
         MenuObat a = new MenuObat();
         a.setVisible(true);
     }//GEN-LAST:event_btn_batalActionPerformed
+
+    private void btn_terapiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_terapiActionPerformed
+        dispose();
+        MenuTerapi a = null;
+        try {
+            a = new MenuTerapi();
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuTerapi.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MenuTerapi.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        a.setVisible(true);
+    }//GEN-LAST:event_btn_terapiActionPerformed
 
     /**
      * @param args the command line arguments

@@ -292,7 +292,7 @@ public class UpdateObat extends javax.swing.JFrame {
             }
         });
         jPanel1.add(cb_tahun);
-        cb_tahun.setBounds(630, 280, 80, 20);
+        cb_tahun.setBounds(630, 280, 80, 22);
 
         cb_bulan.setMaximumRowCount(12);
         cb_bulan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
@@ -302,19 +302,18 @@ public class UpdateObat extends javax.swing.JFrame {
             }
         });
         jPanel1.add(cb_bulan);
-        cb_bulan.setBounds(560, 280, 37, 20);
+        cb_bulan.setBounds(560, 280, 41, 22);
 
         cb_tanggal1.setMaximumRowCount(31);
         cb_tanggal1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
         jPanel1.add(cb_tanggal1);
-        cb_tanggal1.setBounds(480, 280, 37, 20);
+        cb_tanggal1.setBounds(480, 280, 41, 22);
 
         btn_terapi.setBackground(new java.awt.Color(0, 127, 127));
         btn_terapi.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         btn_terapi.setForeground(new java.awt.Color(255, 255, 255));
         btn_terapi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-examination-40 (1).png"))); // NOI18N
-        btn_terapi.setText("     DATA TERAPI");
-        btn_terapi.setBorder(null);
+        btn_terapi.setText("    DATA TERAPI");
         btn_terapi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_terapiActionPerformed(evt);

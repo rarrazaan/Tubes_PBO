@@ -123,7 +123,6 @@ public class UpdateTerapi extends javax.swing.JFrame {
         dokter = new javax.swing.JButton();
         pasien = new javax.swing.JButton();
         obat = new javax.swing.JButton();
-        btn_terapi = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         out = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -145,6 +144,7 @@ public class UpdateTerapi extends javax.swing.JFrame {
         cb_tahun = new javax.swing.JComboBox<>();
         jTextField3 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
+        btn_terapi = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -216,20 +216,6 @@ public class UpdateTerapi extends javax.swing.JFrame {
         jPanel2.add(obat);
         obat.setBounds(0, 280, 230, 70);
 
-        btn_terapi.setBackground(new java.awt.Color(0, 127, 127));
-        btn_terapi.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        btn_terapi.setForeground(new java.awt.Color(255, 255, 255));
-        btn_terapi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-examination-40.png"))); // NOI18N
-        btn_terapi.setText("     DATA TERAPI");
-        btn_terapi.setBorder(null);
-        btn_terapi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_terapiActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btn_terapi);
-        btn_terapi.setBounds(0, 350, 230, 70);
-
         jPanel3.setBackground(new java.awt.Color(0, 102, 102));
 
         out.setBackground(new java.awt.Color(0, 127, 127));
@@ -299,7 +285,7 @@ public class UpdateTerapi extends javax.swing.JFrame {
 
         cb_dokter.setMaximumRowCount(31);
         jPanel2.add(cb_dokter);
-        cb_dokter.setBounds(380, 180, 90, 20);
+        cb_dokter.setBounds(380, 180, 90, 22);
 
         jLabel7.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 153, 153));
@@ -309,11 +295,11 @@ public class UpdateTerapi extends javax.swing.JFrame {
 
         cb_pasien.setMaximumRowCount(31);
         jPanel2.add(cb_pasien);
-        cb_pasien.setBounds(630, 180, 80, 20);
+        cb_pasien.setBounds(630, 180, 80, 22);
 
         cb_obat.setMaximumRowCount(31);
         jPanel2.add(cb_obat);
-        cb_obat.setBounds(860, 180, 80, 20);
+        cb_obat.setBounds(860, 180, 80, 22);
 
         jLabel8.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 153, 153));
@@ -346,7 +332,7 @@ public class UpdateTerapi extends javax.swing.JFrame {
         cb_tanggal1.setMaximumRowCount(31);
         cb_tanggal1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
         jPanel2.add(cb_tanggal1);
-        cb_tanggal1.setBounds(480, 370, 37, 20);
+        cb_tanggal1.setBounds(480, 370, 41, 22);
 
         cb_bulan.setMaximumRowCount(12);
         cb_bulan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
@@ -356,7 +342,7 @@ public class UpdateTerapi extends javax.swing.JFrame {
             }
         });
         jPanel2.add(cb_bulan);
-        cb_bulan.setBounds(550, 370, 37, 20);
+        cb_bulan.setBounds(550, 370, 41, 22);
 
         cb_tahun.setMaximumRowCount(30);
         cb_tahun.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022" }));
@@ -366,7 +352,7 @@ public class UpdateTerapi extends javax.swing.JFrame {
             }
         });
         jPanel2.add(cb_tahun);
-        cb_tahun.setBounds(620, 370, 80, 20);
+        cb_tahun.setBounds(620, 370, 80, 22);
         jPanel2.add(jTextField3);
         jTextField3.setBounds(480, 430, 400, 30);
 
@@ -375,6 +361,19 @@ public class UpdateTerapi extends javax.swing.JFrame {
         jLabel5.setText("DURASI TERAPI");
         jPanel2.add(jLabel5);
         jLabel5.setBounds(290, 430, 130, 21);
+
+        btn_terapi.setBackground(new java.awt.Color(0, 127, 127));
+        btn_terapi.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        btn_terapi.setForeground(new java.awt.Color(255, 255, 255));
+        btn_terapi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-examination-40.png"))); // NOI18N
+        btn_terapi.setText("    DATA TERAPI");
+        btn_terapi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_terapiActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btn_terapi);
+        btn_terapi.setBounds(0, 350, 230, 70);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -430,19 +429,6 @@ public class UpdateTerapi extends javax.swing.JFrame {
         MenuObat a = new MenuObat();
         a.setVisible(true);
     }//GEN-LAST:event_obatActionPerformed
-
-    private void btn_terapiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_terapiActionPerformed
-        dispose();
-        MenuTerapi a = null;
-        try {
-            a = new MenuTerapi();
-        } catch (SQLException ex) {
-            Logger.getLogger(MenuTerapi.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(MenuTerapi.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        a.setVisible(true);
-    }//GEN-LAST:event_btn_terapiActionPerformed
 
     private void outActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outActionPerformed
         try {
@@ -514,6 +500,19 @@ public class UpdateTerapi extends javax.swing.JFrame {
     private void cb_tahunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_tahunActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cb_tahunActionPerformed
+
+    private void btn_terapiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_terapiActionPerformed
+        dispose();
+        MenuTerapi a = null;
+        try {
+            a = new MenuTerapi();
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuTerapi.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MenuTerapi.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        a.setVisible(true);
+    }//GEN-LAST:event_btn_terapiActionPerformed
 
     /**
      * @param args the command line arguments

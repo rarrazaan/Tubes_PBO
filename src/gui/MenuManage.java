@@ -41,9 +41,16 @@ public class MenuManage extends javax.swing.JFrame {
         obat = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         out = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
         btn_terapi = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -157,22 +164,11 @@ public class MenuManage extends javax.swing.JFrame {
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 420, 230, 180);
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Kelompok 7 - Puskesmas\nImam Rafiif Arrazaan \t(1301194152)\nArvinda Dwi Safira\t(1301190083)\nTsaqib Sayyidan Sendjaja \t(1301193450)\nBambang Silva Prasetyo \t(1301194205)\n");
-        jScrollPane1.setViewportView(jTextArea1);
-
-        jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(380, 250, 400, 140);
-
         btn_terapi.setBackground(new java.awt.Color(0, 127, 127));
         btn_terapi.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         btn_terapi.setForeground(new java.awt.Color(255, 255, 255));
         btn_terapi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-examination-40 (1).png"))); // NOI18N
-        btn_terapi.setText("     DATA TERAPI");
-        btn_terapi.setBorder(null);
+        btn_terapi.setText("    DATA TERAPI");
         btn_terapi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_terapiActionPerformed(evt);
@@ -180,6 +176,52 @@ public class MenuManage extends javax.swing.JFrame {
         });
         jPanel1.add(btn_terapi);
         btn_terapi.setBounds(0, 350, 230, 70);
+
+        jLabel2.setFont(new java.awt.Font("Trebuchet MS", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel2.setText("WELCOME TO RS IMAM!");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(290, 110, 270, 30);
+
+        jLabel3.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        jLabel3.setText("Program ini merupakan program staff-only yang digunakan untuk");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(290, 170, 610, 21);
+
+        jLabel4.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        jLabel4.setText("mengelola dan menyimpan data-data yang ada di RS Imam.");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(290, 200, 590, 21);
+
+        jLabel5.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        jLabel5.setText("Perhatian!");
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(290, 250, 270, 21);
+
+        jLabel6.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        jLabel6.setText("Mohon isi data dengan benar dan pastikan tidak ada kesalahan tulis.");
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(290, 280, 600, 21);
+
+        jLabel7.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        jLabel7.setText("Beberapa data perlu ditulis dalam bentuk angka, diantaranya:");
+        jPanel1.add(jLabel7);
+        jLabel7.setBounds(290, 310, 570, 21);
+
+        jLabel8.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        jLabel8.setText("1. Data Pasien - Umur");
+        jPanel1.add(jLabel8);
+        jLabel8.setBounds(290, 340, 340, 21);
+
+        jLabel9.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        jLabel9.setText("2. Data Obat - Jumlah, Harga");
+        jPanel1.add(jLabel9);
+        jLabel9.setBounds(290, 370, 380, 21);
+
+        jLabel10.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        jLabel10.setText("3. Data Terapi - Biaya");
+        jPanel1.add(jLabel10);
+        jLabel10.setBounds(290, 400, 350, 21);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -292,11 +334,18 @@ public class MenuManage extends javax.swing.JFrame {
     private javax.swing.JButton dashboard;
     private javax.swing.JButton dokter;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JButton obat;
     private javax.swing.JButton out;
     private javax.swing.JButton pasien;

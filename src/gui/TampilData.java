@@ -108,9 +108,9 @@ public class TampilData extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
-        btn_terapi = new javax.swing.JButton();
         btn_ok2 = new javax.swing.JButton();
         btn_ok3 = new javax.swing.JButton();
+        btn_terapi = new javax.swing.JButton();
 
         jLabel12.setText("jLabel12");
 
@@ -332,20 +332,6 @@ public class TampilData extends javax.swing.JFrame {
         jPanel1.add(jLabel22);
         jLabel22.setBounds(510, 280, 400, 18);
 
-        btn_terapi.setBackground(new java.awt.Color(0, 127, 127));
-        btn_terapi.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        btn_terapi.setForeground(new java.awt.Color(255, 255, 255));
-        btn_terapi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-examination-40 (1).png"))); // NOI18N
-        btn_terapi.setText("     DATA TERAPI");
-        btn_terapi.setBorder(null);
-        btn_terapi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_terapiActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btn_terapi);
-        btn_terapi.setBounds(0, 350, 230, 70);
-
         btn_ok2.setBackground(new java.awt.Color(0, 153, 153));
         btn_ok2.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
         btn_ok2.setForeground(new java.awt.Color(255, 255, 255));
@@ -369,6 +355,19 @@ public class TampilData extends javax.swing.JFrame {
         });
         jPanel1.add(btn_ok3);
         btn_ok3.setBounds(300, 510, 50, 30);
+
+        btn_terapi.setBackground(new java.awt.Color(0, 127, 127));
+        btn_terapi.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        btn_terapi.setForeground(new java.awt.Color(255, 255, 255));
+        btn_terapi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-examination-40 (1).png"))); // NOI18N
+        btn_terapi.setText("    DATA TERAPI");
+        btn_terapi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_terapiActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_terapi);
+        btn_terapi.setBounds(0, 350, 230, 70);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -432,19 +431,6 @@ public class TampilData extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_outActionPerformed
 
-    private void btn_terapiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_terapiActionPerformed
-        dispose();
-        MenuTerapi a = null;
-        try {
-            a = new MenuTerapi();
-        } catch (SQLException ex) {
-            Logger.getLogger(MenuTerapi.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(MenuTerapi.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        a.setVisible(true);
-    }//GEN-LAST:event_btn_terapiActionPerformed
-
     private void btn_ok2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ok2ActionPerformed
         dispose();
         MenuPasien a = null;
@@ -492,6 +478,19 @@ public class TampilData extends javax.swing.JFrame {
         TampilData a = new TampilData();
         a.setVisible(true);
     }//GEN-LAST:event_btn_ok3ActionPerformed
+
+    private void btn_terapiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_terapiActionPerformed
+        dispose();
+        MenuTerapi a = null;
+        try {
+            a = new MenuTerapi();
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuTerapi.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MenuTerapi.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        a.setVisible(true);
+    }//GEN-LAST:event_btn_terapiActionPerformed
 
     /**
      * @param args the command line arguments
