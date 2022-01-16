@@ -27,6 +27,7 @@ public class TampilData extends javax.swing.JFrame {
     static Connection conn;
     static Statement stmt;
     static ResultSet rs;
+    public static int id;
     /**
      * Creates new form RekamMedis
      */
@@ -44,6 +45,7 @@ public class TampilData extends javax.swing.JFrame {
                     "LEFT JOIN tagihan ON tagihan.id_terapi=terapi.id_terapi\n" +
                     "WHERE terapi.id_pasien=";
             int n = MenuPasien.x;
+            TampilData.id = n;
             rs = stmt.executeQuery(sql+n);
             while(rs.next()){
                 this.jLabel9.setText(rs.getString("nama_pasien"));
