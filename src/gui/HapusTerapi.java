@@ -34,14 +34,14 @@ public class HapusTerapi extends javax.swing.JFrame {
             //Class.forName("com.mysql.cj.jdbc.Driver");
             conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
             stmt = conn.createStatement();
-            String sql = "SELECT * FROM obat";
+            String sql = "SELECT * FROM terapi";
             rs = stmt.executeQuery(sql); 
-            int n = MenuObat.x;
+            int n = MenuTerapi.x;
             int i;
             while(rs.next()){
-                i = rs.getInt("id_obat");
+                i = rs.getInt("id_terapi");
                 if(i==n){ 
-                    this.jLabel1.setText("Hapus "+rs.getString("nama_obat")+" ?");
+                    this.jLabel1.setText("Hapus "+rs.getString("nama_terapi")+" ?");
                 }
             }
             stmt.close();
@@ -138,19 +138,25 @@ public class HapusTerapi extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_okActionPerformed
-        try{
-            //Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
-            stmt = conn.createStatement();
-            String sql = "Delete FROM obat WHERE id_obat = "+MenuObat.x;
-            stmt.executeUpdate(sql);
-            stmt.close();
-            conn.close();
-        } catch (SQLException e) {
+        try{                                       
+            try{
+                //Class.forName("com.mysql.cj.jdbc.Driver");
+                conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+                stmt = conn.createStatement();
+                String sql = "Delete FROM terapi WHERE id_terapi = "+MenuTerapi.x;
+                stmt.executeUpdate(sql);
+                stmt.close();
+                conn.close();
+            } catch (SQLException e) {
+            }
+            dispose();
+            MenuTerapi a = new MenuTerapi();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(HapusTerapi.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(HapusTerapi.class.getName()).log(Level.SEVERE, null, ex);
         }
-        dispose();
-        MenuObat a = new MenuObat();
-        a.setVisible(true);
     }//GEN-LAST:event_btn_okActionPerformed
 
     private void btn_batalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_batalActionPerformed

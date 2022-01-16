@@ -435,7 +435,15 @@ public class MenuTerapi extends javax.swing.JFrame {
     }//GEN-LAST:event_jList1MouseClicked
 
     private void btn_terapiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_terapiActionPerformed
-        
+        try {
+            dispose();
+            MenuTerapi a = new MenuTerapi();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuTerapi.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MenuTerapi.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btn_terapiActionPerformed
 
     /**
