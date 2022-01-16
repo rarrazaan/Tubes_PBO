@@ -34,13 +34,11 @@ public class PasienDarurat extends javax.swing.JFrame {
             initComponents();
             conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
             stmt = conn.createStatement();
-            System.out.println(TambahPasien.nama);
             String sql = "SELECT id_pasien FROM pasien WHERE nama_pasien='"+TambahPasien.nama+"'";
             rs = stmt.executeQuery(sql);
             while(rs.next()){
                 PasienDarurat.id = rs.getInt("id_pasien");
             }
-            System.out.println(PasienDarurat.id);
             stmt.close();
             conn.close();
         } catch (SQLException ex) {
@@ -148,7 +146,6 @@ public class PasienDarurat extends javax.swing.JFrame {
         if ("PILIH".equals(ruangan) || "PILIH".equals(lvl)){
             JOptionPane.showMessageDialog(this, "Data isian ada yang kosong");
             dispose(); 
-            //System.out.println(TambahPasien.nama);
             PasienDarurat a = new PasienDarurat();
             a.setVisible(true);
         }else{

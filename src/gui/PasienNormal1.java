@@ -125,7 +125,6 @@ public class PasienNormal1 extends javax.swing.JFrame {
         if ("PILIH".equals(ruangan)){
             JOptionPane.showMessageDialog(this, "Data isian ada yang kosong");
             dispose(); 
-            //System.out.println(TambahPasien.nama);
             PasienNormal a = new PasienNormal();
             a.setVisible(true);
         }else{

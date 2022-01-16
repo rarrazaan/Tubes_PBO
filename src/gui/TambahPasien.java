@@ -439,7 +439,6 @@ public final class TambahPasien extends javax.swing.JFrame {
             }
         }
         dispose(); 
-        //System.out.println(TambahPasien.nama);
         PasienDarurat a = new PasienDarurat();
         a.setVisible(true);
     }//GEN-LAST:event_btn_daruratActionPerformed
@@ -462,7 +461,6 @@ public final class TambahPasien extends javax.swing.JFrame {
         try{
             //Class.forName("com.mysql.cj.jdbc.Driver");
             conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
-            System.out.println("\nconn");
             stmt = conn.createStatement();
             String Nama = name;
             String Gender = gender;

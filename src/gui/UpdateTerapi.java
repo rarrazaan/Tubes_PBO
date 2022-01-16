@@ -5,7 +5,16 @@
  */
 package gui;
 
+import static gui.TambahTerapi.conn;
+import static gui.UpdateObat.rs;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import static java.sql.Types.NULL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -15,12 +24,87 @@ import javax.swing.JOptionPane;
  * @author RVN
  */
 public class UpdateTerapi extends javax.swing.JFrame {
-
+    static final String DB_URL = "jdbc:mysql://localhost:3306/puskesmas";
+    static final String DB_USER = "root";
+    static final String DB_PASS = "";
+    static Connection conn;
+    static Statement stmt;
+    static ResultSet rs;
+    Map<Integer, String> map_dokter = new HashMap<>();
+    Map<Integer, String> map_pasien = new HashMap<>();
+    Map<Integer, String> map_obat = new HashMap<>();
     /**
      * Creates new form update
      */
     public UpdateTerapi() {
-        initComponents();
+        try {
+            initComponents();
+            conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+            stmt = conn.createStatement();
+            String sql = "SELECT id_dokter, nama_dokter FROM dokter";
+            rs = stmt.executeQuery(sql);
+            while(rs.next()){
+                map_dokter.put(rs.getInt("id_dokter"), rs.getString("nama_dokter"));
+            }
+            String sql1 = "SELECT id_pasien, nama_pasien FROM pasien";
+            rs = stmt.executeQuery(sql1);
+            while(rs.next()){
+                map_pasien.put(rs.getInt("id_pasien"), rs.getString("nama_pasien"));
+            }
+            String sql2 = "SELECT id_obat, nama_obat FROM obat";
+            rs = stmt.executeQuery(sql2);
+            while(rs.next()){
+                map_obat.put(rs.getInt("id_obat"), rs.getString("nama_obat"));
+            }
+            
+            map_dokter.entrySet().forEach((set) -> {
+                cb_dokter.addItem(String.valueOf(set.getValue()));
+            });
+            map_pasien.entrySet().forEach((set) -> {
+                cb_pasien.addItem(String.valueOf(set.getValue()));
+            });
+            map_obat.entrySet().forEach((set) -> {
+                cb_obat.addItem(String.valueOf(set.getValue()));
+            });
+               
+            String sql3 = "SELECT * FROM terapi";
+            
+            rs = stmt.executeQuery(sql3);
+            int n = MenuTerapi.x;
+            int i;
+            while(rs.next()){
+                i = rs.getInt("id_terapi");
+                if(i==n){
+                    this.cb_dokter.setSelectedItem(map_dokter.get(rs.getInt("id_dokter")));
+                    this.cb_pasien.setSelectedItem(map_pasien.get(rs.getInt("id_pasien")));
+                    this.cb_obat.setSelectedItem(map_obat.get(rs.getInt("id_obat")));
+                    this.jTextField1.setText(rs.getString("nama_terapi"));
+                    this.jTextField2.setText(String.valueOf(rs.getInt("biaya_terapi")));
+                    
+                    String[] arr = rs.getString("tanggal_terapi").split("-",3);
+                    this.cb_tahun.setSelectedItem(arr[0]);
+                    this.cb_bulan.setSelectedItem(arr[1]);
+                    this.cb_tanggal1.setSelectedItem(arr[2]);
+                    
+                    this.jTextField3.setText(String.valueOf(rs.getInt("durasi_terapi")));
+
+                }
+            }
+            stmt.close();
+            conn.close();
+        }catch (SQLException ex) {
+            Logger.getLogger(TambahTerapi.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public int getKeyByValue(Map<Integer, String> map, String value) {
+        for(Map.Entry<Integer, String> entry: map.entrySet()) {
+            // if give value is equal to value from entry
+            // print the corresponding key
+            if(entry.getValue() == null ? value == null : entry.getValue().equals(value)) {
+                return entry.getKey();
+            }
+        }
+        return -1;
     }
 
     /**
@@ -43,16 +127,24 @@ public class UpdateTerapi extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         out = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        btn_simpan = new javax.swing.JButton();
+        btn_batal = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        cb_dokter = new javax.swing.JComboBox<>();
+        jLabel7 = new javax.swing.JLabel();
+        cb_pasien = new javax.swing.JComboBox<>();
+        cb_obat = new javax.swing.JComboBox<>();
+        jLabel8 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         cb_tanggal1 = new javax.swing.JComboBox<>();
         cb_bulan = new javax.swing.JComboBox<>();
         cb_tahun = new javax.swing.JComboBox<>();
-        btn_simpan = new javax.swing.JButton();
-        btn_batal = new javax.swing.JButton();
+        jTextField3 = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -171,54 +263,7 @@ public class UpdateTerapi extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 153, 153));
         jLabel1.setText("UPDATE TERAPI");
         jPanel2.add(jLabel1);
-        jLabel1.setBounds(280, 120, 180, 29);
-
-        jLabel2.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel2.setText("DURASI TERAPI");
-        jPanel2.add(jLabel2);
-        jLabel2.setBounds(300, 180, 130, 21);
-        jPanel2.add(jTextField1);
-        jTextField1.setBounds(490, 180, 400, 30);
-
-        jLabel3.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel3.setText("BIAYA TERAPI");
-        jPanel2.add(jLabel3);
-        jLabel3.setBounds(300, 240, 113, 21);
-        jPanel2.add(jTextField2);
-        jTextField2.setBounds(490, 240, 400, 30);
-
-        jLabel4.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel4.setText("TANGGAL TERAPI");
-        jPanel2.add(jLabel4);
-        jLabel4.setBounds(300, 300, 143, 21);
-
-        cb_tanggal1.setMaximumRowCount(31);
-        cb_tanggal1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-        jPanel2.add(cb_tanggal1);
-        cb_tanggal1.setBounds(490, 300, 41, 22);
-
-        cb_bulan.setMaximumRowCount(12);
-        cb_bulan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
-        cb_bulan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cb_bulanActionPerformed(evt);
-            }
-        });
-        jPanel2.add(cb_bulan);
-        cb_bulan.setBounds(560, 300, 41, 22);
-
-        cb_tahun.setMaximumRowCount(30);
-        cb_tahun.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022" }));
-        cb_tahun.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cb_tahunActionPerformed(evt);
-            }
-        });
-        jPanel2.add(cb_tahun);
-        cb_tahun.setBounds(630, 300, 80, 22);
+        jLabel1.setBounds(270, 120, 180, 29);
 
         btn_simpan.setBackground(new java.awt.Color(0, 153, 153));
         btn_simpan.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
@@ -231,7 +276,7 @@ public class UpdateTerapi extends javax.swing.JFrame {
             }
         });
         jPanel2.add(btn_simpan);
-        btn_simpan.setBounds(430, 490, 150, 45);
+        btn_simpan.setBounds(420, 490, 150, 45);
 
         btn_batal.setBackground(new java.awt.Color(0, 153, 153));
         btn_batal.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
@@ -244,7 +289,92 @@ public class UpdateTerapi extends javax.swing.JFrame {
             }
         });
         jPanel2.add(btn_batal);
-        btn_batal.setBounds(690, 490, 150, 45);
+        btn_batal.setBounds(680, 490, 150, 45);
+
+        jLabel6.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel6.setText("DOKTER");
+        jPanel2.add(jLabel6);
+        jLabel6.setBounds(290, 180, 68, 21);
+
+        cb_dokter.setMaximumRowCount(31);
+        jPanel2.add(cb_dokter);
+        cb_dokter.setBounds(380, 180, 90, 20);
+
+        jLabel7.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel7.setText("PASIEN");
+        jPanel2.add(jLabel7);
+        jLabel7.setBounds(520, 180, 100, 21);
+
+        cb_pasien.setMaximumRowCount(31);
+        jPanel2.add(cb_pasien);
+        cb_pasien.setBounds(630, 180, 80, 20);
+
+        cb_obat.setMaximumRowCount(31);
+        jPanel2.add(cb_obat);
+        cb_obat.setBounds(860, 180, 80, 20);
+
+        jLabel8.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel8.setText("OBAT");
+        jPanel2.add(jLabel8);
+        jLabel8.setBounds(750, 180, 100, 21);
+        jPanel2.add(jTextField1);
+        jTextField1.setBounds(480, 250, 400, 30);
+
+        jLabel2.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel2.setText("NAMA TERAPI");
+        jPanel2.add(jLabel2);
+        jLabel2.setBounds(290, 250, 130, 21);
+
+        jLabel3.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel3.setText("BIAYA TERAPI");
+        jPanel2.add(jLabel3);
+        jLabel3.setBounds(290, 310, 113, 21);
+        jPanel2.add(jTextField2);
+        jTextField2.setBounds(480, 310, 400, 30);
+
+        jLabel4.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel4.setText("TANGGAL TERAPI");
+        jPanel2.add(jLabel4);
+        jLabel4.setBounds(290, 370, 143, 21);
+
+        cb_tanggal1.setMaximumRowCount(31);
+        cb_tanggal1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        jPanel2.add(cb_tanggal1);
+        cb_tanggal1.setBounds(480, 370, 37, 20);
+
+        cb_bulan.setMaximumRowCount(12);
+        cb_bulan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+        cb_bulan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb_bulanActionPerformed(evt);
+            }
+        });
+        jPanel2.add(cb_bulan);
+        cb_bulan.setBounds(550, 370, 37, 20);
+
+        cb_tahun.setMaximumRowCount(30);
+        cb_tahun.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022" }));
+        cb_tahun.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb_tahunActionPerformed(evt);
+            }
+        });
+        jPanel2.add(cb_tahun);
+        cb_tahun.setBounds(620, 370, 80, 20);
+        jPanel2.add(jTextField3);
+        jTextField3.setBounds(480, 430, 400, 30);
+
+        jLabel5.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel5.setText("DURASI TERAPI");
+        jPanel2.add(jLabel5);
+        jLabel5.setBounds(290, 430, 130, 21);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -327,16 +457,41 @@ public class UpdateTerapi extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_outActionPerformed
 
-    private void cb_bulanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_bulanActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cb_bulanActionPerformed
-
-    private void cb_tahunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_tahunActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cb_tahunActionPerformed
-
     private void btn_simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_simpanActionPerformed
-
+        try {
+            int dok = getKeyByValue(map_dokter, cb_dokter.getSelectedItem().toString());
+            int pas = getKeyByValue(map_pasien, cb_pasien.getSelectedItem().toString());
+            int oba = getKeyByValue(map_obat, cb_obat.getSelectedItem().toString());
+            String name = jTextField1.getText();
+            String biaya = jTextField2.getText();
+            String tgl_terapi = cb_tahun.getSelectedItem().toString() + "-" + (cb_bulan.getSelectedIndex()+1) + "-" +cb_tanggal1.getSelectedItem().toString() ;
+            int durasi = Integer.parseInt(jTextField3.getText());
+            
+            if (name.isEmpty() || biaya.isEmpty() || tgl_terapi.isEmpty() || durasi==NULL || dok==NULL || pas==NULL || oba==NULL) {
+                JOptionPane.showMessageDialog(this, "Data isian ada yang kosong");
+            }else{
+                try{
+                    //Class.forName("com.mysql.cj.jdbc.Driver");
+                    conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+                    stmt = conn.createStatement();
+                    int Dok = dok, Pas = pas, Oba = oba, Durasi = durasi;
+                    String Nama = name, Biaya = biaya, TglTerapi = tgl_terapi;
+                    
+                    String sql = "UPDATE `terapi` SET `id_pasien`='"+Pas+"', `id_dokter`='"+Dok+"', `id_obat`='"+Oba+"', `durasi_terapi`='"+Durasi+"', `biaya_terapi`='"+Biaya+"', `tanggal_terapi`='"+TglTerapi+"', `nama_terapi`='"+Nama+"' WHERE `id_terapi` ='"+MenuTerapi.x+"'";
+                    stmt.executeUpdate(sql);
+                    stmt.close();
+                    conn.close();
+                } catch (SQLException e) {
+                }
+            }
+            dispose();
+            MenuTerapi a = new MenuTerapi();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(UpdateTerapi.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(UpdateTerapi.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btn_simpanActionPerformed
 
     private void btn_batalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_batalActionPerformed
@@ -351,6 +506,14 @@ public class UpdateTerapi extends javax.swing.JFrame {
         }
         a.setVisible(true);
     }//GEN-LAST:event_btn_batalActionPerformed
+
+    private void cb_bulanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_bulanActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cb_bulanActionPerformed
+
+    private void cb_tahunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_tahunActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cb_tahunActionPerformed
 
     /**
      * @param args the command line arguments
@@ -393,6 +556,9 @@ public class UpdateTerapi extends javax.swing.JFrame {
     private javax.swing.JButton btn_simpan;
     private javax.swing.JButton btn_terapi;
     private javax.swing.JComboBox<String> cb_bulan;
+    private javax.swing.JComboBox<String> cb_dokter;
+    private javax.swing.JComboBox<String> cb_obat;
+    private javax.swing.JComboBox<String> cb_pasien;
     private javax.swing.JComboBox<String> cb_tahun;
     private javax.swing.JComboBox<String> cb_tanggal1;
     private javax.swing.JButton dashboard;
@@ -402,11 +568,16 @@ public class UpdateTerapi extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     private javax.swing.JButton obat;
     private javax.swing.JButton out;
     private javax.swing.JButton pasien;

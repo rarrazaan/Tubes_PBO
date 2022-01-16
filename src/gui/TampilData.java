@@ -28,6 +28,7 @@ public class TampilData extends javax.swing.JFrame {
     static Statement stmt;
     static ResultSet rs;
     public static int id;
+    static int ter, idter, oba, tot;
     /**
      * Creates new form RekamMedis
      */
@@ -36,7 +37,8 @@ public class TampilData extends javax.swing.JFrame {
             initComponents();
             conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
             stmt = conn.createStatement();
-            String sql = "SELECT terapi.*, pasien.nama_pasien, dokter.nama_dokter, obat.nama_obat, rekammedis.*, tagihan.*\n" +
+            
+            String sql = "SELECT terapi.*, pasien.nama_pasien, dokter.nama_dokter, obat.nama_obat, obat.harga_obat, rekammedis.*, tagihan.*\n" +
                     "FROM terapi\n" +
                     "LEFT JOIN pasien ON pasien.id_pasien=terapi.id_pasien\n" +
                     "LEFT JOIN dokter ON dokter.id_dokter=terapi.id_dokter\n" +
@@ -46,8 +48,10 @@ public class TampilData extends javax.swing.JFrame {
                     "WHERE terapi.id_pasien=";
             int n = MenuPasien.x;
             TampilData.id = n;
+            
             rs = stmt.executeQuery(sql+n);
             while(rs.next()){
+                TampilData.idter = rs.getInt("id_terapi");
                 this.jLabel9.setText(rs.getString("nama_pasien"));
                 this.jLabel11.setText(rs.getString("nama_dokter"));
                 this.jLabel13.setText(rs.getString("nama_obat"));
@@ -55,7 +59,6 @@ public class TampilData extends javax.swing.JFrame {
                 this.jLabel14.setText(rs.getString("durasi_terapi"));
                 this.jLabel15.setText(rs.getString("biaya_terapi"));
                 this.jLabel16.setText(rs.getString("tanggal_terapi"));
-                this.jLabel17.setText(rs.getString("tanggal_pembayaran"));
                 this.jLabel18.setText(rs.getString("total_biaya"));
                 this.jLabel20.setText(rs.getString("pemeriksaan"));
             }
@@ -89,7 +92,6 @@ public class TampilData extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -101,14 +103,14 @@ public class TampilData extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        btn_ok1 = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         btn_terapi = new javax.swing.JButton();
+        btn_ok2 = new javax.swing.JButton();
+        btn_ok3 = new javax.swing.JButton();
 
         jLabel12.setText("jLabel12");
 
@@ -240,11 +242,6 @@ public class TampilData extends javax.swing.JFrame {
         jPanel1.add(jLabel2);
         jLabel2.setBounds(300, 200, 120, 21);
 
-        jLabel7.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        jLabel7.setText("Tanggal Bayar");
-        jPanel1.add(jLabel7);
-        jLabel7.setBounds(300, 440, 130, 21);
-
         jLabel4.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         jLabel4.setText("Durasi Terapi");
         jPanel1.add(jLabel4);
@@ -258,7 +255,7 @@ public class TampilData extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         jLabel8.setText("Total Biaya");
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(300, 480, 110, 21);
+        jLabel8.setBounds(300, 440, 110, 21);
 
         jLabel1.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         jLabel1.setText("Nama Pasien");
@@ -307,40 +304,22 @@ public class TampilData extends javax.swing.JFrame {
         jPanel1.add(jLabel16);
         jLabel16.setBounds(510, 400, 400, 18);
 
-        jLabel17.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jLabel17.setText("-");
-        jLabel17.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jPanel1.add(jLabel17);
-        jLabel17.setBounds(510, 440, 400, 18);
-
         jLabel18.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabel18.setText("-");
         jLabel18.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jPanel1.add(jLabel18);
-        jLabel18.setBounds(510, 480, 400, 18);
+        jLabel18.setBounds(510, 440, 400, 18);
 
         jLabel19.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         jLabel19.setText("Catatan Dokter");
         jPanel1.add(jLabel19);
-        jLabel19.setBounds(300, 520, 130, 21);
+        jLabel19.setBounds(300, 480, 130, 21);
 
         jLabel20.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
         jLabel20.setText("-");
         jLabel20.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jPanel1.add(jLabel20);
-        jLabel20.setBounds(510, 520, 400, 80);
-
-        btn_ok1.setBackground(new java.awt.Color(0, 153, 153));
-        btn_ok1.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
-        btn_ok1.setForeground(new java.awt.Color(255, 255, 255));
-        btn_ok1.setText("OK");
-        btn_ok1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_ok1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btn_ok1);
-        btn_ok1.setBounds(540, 630, 150, 45);
+        jLabel20.setBounds(510, 480, 400, 80);
 
         jLabel21.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         jLabel21.setText("Keluhan");
@@ -366,6 +345,30 @@ public class TampilData extends javax.swing.JFrame {
         });
         jPanel1.add(btn_terapi);
         btn_terapi.setBounds(0, 350, 230, 70);
+
+        btn_ok2.setBackground(new java.awt.Color(0, 153, 153));
+        btn_ok2.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        btn_ok2.setForeground(new java.awt.Color(255, 255, 255));
+        btn_ok2.setText("OK");
+        btn_ok2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ok2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_ok2);
+        btn_ok2.setBounds(540, 630, 150, 45);
+
+        btn_ok3.setBackground(new java.awt.Color(0, 153, 153));
+        btn_ok3.setFont(new java.awt.Font("Trebuchet MS", 1, 16)); // NOI18N
+        btn_ok3.setForeground(new java.awt.Color(255, 255, 255));
+        btn_ok3.setText("+");
+        btn_ok3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ok3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_ok3);
+        btn_ok3.setBounds(300, 510, 50, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -398,9 +401,7 @@ public class TampilData extends javax.swing.JFrame {
         MenuPasien a = null;
         try {
             a = new MenuPasien();
-        } catch (SQLException ex) {
-            Logger.getLogger(UpdateDokter.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
+        } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(UpdateDokter.class.getName()).log(Level.SEVERE, null, ex);
         }
         a.setVisible(true);
@@ -411,19 +412,6 @@ public class TampilData extends javax.swing.JFrame {
         MenuObat a = new MenuObat();
         a.setVisible(true);
     }//GEN-LAST:event_obatActionPerformed
-
-    private void btn_ok1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ok1ActionPerformed
-        dispose();
-        MenuPasien a = null;
-        try {
-            a = new MenuPasien();
-        } catch (SQLException ex) {
-            Logger.getLogger(TampilData.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(TampilData.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        a.setVisible(true);
-    }//GEN-LAST:event_btn_ok1ActionPerformed
 
     private void btn_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_addActionPerformed
         dispose();
@@ -456,6 +444,54 @@ public class TampilData extends javax.swing.JFrame {
         }
         a.setVisible(true);
     }//GEN-LAST:event_btn_terapiActionPerformed
+
+    private void btn_ok2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ok2ActionPerformed
+        dispose();
+        MenuPasien a = null;
+        try {
+            a = new MenuPasien();
+        } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(UpdateDokter.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        a.setVisible(true);
+    }//GEN-LAST:event_btn_ok2ActionPerformed
+
+    private void btn_ok3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ok3ActionPerformed
+        int ctr=0;
+        try {
+            conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+            stmt = conn.createStatement();
+            String sql1 = "SELECT terapi.biaya_terapi, terapi.id_terapi, obat.harga_obat FROM terapi LEFT JOIN obat ON obat.id_obat=";
+            rs = stmt.executeQuery(sql1+TampilData.idter);
+            while(rs.next()){
+                id = rs.getInt("id_terapi");
+                if (id==idter){
+                    ter = rs.getInt("biaya_terapi");
+                    oba = rs.getInt("harga_obat");
+                    tot = ter +oba;
+                }
+            }
+            String s = "SELECT COUNT(*) FROM tagihan WHERE id_terapi=";
+            rs = stmt.executeQuery(s+TampilData.idter);
+            while(rs.next()){
+                ctr = rs.getInt("COUNT(*)");
+            }
+            if (ctr==0){
+                String sql2 = "INSERT INTO `tagihan` (`id_terapi`, `total_biaya`) VALUES('"+TampilData.idter+"', '"+tot+"')";
+                stmt.executeUpdate(sql2);
+            }else{
+                String sql2 = "UPDATE `tagihan` SET `total_biaya`='"+tot+"'WHERE id_terapi='"+TampilData.idter+"'";
+                stmt.executeUpdate(sql2);
+            }
+            stmt.close();
+            conn.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(TampilData.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        dispose();
+        TampilData a = new TampilData();
+        a.setVisible(true);
+    }//GEN-LAST:event_btn_ok3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -495,7 +531,8 @@ public class TampilData extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_add;
-    private javax.swing.JButton btn_ok1;
+    private javax.swing.JButton btn_ok2;
+    private javax.swing.JButton btn_ok3;
     private javax.swing.JButton btn_terapi;
     private javax.swing.JButton dashboard;
     private javax.swing.JButton dokter;
@@ -508,7 +545,6 @@ public class TampilData extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
@@ -519,7 +555,6 @@ public class TampilData extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;

@@ -43,10 +43,8 @@ public class MenuObat extends javax.swing.JFrame {
             rs = stmt.executeQuery(sql);
             while(rs.next()){
                 pilih.addElement(rs.getString("nama_obat"));
-                System.out.println(rs.getInt("id_obat"));
                 ID.add(rs.getInt("id_obat"));
             }
-            System.out.print(ID.size());
             if (ID.size()<1){
                 btn_update.setEnabled(false);
                 btn_del.setEnabled(false);
@@ -310,7 +308,7 @@ public class MenuObat extends javax.swing.JFrame {
         btn_terapi.setForeground(new java.awt.Color(255, 255, 255));
         btn_terapi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-examination-40 (1).png"))); // NOI18N
         btn_terapi.setText("     DATA TERAPI");
-        btn_terapi.setBorder(null);
+        btn_terapi.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         btn_terapi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_terapiActionPerformed(evt);

@@ -43,10 +43,8 @@ public class MenuDokter extends javax.swing.JFrame {
             rs = stmt.executeQuery(sql);
             while(rs.next()){
                 pilih.addElement(rs.getString("nama_dokter"));
-                System.out.println(rs.getInt("id_dokter"));
                 ID.add(rs.getInt("id_dokter"));
             }
-            System.out.print(ID.size());
             if (ID.size()<1){
                 btn_update.setEnabled(false);
                 btn_del.setEnabled(false);

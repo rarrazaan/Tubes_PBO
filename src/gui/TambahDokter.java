@@ -321,7 +321,6 @@ public class TambahDokter extends javax.swing.JFrame {
 
     private void btn_simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_simpanActionPerformed
         String name = edt_name.getText();
-        TambahDokter.nama = name;
         String gender = "";
         String kontak = jTextField2.getText();
         String alamat = jTextField4.getText();

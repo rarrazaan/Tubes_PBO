@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package gui;
+import static gui.TampilData.rs;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -35,11 +36,13 @@ public class MenuTerapi extends javax.swing.JFrame {
             //Class.forName("com.mysql.cj.jdbc.Driver");
             conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
             stmt = conn.createStatement();
-            String sql = "SELECT * FROM pasien";
+            String sql = "SELECT *\n" +
+                "FROM terapi\n" +
+                "ORDER BY nama_terapi";
             rs = stmt.executeQuery(sql);
             while(rs.next()){
-                pilih.addElement(rs.getString("nama_pasien"));
-                ID.add(rs.getInt("id_pasien"));
+                pilih.addElement(rs.getString("nama_terapi"));
+                ID.add(rs.getInt("id_terapi"));
             }
             if (ID.size()<1){
                 btn_update.setEnabled(false);
@@ -402,7 +405,34 @@ public class MenuTerapi extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_updateActionPerformed
 
     private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
-        
+        int n = jList1.getSelectedIndex();
+        try {
+            //Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+            stmt = conn.createStatement();
+        String sql = "SELECT terapi.*, dokter.nama_dokter, obat.nama_obat\n" +
+                "FROM terapi\n" +
+                "LEFT JOIN dokter ON dokter.id_dokter=terapi.id_dokter\n" +
+                "LEFT JOIN obat ON obat.id_obat=terapi.id_obat\n";
+        rs = stmt.executeQuery(sql);
+            n = ID.get(n);
+            while(rs.next()){
+                i = rs.getInt("id_terapi");
+                if(i==n){
+                    this.infodokter.setText(rs.getString("nama_dokter"));
+                    this.infoobat.setText(rs.getString("nama_obat"));
+                    this.infodurasi.setText(rs.getString("durasi_terapi"));
+                    this.infobiaya.setText(rs.getString("biaya_terapi"));
+                    this.infotanggal.setText(rs.getString("tanggal_terapi"));
+
+                    x=rs.getInt("id_terapi");
+                }
+            }
+            stmt.close();
+            conn.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(MenuTerapi.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jList1MouseClicked
 
     private void btn_terapiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_terapiActionPerformed

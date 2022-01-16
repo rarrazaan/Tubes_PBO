@@ -150,7 +150,6 @@ public class PasienDarurat1 extends javax.swing.JFrame {
         if ("PILIH".equals(ruangan) || "PILIH".equals(lvl)){
             JOptionPane.showMessageDialog(this, "Data isian ada yang kosong");
             dispose(); 
-            //System.out.println(TambahPasien.nama);
             PasienDarurat1 a = new PasienDarurat1();
             a.setVisible(true);
         }else{
