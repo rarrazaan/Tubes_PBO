@@ -12,6 +12,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.NumberFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -57,9 +58,9 @@ public class TampilData extends javax.swing.JFrame {
                 this.jLabel13.setText(rs.getString("nama_obat"));
                 this.jLabel22.setText(rs.getString("keluhan"));   
                 this.jLabel14.setText(rs.getString("durasi_terapi"));
-                this.jLabel15.setText(rs.getString("biaya_terapi"));
+                this.jLabel15.setText("Rp "+NumberFormat.getInstance().format(rs.getInt("biaya_terapi")));
                 this.jLabel16.setText(rs.getString("tanggal_terapi"));
-                this.jLabel18.setText(rs.getString("total_biaya"));
+                this.jLabel18.setText("Rp "+NumberFormat.getInstance().format(rs.getInt("total_biaya")));
                 this.jLabel20.setText(rs.getString("pemeriksaan"));
             }
             stmt.close();

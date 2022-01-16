@@ -6,6 +6,7 @@
 package gui;
 import static gui.TampilData.rs;
 import java.sql.*;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -421,7 +422,7 @@ public class MenuTerapi extends javax.swing.JFrame {
                     this.infodokter.setText(rs.getString("nama_dokter"));
                     this.infoobat.setText(rs.getString("nama_obat"));
                     this.infodurasi.setText(rs.getString("durasi_terapi"));
-                    this.infobiaya.setText(rs.getString("biaya_terapi"));
+                    this.infobiaya.setText("Rp "+NumberFormat.getInstance().format(rs.getInt("biaya_terapi")));
                     this.infotanggal.setText(rs.getString("tanggal_terapi"));
 
                     x=rs.getInt("id_terapi");

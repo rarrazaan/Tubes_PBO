@@ -10,6 +10,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -356,7 +357,7 @@ public class MenuObat extends javax.swing.JFrame {
                     this.jLabel6.setText(rs.getString("jenis_obat"));
                     this.jLabel7.setText(rs.getString("masa_berlaku"));
                     this.jLabel8.setText(rs.getString("jumlah_obat"));
-                    this.jLabel9.setText(rs.getString("harga_obat"));
+                    this.jLabel9.setText("Rp "+NumberFormat.getInstance().format(rs.getInt("harga_obat")));
                     this.jLabel12.setText(rs.getString("tanggal_produksi"));
                     x=rs.getInt("id_obat");
                 }
